@@ -1,5 +1,7 @@
 import os
-from flask import Flask, render_template
+from flask import (
+    Flask, render_template, redirect, request, session, url_for)
+from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
 if os.path.exists("env.py"):
     import env
@@ -27,4 +29,4 @@ if __name__ == "__main__":
             debug=True)
 
 
-err_Avoid = env
+err_Avoid = (env, redirect, request, session, url_for, ObjectId)
