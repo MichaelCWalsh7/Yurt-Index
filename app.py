@@ -1,8 +1,9 @@
 import os
 from flask import (
     Flask, render_template, redirect, request, session, url_for)
-from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -29,4 +30,7 @@ if __name__ == "__main__":
             debug=True)
 
 
-err_Avoid = (env, redirect, request, session, url_for, ObjectId)
+# DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
+err_Avoid = (
+    env, redirect, request, session, url_for,
+    ObjectId, generate_password_hash, check_password_hash)
