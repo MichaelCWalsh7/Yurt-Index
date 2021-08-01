@@ -19,9 +19,9 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def yurt():
-    word = mongo.db.words.find_one({"delete": "yes"})
-    return render_template("base.html", word=word)
+@app.route("/home")
+def home_page():
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
