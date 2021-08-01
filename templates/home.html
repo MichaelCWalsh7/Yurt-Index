@@ -25,47 +25,50 @@
         <div class="col s12 m6">
             <div class="card green darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title">Word Title</span>
-                    <p>Word definition will go here.</p>
+                    <span class="card-title"><strong>{{ words[0].name.capitalize() }}</strong></span>
+                    <p>{{ words[0].meaning }}</p>
                 </div>
                 <div class="card-action">
                     <a href="#">Click here to find out more!</a>
                 </div>
             </div>
         </div>
-        <div class="col s12 m6">
-            <div class="card green darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Word Title</span>
-                    <p>Word definition will go here.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Click here to find out more!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card green darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Word Title</span>
-                    <p>Word definition will go here.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Click here to find out more!</a>
+        <div class="row featured-words">
+            <div class="col s12 m6">
+                <div class="card green darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title"><strong>{{ words[1].name.capitalize() }}</strong></span>
+                        <p>{{ words[1].meaning }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Click here to find out more!</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card green darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Word Title</span>
-                    <p>Word definition will go here.</p>
+            <div class="row featured-words">
+                <div class="col s12 m6">
+                    <div class="card green darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title"><strong>{{ words[2].name.capitalize() }}</strong></span>
+                            <p>{{ words[2].meaning }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Click here to find out more!</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <a href="#">Click here to find out more!</a>
-                </div>
-            </div>
-        </div>
+                <div class="row featured-words">
+                    <div class="col s12 m6">
+                        <div class="card green darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><strong>{{ words[3].name.capitalize() }}</strong></span>
+                                <p>{{ words[3].meaning }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Click here to find out more!</a>
+                            </div>
+                        </div>
+                    </div>
     </div>
 
 {% endblock %}
