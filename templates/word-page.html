@@ -16,9 +16,18 @@
            ] 
         {% endif %}
             </span>
-        <h5><strong>Definition:</strong></h5>
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
+        {% if word.hasAltDefenitions %}
+            <h6><strong>Definitions:</strong></h6>
+            <ul class="definitions-list">
+                <li> {{ word.meaning }} </li>
+                {% for definition in word.altDefinitions %}
+                    <li> {{ definition }} </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h6><strong>Definition:</strong></h6>
+            <p> {{word.meaning}} </p>
+        {% endif %}
       </div>
       <div class="card-action">
         <a href="#">This is a link</a>
