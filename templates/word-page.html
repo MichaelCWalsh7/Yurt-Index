@@ -8,6 +8,8 @@
         <span class="card-title">
             <strong>{{ word.name.capitalize() }}</strong>
         </span>
+
+        <!-- alternate spellings check -->
         {% if word.hasAltSpellings %}
            <span class="alternative-spellings-container"> [Alternative spellings: 
             {% for spelling in word.altSpellings %}
@@ -16,6 +18,8 @@
            ] 
         {% endif %}
             </span>
+        
+        <!-- alternate definitions check -->
         {% if word.hasAltDefenitions %}
             <h6><strong>Definitions:</strong></h6>
             <ul class="definitions-list">
@@ -28,6 +32,24 @@
             <h6><strong>Definition:</strong></h6>
             <p> {{word.meaning}} </p>
         {% endif %}
+
+        <!-- display all uses -->
+        <h6><strong>Word in use:</strong></h6>
+        {% if word.uses|length > 1 %}
+            <ul class="uses-list">
+                {% for use in word.uses %}
+                    <li> "{{ use }}" </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p> "{{ word.uses[0] }}" </p>
+        {% endif %}
+        
+        <!-- display who created the word and when -->
+        <p>
+            Created by: <span class="created-by">{{word.createdBy}}</span> on <span class="date-created"> {{word.dateCreated}} </span>
+        </p>
+
       </div>
       <div class="card-action">
         <a href="#">This is a link</a>
