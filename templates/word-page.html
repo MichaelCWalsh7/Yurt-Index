@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="word-card col s12 m6">
+    <div class="card green darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">
+            <strong>{{ word.name.capitalize() }}</strong>
+        </span>
+        {% if word.hasAltSpellings %}
+           <span class="alternative-spellings-container"> [Alternative spellings: 
+            {% for spelling in word.altSpellings %}
+               <span class="alternative-spellings">{{ spelling }}</span>
+            {% endfor %}
+           ] 
+        {% endif %}
+            </span>
+        <h5><strong>Definition:</strong></h5>
+        <p>I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively.</p>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

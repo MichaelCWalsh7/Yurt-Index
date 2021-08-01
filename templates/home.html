@@ -29,7 +29,7 @@
                     <p>{{ words[0].meaning }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">Click here to find out more!</a>
+                    <a href="{{ url_for('word_page', word_Id=words[0]._id) }}">Click here to find out more!</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <p>{{ words[1].meaning }}</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Click here to find out more!</a>
+                        <a href="{{ url_for('word_page', word_Id=words[1]._id) }}">Click here to find out more!</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             <p>{{ words[2].meaning }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Click here to find out more!</a>
+                            <a href="{{ url_for('word_page', word_Id=words[2]._id) }}">Click here to find out more!</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                                 <p>{{ words[3].meaning }}</p>
                             </div>
                             <div class="card-action">
-                                <a href="#">Click here to find out more!</a>
+                                <a href="{{ url_for('word_page', word_Id=words[3]._id) }}">Click here to find out more!</a>
                             </div>
                         </div>
                     </div>

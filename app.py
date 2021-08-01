@@ -25,6 +25,14 @@ def home_page():
     return render_template("home.html", words=words)
 
 
+@app.route("/words/<word_Id>")
+def word_page(word_Id):
+    word = mongo.db.words.find_one(
+        {"_id": ObjectId(word_Id)}
+    )
+    return render_template("word-page.html", word=word)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
