@@ -19,7 +19,7 @@ main {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating),
-a {
+.home-description a {
     color: black;
     text-decoration: underline;
 }
