@@ -50,6 +50,12 @@
             Created by:
             <span class="created-by">{{word.createdBy}}</span> on <span class="date-created">{{word.dateCreated}}</span>
         </p>
+        <p>
+            {% if word.edited %}
+                Last edit by
+                <span class="edited-by">{{ word.lastEditedBy }}</span> on <span class="last-edit-date">{{ word.lastEditedDate}}</span> 
+            {% endif %}
+        </p>
 
       </div>
       <div class="card-action">
