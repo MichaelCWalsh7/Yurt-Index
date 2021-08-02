@@ -5,11 +5,40 @@
 
     <div class="row card-panel">
         <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
-            <div class="input-field col s12">                
+            <!-- word name -->
+            <div class="input-field col s12">
                 <input name="new_name" id="new_name" type="text" class="validate" required>
                 <label for="new_name" class="input-field-name">Word</label>
             </div>
-            <button class="center"><i class="large material-icons">add_circle</i> Add an alternative spelling</button>
+
+            <!-- alternative spellings of word -->
+            <div class="col s12 splling-button-container">
+                <span class="add-spelling-button"><i class="tiny material-icons">add_circle</i> Add spelling</span>
+            </div>
+
+            <!-- word meaning -->
+            <div class="input-field col s12">
+                <textarea name="meaning" id="meaning" type="text" class="validate" required></textarea>
+                <label for="meaning" class="input-field-name">Definition</label>
+            </div>
+
+            <!-- alternative meanings of word -->
+            <div class="col s12 splling-button-container">
+                <span class="add-spelling-button"><i class="tiny material-icons">add_circle</i> Add definition</span>
+            </div>
+
+            <!-- word use -->
+            <div class="input-field col s12">
+                <textarea name="use" id="use" type="text" class="validate" required></textarea>
+                <label for="use" class="input-field-name">Example</label>
+            </div>
+
+            <!-- alternative uses of word -->
+            <div class="col s12 splling-button-container">
+                <span class="add-spelling-button"><i class="tiny material-icons">add_circle</i> Add example</span>
+            </div>
+            <button>Cancel button here</button>
+            <button>Submit button here</button>
         </form>
     </div>
 
