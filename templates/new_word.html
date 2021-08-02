@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center main-heading">New Word</h3>
+
+    <div class="row card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
+            <div class="input-field col s12">                
+                <input name="new_name" id="new_name" type="text" class="validate" required>
+                <label for="new_name" class="input-field-name">Word</label>
+            </div>
+            <button class="center"><i class="large material-icons">add_circle</i> Add an alternative spelling</button>
+        </form>
+    </div>
+
+{% endblock %}

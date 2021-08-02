@@ -33,6 +33,11 @@ def word_page(word_Id):
     return render_template("word-page.html", word=word)
 
 
+@app.route("/new_word", methods=["GET", "POST"])
+def new_word():
+    return render_template("new_word.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

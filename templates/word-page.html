@@ -2,68 +2,70 @@
 {% block content %}
 
 
-<div class="word-card col s12 m6">
-    <div class="card green darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">
-            <strong>{{ word.name.capitalize() }}</strong>
-        </span>
+    <div class="word-card col s12 m6">
+        <div class="card green darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">
+                    <strong>{{ word.name.capitalize() }}</strong>
+                </span>
 
-        <!-- alternate spellings check -->
-        {% if word.hasAltSpellings %}
-           <span class="alternative-spellings-container"> [Alternative spellings: 
-            {% for spelling in word.altSpellings %}
-               <span class="alternative-spellings">{{ spelling }}</span>
-            {% endfor %}
-           ] 
-        {% endif %}
-            </span>
-        
-        <!-- alternate definitions check -->
-        {% if word.hasAltDefenitions %}
-            <h6><strong>Definitions:</strong></h6>
-            <ul class="definitions-list">
-                <li> {{ word.meaning }} </li>
-                {% for definition in word.altDefinitions %}
-                    <li> {{ definition }} </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <h6><strong>Definition:</strong></h6>
-            <p> {{word.meaning}} </p>
-        {% endif %}
+                <!-- alternate spellings check -->
+                {% if word.hasAltSpellings %}
+                    <span class="alternative-spellings-container"> [Alternative spellings:
+                        {% for spelling in word.altSpellings %}
+                            <span class="alternative-spellings">{{ spelling }}</span>
+                        {% endfor %}
+                        ]
+                {% endif %}
+                </span>
 
-        <!-- display all uses -->
-        <h6><strong>Word in use:</strong></h6>
-        {% if word.uses|length > 1 %}
-            <ul class="uses-list">
-                {% for use in word.uses %}
-                    <li> "{{ use }}" </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p> "{{ word.uses[0] }}" </p>
-        {% endif %}
-        
-        <!-- display who created the word and when -->
-        <p>
-            Created by:
-            <span class="created-by">{{word.createdBy}}</span> on <span class="date-created">{{word.dateCreated}}</span>
-        </p>
-        <p>
-            {% if word.edited %}
-                Last edit by
-                <span class="edited-by">{{ word.lastEditedBy }}</span> on <span class="last-edit-date">{{ word.lastEditedDate}}</span> 
-            {% endif %}
-        </p>
+                <!-- alternate definitions check -->
+                {% if word.hasAltDefenitions %}
+                    <h6><strong>Definitions:</strong></h6>
+                    <ul class="definitions-list">
+                        <li> {{ word.meaning }} </li>
+                        {% for definition in word.altDefinitions %}
+                            <li> {{ definition }} </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                        <h6><strong>Definition:</strong></h6>
+                        <p> {{word.meaning}} </p>
+                {% endif %}
 
-      </div>
-      <div class="card-action">
-        <a href="#"><i class="material-icons">thumb_up</i></a>
-        <a href="#"><i class="material-icons">thumb_down</i></a>
-        <span class="rating-number"> {{ word.rating }} </span>
-      </div>
+                <!-- display all uses -->
+                <h6><strong>Word in use:</strong></h6>
+                {% if word.uses|length > 1 %}
+                    <ul class="uses-list">
+                        {% for use in word.uses %}
+                            <li> "{{ use }}" </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p> "{{ word.uses[0] }}" </p>
+                {% endif %}
+
+                <!-- display who created the word and when -->
+                <p>
+                    Created by:
+                    <span class="created-by">{{word.createdBy}}</span> on <span
+                        class="date-created">{{word.dateCreated}}</span>
+                </p>
+                <p>
+                    {% if word.edited %}
+                    Last edit by
+                        <span class="edited-by">{{ word.lastEditedBy }}</span> on <span
+                            class="last-edit-date">{{ word.lastEditedDate}}</span>
+                    {% endif %}
+                </p>
+
+            </div>
+            <div class="card-action">
+                <a href="#"><i class="material-icons">thumb_up</i></a>
+                <a href="#"><i class="material-icons">thumb_down</i></a>
+                <span class="rating-number"> {{ word.rating }} </span>
+            </div>
+        </div>
     </div>
-  </div>
 
 {% endblock %}
