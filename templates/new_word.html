@@ -1,146 +1,142 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center main-heading">New Word</h3>
+    <h3 class="center main-heading">New Word</h3>
 
-<div class="row card-panel">
-    <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
-        <!-- word name -->
-        <div class="input-field new-word-input col s12">
-            <input name="new_name" id="new_name" type="text" class="validate" required>
-            <label for="new_name" class="input-field-name">Word</label>
-        </div>
-
-        <!-- alternative spellings of word -->
-        <div class="col s12 splling-button-container">
-            <span class="btn green-text add-alt-button modal-trigger" href="#modal1"><i
-                    class="tiny material-icons">add_circle</i> Add other spellings</span>
-        </div>
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Other Spellings</h4>
-                <div class="input-field">
-                    <input name="alt_spell_1" id="alt_spell_1" type="text">
-                    <label for="alt_spell_1">New spelling 1</label>
-                </div>
-                <div  class="input-field">
-                    <input name="alt_spell_2" id="alt_spell_2" type="text">
-                    <label for="alt_spell_2">New spelling 2</label>
-                </div>
-                <div class="input-field">
-                    <input name="alt_spell_3" id="alt_spell_3" type="text">
-                    <label for="alt_spell_3">New spelling 3</label>
-                </div>
-                <div class="input-field">
-                    <input name="alt_spell_4" id="alt_spell_4" type="text">
-                    <label for="alt_spell_4">New spelling 4</label>
-                </div>
-                <div  class="input-field">
-                    <input name="alt_spell_5" id="alt_spell_5" type="text">
-                    <label for="alt_spell_5">New spelling 5</label>
-                </div>
-            
+    <div class="row card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
+            <!-- word name -->
+            <div class="input-field new-word-input col s12">
+                <input name="new_name" id="new_name" type="text" class="validate" required>
+                <label for="new_name" class="input-field-name">Word</label>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+
+            <!-- alternative spellings of word -->
+            <div class="col s12 splling-button-container">
+                <span class="btn green-text add-alt-button modal-trigger" href="#modal1"><i
+                        class="tiny material-icons">add_circle</i> Add other spellings</span>
             </div>
-        </div>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Other Spellings</h4>
+                    <div class="input-field">
+                        <input name="alt_spell_1" id="alt_spell_1" type="text">
+                        <label for="alt_spell_1">New spelling 1</label>
+                    </div>
+                    <div class="input-field">
+                        <input name="alt_spell_2" id="alt_spell_2" type="text">
+                        <label for="alt_spell_2">New spelling 2</label>
+                    </div>
+                    <div class="input-field">
+                        <input name="alt_spell_3" id="alt_spell_3" type="text">
+                        <label for="alt_spell_3">New spelling 3</label>
+                    </div>
+                    <div class="input-field">
+                        <input name="alt_spell_4" id="alt_spell_4" type="text">
+                        <label for="alt_spell_4">New spelling 4</label>
+                    </div>
+                    <div class="input-field">
+                        <input name="alt_spell_5" id="alt_spell_5" type="text">
+                        <label for="alt_spell_5">New spelling 5</label>
+                    </div>
 
-        <!-- word meaning -->
-        <div class="input-field new-word-input col s12">
-            <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
-            <label for="meaning" class="input-field-name">Definition</label>
-        </div>
-
-        <!-- alternative meanings of word -->
-        <div class="col s12 splling-button-container">
-            <span class="btn green-text add-alt-button modal-trigger" href="#modal2"><i
-                    class="tiny material-icons">add_circle</i> Add other
-                definitions</span>
-        </div>
-
-        <!-- Modal Structure -->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <h4>Other Definitions</h4>
-                <div class="input-field">
-                    <textarea  name="alt_def_1" id="alt_def_1" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_def_1">New definition 1</label>
                 </div>
-                <div  class="input-field">
-                    <textarea  name="alt_def_2" id="alt_def_2" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_def_2">New definition 2</label>
-                </div>
-                <div class="input-field">
-                    <textarea  name="alt_def_3" id="alt_def_3" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_def_3">New definition 3</label>
-                </div>
-                <div class="input-field">
-                    <textarea  name="alt_def_4" id="alt_def_4" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_def_4">New definition 4</label>
-                </div>
-                <div  class="input-field">
-                    <textarea  name="alt_def_5" id="alt_def_5" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_def_5">New definition 5</label>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
-            </div>
-        </div>
 
-        <!-- word use -->
-        <div class="input-field new-word-input col s12">
-            <input name="use" id="use" type="text" class="validate" required>
-            <label for="use" class="input-field-name">Example</label>
-        </div>
+            <!-- word meaning -->
+            <div class="input-field new-word-input col s12">
+                <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
+                <label for="meaning" class="input-field-name">Definition</label>
+            </div>
 
-        <!-- alternative uses of word -->
-        <div class="col s12 splling-button-container">
-            <span class="btn green-text add-alt-button modal-trigger" href="#modal3"><i
-                    class="tiny material-icons">add_circle</i> Add other
-                examples</span>
-        </div>
+            <!-- alternative meanings of word -->
+            <div class="col s12 splling-button-container">
+                <span class="btn green-text add-alt-button modal-trigger" href="#modal2"><i
+                        class="tiny material-icons">add_circle</i> Add other
+                    definitions</span>
+            </div>
 
-        <!-- Modal Structure -->
-        <div id="modal3" class="modal">
-            <div class="modal-content">
-                <h4>Other Examples</h4>
-                <div class="input-field">
-                    <textarea  name="alt_use_1" id="alt_use_1" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_use_1">New example 1</label>
+            <!-- Modal Structure -->
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>Other Definitions</h4>
+                    <div class="input-field">
+                        <textarea name="alt_def_1" id="alt_def_1" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_def_1">New definition 1</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_def_2" id="alt_def_2" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_def_2">New definition 2</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_def_3" id="alt_def_3" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_def_3">New definition 3</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_def_4" id="alt_def_4" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_def_4">New definition 4</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_def_5" id="alt_def_5" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_def_5">New definition 5</label>
+                    </div>
                 </div>
-                <div  class="input-field">
-                    <textarea  name="alt_use_2" id="alt_use_2" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_use_2">New example 2</label>
-                </div>
-                <div class="input-field">
-                    <textarea  name="alt_use_3" id="alt_use_3" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_use_3">New example 3</label>
-                </div>
-                <div class="input-field">
-                    <textarea  name="alt_use_4" id="alt_use_4" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_use_4">New example 4</label>
-                </div>
-                <div  class="input-field">
-                    <textarea  name="alt_use_5" id="alt_use_5" type="text" class="materialize-textarea"></textarea>
-                    <label for="alt_use_5">New example 5</label>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+
+            <!-- word use -->
+            <div class="input-field new-word-input col s12">
+                <input name="use" id="use" type="text" class="validate" required>
+                <label for="use" class="input-field-name">Example</label>
             </div>
+
+            <!-- alternative uses of word -->
+            <div class="col s12 splling-button-container">
+                <span class="btn green-text add-alt-button modal-trigger" href="#modal3"><i
+                        class="tiny material-icons">add_circle</i> Add other
+                    examples</span>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+
+            <!-- Modal Structure -->
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <h4>Other Examples</h4>
+                    <div class="input-field">
+                        <textarea name="alt_use_1" id="alt_use_1" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_use_1">New example 1</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_use_2" id="alt_use_2" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_use_2">New example 2</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_use_3" id="alt_use_3" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_use_3">New example 3</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_use_4" id="alt_use_4" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_use_4">New example 4</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="alt_use_5" id="alt_use_5" type="text" class="materialize-textarea"></textarea>
+                        <label for="alt_use_5">New example 5</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+                </div>
             </div>
-        </div>
-        <div class="new-word-cancel-submit">
-            <button class="btn red">Cancel <i class="small material-icons">close</i></button>
-            <button class="btn blue" type="submit">Submit <i class="small material-icons">check</i></button>
-        </div>
-    </form>
-</div>
+            <div class="new-word-cancel-submit">
+                <button class="btn red">Cancel <i class="small material-icons">close</i></button>
+                <button class="btn blue" type="submit">Submit <i class="small material-icons">check</i></button>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}

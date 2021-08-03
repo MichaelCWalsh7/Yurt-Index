@@ -45,16 +45,17 @@ def new_word():
                 f"alt_spell_{x}")
             if spelling != "":
                 altSpellings.append(spelling)
-                print(altSpellings)
             x += 1
+        print(altSpellings)
 
+        x = 1
         while x < 6:
             definition = request.form.get(
                 f"alt_def_{x}")
             if definition != "":
                 altDefinitions.append(definition)
-                print(altDefinitions)
             x += 1
+        print(altDefinitions)
 
     return render_template("new_word.html")
 
