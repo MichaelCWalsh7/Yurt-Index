@@ -7,7 +7,7 @@
         <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
             <!-- word name -->
             <div class="input-field new-word-input col s12">
-                <input name="name" id="name" type="text" class="validate" value="{{word.name}}" required>
+                <input name="name" id="name" type="text" class="validate" value="{{ word.name }}" required>
                 <label for="name" class="input-field-name">Word</label>
             </div>
 
@@ -21,23 +21,23 @@
                 <div class="modal-content">
                     <h4>Other Spellings</h4>
                     <div class="input-field">
-                        <input name="alt_spell_1" id="alt_spell_1" type="text" value="{{ word.name }}">
+                        <input name="alt_spell_1" id="alt_spell_1" type="text" value="{{ word.altSpellings[0] }}">
                         <label for="alt_spell_1">New spelling 1</label>
                     </div>
                     <div class="input-field">
-                        <input name="alt_spell_2" id="alt_spell_2" type="text" value="{{ word.name }}">
+                        <input name="alt_spell_2" id="alt_spell_2" type="text" value="{{ word.altSpellings[1] }}">
                         <label for="alt_spell_2">New spelling 2</label>
                     </div>
                     <div class="input-field">
-                        <input name="alt_spell_3" id="alt_spell_3" type="text" value="{{ word.name }}">
+                        <input name="alt_spell_3" id="alt_spell_3" type="text" value="{{ word.altSpellings[2] }}">
                         <label for="alt_spell_3">New spelling 3</label>
                     </div>
                     <div class="input-field">
-                        <input name="alt_spell_4" id="alt_spell_4" type="text" value="{{ word.name }}">
+                        <input name="alt_spell_4" id="alt_spell_4" type="text" value="{{ word.altSpellings[3] }}">
                         <label for="alt_spell_4">New spelling 4</label>
                     </div>
                     <div class="input-field">
-                        <input name="alt_spell_5" id="alt_spell_5" type="text" value="{{ word.name }}">
+                        <input name="alt_spell_5" id="alt_spell_5" type="text" value="{{ word.altSpellings[4] }}">
                         <label for="alt_spell_5">New spelling 5</label>
                     </div>
 
@@ -49,7 +49,7 @@
 
             <!-- word meaning -->
             <div class="input-field new-word-input col s12">
-                <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
+                <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" value="{{ word.meaning }}" required></textarea>
                 <label for="meaning" class="input-field-name">Definition</label>
             </div>
 
@@ -65,23 +65,28 @@
                 <div class="modal-content">
                     <h4>Other Definitions</h4>
                     <div class="input-field">
-                        <textarea name="alt_def_1" id="alt_def_1" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_def_1" id="alt_def_1" type="text" class="materialize-textarea" 
+                            value="{{ word.altDefinitions[0] }}"></textarea>
                         <label for="alt_def_1">New definition 1</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_def_2" id="alt_def_2" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_def_2" id="alt_def_2" type="text" class="materialize-textarea" 
+                            value="{{ word.altDefinitions[1] }}"></textarea>
                         <label for="alt_def_2">New definition 2</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_def_3" id="alt_def_3" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_def_3" id="alt_def_3" type="text" class="materialize-textarea" 
+                            value="{{ word.altDefinitions[2] }}"></textarea>
                         <label for="alt_def_3">New definition 3</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_def_4" id="alt_def_4" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_def_4" id="alt_def_4" type="text" class="materialize-textarea" 
+                            value="{{ word.altDefinitions[3] }}"></textarea>
                         <label for="alt_def_4">New definition 4</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_def_5" id="alt_def_5" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_def_5" id="alt_def_5" type="text" class="materialize-textarea" 
+                            value="{{ word.altDefinitions[4] }}"></textarea>
                         <label for="alt_def_5">New definition 5</label>
                     </div>
                 </div>
@@ -92,7 +97,7 @@
 
             <!-- word use -->
             <div class="input-field new-word-input col s12">
-                <input name="use" id="use" type="text" class="validate" required>
+                <input name="use" id="use" type="text" class="validate" value="{{ word.uses[0] }}" required>
                 <label for="use" class="input-field-name">Example</label>
             </div>
 
@@ -108,23 +113,28 @@
                 <div class="modal-content">
                     <h4>Other Examples</h4>
                     <div class="input-field">
-                        <textarea name="alt_use_1" id="alt_use_1" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_use_1" id="alt_use_1" type="text" class="materialize-textarea"
+                            value="{{ word.uses[1] }}"></textarea>
                         <label for="alt_use_1">New example 1</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_use_2" id="alt_use_2" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_use_2" id="alt_use_2" type="text" class="materialize-textarea"
+                            value="{{ word.uses[2] }}"></textarea>
                         <label for="alt_use_2">New example 2</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_use_3" id="alt_use_3" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_use_3" id="alt_use_3" type="text" class="materialize-textarea"
+                            value="{{ word.uses[3] }}"></textarea>
                         <label for="alt_use_3">New example 3</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_use_4" id="alt_use_4" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_use_4" id="alt_use_4" type="text" class="materialize-textarea"
+                            value="{{ word.uses[4] }}"></textarea>
                         <label for="alt_use_4">New example 4</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="alt_use_5" id="alt_use_5" type="text" class="materialize-textarea"></textarea>
+                        <textarea name="alt_use_5" id="alt_use_5" type="text" class="materialize-textarea"
+                            value="{{ word.uses[5] }}"></textarea>
                         <label for="alt_use_5">New example 5</label>
                     </div>
                 </div>
