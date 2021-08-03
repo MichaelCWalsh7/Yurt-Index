@@ -35,6 +35,27 @@ def word_page(word_Id):
 
 @app.route("/new_word", methods=["GET", "POST"])
 def new_word():
+    if request.method == "POST":
+        altSpellings = []
+        altDefinitions = []
+        # uses = []
+        x = 1
+        while x < 6:
+            spelling = request.form.get(
+                f"alt_spell_{x}")
+            if spelling != "":
+                altSpellings.append(spelling)
+                print(altSpellings)
+            x += 1
+
+        while x < 6:
+            definition = request.form.get(
+                f"alt_def_{x}")
+            if definition != "":
+                altDefinitions.append(definition)
+                print(altDefinitions)
+            x += 1
+
     return render_template("new_word.html")
 
 
