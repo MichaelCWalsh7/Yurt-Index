@@ -38,7 +38,9 @@ def new_word():
     if request.method == "POST":
         altSpellings = []
         altDefinitions = []
-        # uses = []
+        uses = []
+
+        # adds any additional spellings to the altSpellings list
         x = 1
         while x < 6:
             spelling = request.form.get(
@@ -46,8 +48,8 @@ def new_word():
             if spelling != "":
                 altSpellings.append(spelling)
             x += 1
-        print(altSpellings)
 
+        # adds any additional definitions to the altDefinitions list
         x = 1
         while x < 6:
             definition = request.form.get(
@@ -55,7 +57,38 @@ def new_word():
             if definition != "":
                 altDefinitions.append(definition)
             x += 1
-        print(altDefinitions)
+
+        # adds inputted uses to the uses list
+        required_Use = request.form.get("use")
+        uses.append(required_Use)
+        x = 1
+        while x < 6:
+            use = request.form.get(
+                f"alt_use_{x}")
+            if definition != "":
+                uses.append(use)
+            x += 1
+
+        # initializes booleans to add to collection
+        hasAltDefinitions = True if len(altDefinitions) > 1 else False
+        hasAltSpellings = True if len(altSpellings) > 1 else False
+
+        word = {
+            "name": request.form.get("new_name"),
+            "hasAltSpellings": hasAltSpellings,
+            "altSpellings": altSpellings,
+            "meaning": request.form.get("meaning"),
+            "hasAltDefinitions": hasAltDefinitions,
+            "altDefinitions": altDefinitions,
+            "uses": uses,
+            "createdBy": "placeholder",
+            "dateCreated": "placeholder",
+            "rating": 0,
+            "starWord": False,
+            "edited": False,
+            "lastEditedBy": "",
+            "lastEditedDate": ""
+        }
 
     return render_template("new_word.html")
 
