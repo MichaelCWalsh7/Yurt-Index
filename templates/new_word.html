@@ -49,7 +49,7 @@
 
         <!-- word meaning -->
         <div class="input-field new-word-input col s12">
-            <input name="meaning" id="meaning" type="text" class="validate" required>
+            <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
             <label for="meaning" class="input-field-name">Definition</label>
         </div>
 
@@ -65,23 +65,23 @@
             <div class="modal-content">
                 <h4>Other Definitions</h4>
                 <div class="input-field">
-                    <textarea rows="seven" name="alt_def_1" id="alt_def_1" type="text"></textarea>
+                    <textarea  name="alt_def_1" id="alt_def_1" type="text" class="materialize-textarea"></textarea>
                     <label for="alt_def_1">New definition 1</label>
                 </div>
                 <div  class="input-field">
-                    <input name="alt_def_2" id="alt_def_2" type="text">
+                    <textarea  name="alt_def_2" id="alt_def_2" type="text" class="materialize-textarea"></textarea>
                     <label for="alt_def_2">New definition 2</label>
                 </div>
                 <div class="input-field">
-                    <input name="alt_def_3" id="alt_def_3" type="text">
+                    <textarea  name="alt_def_3" id="alt_def_3" type="text" class="materialize-textarea"></textarea>
                     <label for="alt_def_3">New definition 3</label>
                 </div>
                 <div class="input-field">
-                    <input name="alt_def_4" id="alt_def_4" type="text">
+                    <textarea  name="alt_def_4" id="alt_def_4" type="text" class="materialize-textarea"></textarea>
                     <label for="alt_def_4">New definition 4</label>
                 </div>
                 <div  class="input-field">
-                    <input name="alt_def_5" id="alt_def_5" type="text">
+                    <textarea  name="alt_def_5" id="alt_def_5" type="text" class="materialize-textarea"></textarea>
                     <label for="alt_def_5">New definition 5</label>
                 </div>
             </div>
@@ -107,20 +107,30 @@
         <div id="modal3" class="modal">
             <div class="modal-content">
                 <h4>Other Examples</h4>
-                <input class="input-field" name="alt_use_1" id="alt_use_1" type="text">
-                <label for="alt_use_1">Add a new example here</label>
-
-                <input class="input-field" name="alt_use_2" id="alt_use_2" type="text">
-                <label for="alt_use_2">Add a new example here</label>
-
-                <input class="input-field" name="alt_use_3" id="alt_use_3" type="text">
-                <label for="alt_use_3">Add a new example here</label>
-
-                <input class="input-field" name="alt_use_4" id="alt_use_4" type="text">
-                <label for="alt_use_4">Add a new example here</label>
-
-                <input class="input-field" name="alt_use_5" id="alt_use_5" type="text">
-                <label for="alt_use_5">Add a new example here</label>
+                <div class="input-field">
+                    <textarea  name="alt_use_1" id="alt_use_1" type="text" class="materialize-textarea"></textarea>
+                    <label for="alt_use_1">New example 1</label>
+                </div>
+                <div  class="input-field">
+                    <textarea  name="alt_use_2" id="alt_use_2" type="text" class="materialize-textarea"></textarea>
+                    <label for="alt_use_2">New example 2</label>
+                </div>
+                <div class="input-field">
+                    <textarea  name="alt_use_3" id="alt_use_3" type="text" class="materialize-textarea"></textarea>
+                    <label for="alt_use_3">New example 3</label>
+                </div>
+                <div class="input-field">
+                    <textarea  name="alt_use_4" id="alt_use_4" type="text" class="materialize-textarea"></textarea>
+                    <label for="alt_use_4">New example 4</label>
+                </div>
+                <div  class="input-field">
+                    <textarea  name="alt_use_5" id="alt_use_5" type="text" class="materialize-textarea"></textarea>
+                    <label for="alt_use_5">New example 5</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+            </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
