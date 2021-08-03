@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, render_template, redirect, request, session, url_for)
+    Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -73,6 +73,7 @@ def new_word():
         hasAltDefinitions = True if len(altDefinitions) > 1 else False
         hasAltSpellings = True if len(altSpellings) > 1 else False
 
+        # initializes dictionary variable and pushe to MongoDB
         word = {
             "name": request.form.get("new_name"),
             "hasAltSpellings": hasAltSpellings,
@@ -89,6 +90,9 @@ def new_word():
             "lastEditedBy": "",
             "lastEditedDate": ""
         }
+        mongo.db.words.insert_one(word)
+        flash("Yurt! Word Successfully Added!")
+        return redirect(url_for("home_page"))
 
     return render_template("new_word.html")
 
