@@ -106,6 +106,7 @@ def edit_word(word_Id):
         word = mongo.db.words.find_one({
             "_id": ObjectId(word_Id)
         })
+        rating = word.get('rating')
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -151,7 +152,7 @@ def edit_word(word_Id):
             "uses": uses,
             "createdBy": "placeholder",
             "dateCreated": "placeholder",
-            "rating": word.rating,
+            "rating": rating,
             "starWord": False,
             "edited": True,
             "lastEditedBy": "placeholder",
@@ -160,7 +161,7 @@ def edit_word(word_Id):
 
         mongo.db.words.update({"_id": ObjectId(word_Id)}, word_edit)
         flash("Word Successfully Updated!")
-        return redirect(url_for("/words/<word_Id>"))
+        return redirect(url_for("word_page", word_Id=word_Id))
 
     word = mongo.db.words.find_one({
         "_id": ObjectId(word_Id)
