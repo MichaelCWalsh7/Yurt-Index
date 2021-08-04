@@ -97,6 +97,77 @@ def new_word():
     return render_template("new_word.html")
 
 
+@app.route("/edit_word/<word_Id>", methods=["GET", "POST"])
+def edit_word(word_Id):
+    if request.method == "POST":
+        altSpellings = []
+        altDefinitions = []
+        uses = []
+        word = mongo.db.words.find_one({
+            "_id": ObjectId(word_Id)
+        })
+
+        # adds any additional spellings to the altSpellings list
+        x = 1
+        while x < 6:
+            spelling = request.form.get(
+                f"alt_spell_{x}")
+            if spelling != "":
+                altSpellings.append(spelling)
+            x += 1
+
+        # adds any additional definitions to the altDefinitions list
+        x = 1
+        while x < 6:
+            definition = request.form.get(
+                f"alt_def_{x}")
+            if definition != "":
+                altDefinitions.append(definition)
+            x += 1
+
+        # adds inputted uses to the uses list
+        required_Use = request.form.get("use")
+        uses.append(required_Use)
+        x = 1
+        while x < 6:
+            use = request.form.get(
+                f"alt_use_{x}")
+            if definition != "":
+                uses.append(use)
+            x += 1
+
+        # initializes booleans to add to collection
+        hasAltDefinitions = True if len(altDefinitions) > 1 else False
+        hasAltSpellings = True if len(altSpellings) > 1 else False
+
+        # initializes dictionary variable and pushe to MongoDB
+        word_edit = {
+            "name": request.form.get("name"),
+            "hasAltSpellings": hasAltSpellings,
+            "altSpellings": altSpellings,
+            "meaning": request.form.get("meaning"),
+            "hasAltDefinitions": hasAltDefinitions,
+            "altDefinitions": altDefinitions,
+            "uses": uses,
+            "createdBy": "placeholder",
+            "dateCreated": "placeholder",
+            "rating": word.rating,
+            "starWord": False,
+            "edited": True,
+            "lastEditedBy": "placeholder",
+            "lastEditedDate": "placeholder"
+        }
+
+        mongo.db.words.update({"_id": ObjectId(word_Id)}, word_edit)
+        flash("Word Successfully Updated!")
+        return redirect(url_for("/words/<word_Id>"))
+
+    word = mongo.db.words.find_one({
+        "_id": ObjectId(word_Id)
+    })
+    return render_template("edit_word.html", word=word)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
