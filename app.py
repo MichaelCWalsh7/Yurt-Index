@@ -65,7 +65,7 @@ def new_word():
         while x < 6:
             use = request.form.get(
                 f"alt_use_{x}")
-            if definition != "":
+            if use != "":
                 uses.append(use)
             x += 1
 
@@ -133,7 +133,7 @@ def edit_word(word_Id):
         while x < 6:
             use = request.form.get(
                 f"alt_use_{x}")
-            if definition != "":
+            if use != "":
                 uses.append(use)
             x += 1
 

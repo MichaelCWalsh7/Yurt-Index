@@ -38,7 +38,7 @@
                 {% if word.uses|length > 1 %}
                     <ul class="uses-list">
                         {% for use in word.uses %}
-                            <li> "{{ use }}" </li>
+                            <li> {{ use }} </li>
                         {% endfor %}
                     </ul>
                 {% else %}
