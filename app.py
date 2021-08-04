@@ -169,6 +169,15 @@ def edit_word(word_Id):
     return render_template("edit_word.html", word=word)
 
 
+@app.route("/delete_word/<word_Id>")
+def delete_word(word_Id):
+    mongo.db.words.remove({
+        "_id": ObjectId(word_Id)
+    })
+    flash("Word Successfully Deleted")
+    return redirect(url_for('home'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
