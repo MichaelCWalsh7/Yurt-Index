@@ -65,6 +65,7 @@
                 <a href="#"><i class="material-icons">thumb_down</i></a>
                 <span class="rating-number"> {{ word.rating }} </span>
                 <a class="btn yellow right green-text" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
+                <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
             </div>
         </div>
     </div>

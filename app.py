@@ -19,7 +19,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home_page")
 def home_page():
     words = list(mongo.db.words.find())
     return render_template("home.html", words=words)
@@ -175,7 +175,7 @@ def delete_word(word_Id):
         "_id": ObjectId(word_Id)
     })
     flash("Word Successfully Deleted")
-    return redirect(url_for('home'))
+    return redirect(url_for('home_page'))
 
 
 if __name__ == "__main__":
