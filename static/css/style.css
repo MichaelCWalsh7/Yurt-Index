@@ -60,3 +60,7 @@ main {
 .new-word-cancel-submit {
     line-height: 10px;
 }
+
+.home-description {
+    margin-bottom: 35px;
+}

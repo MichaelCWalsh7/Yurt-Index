@@ -69,13 +69,14 @@ def new_word():
                 uses.append(use)
             x += 1
 
-        # initializes booleans to add to collection
+        # initializes booleans and variables to add to collection
         hasAltDefinitions = True if len(altDefinitions) > 1 else False
         hasAltSpellings = True if len(altSpellings) > 1 else False
+        name = request.form.get("new_name").capitalize()
 
         # initializes dictionary variable and pushe to MongoDB
         word = {
-            "name": request.form.get("new_name"),
+            "name": name,
             "hasAltSpellings": hasAltSpellings,
             "altSpellings": altSpellings,
             "meaning": request.form.get("meaning"),
@@ -137,13 +138,14 @@ def edit_word(word_Id):
                 uses.append(use)
             x += 1
 
-        # initializes booleans to add to collection
+        # initializes booleans and variables to add to collection
         hasAltDefinitions = True if len(altDefinitions) > 1 else False
         hasAltSpellings = True if len(altSpellings) > 1 else False
+        name = request.form.get("name").capitalize()
 
         # initializes dictionary variable and pushe to MongoDB
         word_edit = {
-            "name": request.form.get("name"),
+            "name": name,
             "hasAltSpellings": hasAltSpellings,
             "altSpellings": altSpellings,
             "meaning": request.form.get("meaning"),
