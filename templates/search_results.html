@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center main-heading">Search Results</h3>
+    
 
     {% if words|length > 0 %}
     <div class="row all-words-container">
+        <h3 class="center main-heading">Search Results</h3>
         {% for word in words %}
         <div class="col s12">
             <div class="card green darken-1">
