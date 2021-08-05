@@ -64,3 +64,7 @@ main {
 .home-description {
     margin-bottom: 35px;
 }
+
+.sidenav {
+    width: 50%;
+}

@@ -180,17 +180,16 @@ def delete_word(word_Id):
     return redirect(url_for('home_page'))
 
 
+@app.route("/all_words")
+def all_words():
+    words = list(mongo.db.words.find().sort("name", 1))
+    return render_template("all_words.html", words=words)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-
-@app.route("/all_words")
-def all_words():
-    words = list(mongo.db.words.find())
-    print(words)
-    return render_template("all_words.html", words=words)
 
 
 # DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
