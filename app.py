@@ -186,6 +186,13 @@ if __name__ == "__main__":
             debug=True)
 
 
+@app.route("/all_words")
+def all_words():
+    words = list(mongo.db.words.find())
+    print(words)
+    return render_template("all_words.html", words=words)
+
+
 # DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
 err_Avoid = (
     env, redirect, request, session, url_for,
