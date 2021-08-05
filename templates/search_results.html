@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center main-heading">Search Results</h3>
+
+    {% if words|length > 0 %}
+    <div class="row all-words-container">
+        {% for word in words %}
+        <div class="col s12">
+            <div class="card green darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"><strong>{{ word.name }}</strong></span>
+                    <p>{{ word.meaning }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+    {% endif %}
+{% endblock %}

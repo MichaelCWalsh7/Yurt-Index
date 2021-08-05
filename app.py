@@ -186,6 +186,15 @@ def all_words():
     return render_template("all_words.html", words=words)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    search = request.form.get("search")
+    words = list(mongo.db.words.find({
+        "$text": {"$search": search}
+    }))
+    return render_template("search_results.html", words=words)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
