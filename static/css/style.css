@@ -69,3 +69,8 @@ main {
     width: 50%;
 }
 
+.form-instruction {
+    padding-left: 30px;
+    color: #43a047;
+    font-style: italic;
+}
