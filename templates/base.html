@@ -31,7 +31,7 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                         <li><a href="#">View Profile</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('log_in') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -46,7 +46,7 @@
             {% if session.user %}
                 <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                 <li><a href="#">View Profile</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('log_in') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>

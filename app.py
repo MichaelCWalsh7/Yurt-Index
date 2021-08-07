@@ -259,6 +259,14 @@ def log_in():
     return render_template("log_in.html")
 
 
+@app.route("/log_out")
+def log_out():
+    # remove user from session cookies
+    flash("You are now logged out")
+    session.clear()
+    return redirect(url_for("log_in"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
