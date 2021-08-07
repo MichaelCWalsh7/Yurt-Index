@@ -33,7 +33,7 @@
                         <li><a href="#">View Profile</a></li>
                         <li><a href="#">Log Out</a></li>
                     {% else %}
-                        <li><a href="#">Log In</a></li>               
+                        <li><a href="{{ url_for('log_in') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                     {% endif %}
                 </ul>
@@ -43,12 +43,18 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
             <li><a href="{{ url_for('all_words') }}">All Words</a></li>
-            <li><a href="{{ url_for('new_word') }}">New Word</a></li>            
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('new_word') }}">New Word</a></li>
+                <li><a href="#">View Profile</a></li>
+                <li><a href="#">Log Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('log_in') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
         </ul>
         <div class="row green darken-1">
             <form action="{{ url_for('search') }}" method="post" class="col offset-m3 s12 m6" id="navSearch">
-                <div class="input-field search-container white">                    
+                <div class="input-field search-container white">
                     <i class="material-icons prefix">search</i>
                     <input id="search" type="text" name="search">
                     <label for="search">Search</label>
