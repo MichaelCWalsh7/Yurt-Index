@@ -219,6 +219,13 @@ def register():
             "wordsEdited": []
         }
 
+        mongo.db.users.insert_one(new_user)
+
+        # put the new user into session cookie
+        session["user"] = request.form.get("name")
+        flash("Yurt! You've Been Registered Successfully!")
+        return redirect(url_for('home_page'))
+
     return render_template("register.html")
 
 
