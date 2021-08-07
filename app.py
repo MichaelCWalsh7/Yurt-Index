@@ -205,6 +205,20 @@ def register():
             flash("Sorry! That username is taken!")
             return redirect(url_for("register"))
 
+        new_user = {
+            "name": request.form.get("username"),
+            "description": "",
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password")),
+            "dateOfBirth": request.form.get("date_of_birth"),
+            "dateJoined": "placeholder",
+            "country": "",
+            "city": "",
+            "isAdmin": False,
+            "wordsCreated": [],
+            "wordsEdited": []
+        }
+
     return render_template("register.html")
 
 
