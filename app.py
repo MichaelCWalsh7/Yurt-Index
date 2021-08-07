@@ -234,7 +234,7 @@ def log_in():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"name": request.form.get("username").lower()})
 
         if existing_user:
             # ensure hashed password matches user input
@@ -242,15 +242,18 @@ def log_in():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                print("success")
                 return redirect(url_for('home_page'))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
+                print("fail")
                 return redirect(url_for("log_in"))
 
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
+            print("fail")
             return redirect(url_for("log_in"))
 
     return render_template("log_in.html")
