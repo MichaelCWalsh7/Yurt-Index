@@ -75,3 +75,7 @@ main {
     font-style: italic;
     font-weight: 700;
 }
+
+.user-image-icon {
+    width: 25%;
+}
