@@ -267,6 +267,11 @@ def log_out():
     return redirect(url_for("log_in"))
 
 
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
