@@ -195,7 +195,7 @@ def search():
     return render_template("search_results.html", words=words)
 
 
-@app.route('/register')
+@app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username exists already
