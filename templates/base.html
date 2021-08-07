@@ -27,17 +27,23 @@
                         class="material-icons nav-icon">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home_page') }}">Home</a></li>
-                    <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                     <li><a href="{{ url_for('all_words') }}">All Words</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('new_word') }}">New Word</a></li>
+                        <li><a href="#">View Profile</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    {% else %}
+                        <li><a href="#">Log In</a></li>               
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
-            <li><a href="{{ url_for('new_word') }}">New Word</a></li>
             <li><a href="{{ url_for('all_words') }}">All Words</a></li>
+            <li><a href="{{ url_for('new_word') }}">New Word</a></li>            
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
         <div class="row green darken-1">
