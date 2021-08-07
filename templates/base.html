@@ -29,7 +29,7 @@
                     <li><a href="{{ url_for('home_page') }}">Home</a></li>
                     <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                     <li><a href="{{ url_for('all_words') }}">All Words</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -38,7 +38,7 @@
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
             <li><a href="{{ url_for('new_word') }}">New Word</a></li>
             <li><a href="{{ url_for('all_words') }}">All Words</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
         <div class="row green darken-1">
             <form action="{{ url_for('search') }}" method="post" class="col offset-m3 s12 m6" id="navSearch">

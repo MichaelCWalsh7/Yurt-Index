@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="center main-heading">Register an Account</h3>
+
+    <div class="row">
+        <form class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <!-- username -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person_add</i>                  
+                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="username">Username</label>                        
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>                  
+                        <input id="email" name="email" type="email" minlength="5" maxlength="50"
+                            class="validate" required>
+                        <label for="email">Email</label>                        
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>                  
+                        <input id="password" name="password" type="password" minlength="5" maxlength="25"
+                            class="validate" required>
+                        <label for="password">Password</label>                        
+                    </div>
+                </div>
+                <!-- confirm password -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>                  
+                        <input id="confirm_password" name="confirm_password" type="password" minlength="5" maxlength="25"
+                            class="validate" required>
+                        <label for="confirm_password">Confirm Password</label>                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
