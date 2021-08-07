@@ -197,6 +197,14 @@ def search():
 
 @app.route('/register')
 def register():
+    if request.method == "POST":
+        # check if username exists already
+        existing_user = mongo.db.users.find_one(
+            {"name": request.form.get("username").lower()})
+        if existing_user:
+            flash("Sorry! That username is taken!")
+            return redirect(url_for("register"))
+
     return render_template("register.html")
 
 
