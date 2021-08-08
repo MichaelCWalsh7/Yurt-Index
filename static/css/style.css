@@ -86,7 +86,7 @@ main {
     }
 
     .user-buttons {
-        padding-left: 20px!important; 
+        padding-left: 15px!important; 
     }
 
     .image-info {
@@ -114,4 +114,16 @@ main {
 
 #userProfileHeading {
     margin-bottom: 50px;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: #7e57c2;
+}
+
+.tabs .indicator {
+    background-color: #7e57c2;
+}
+
+.tabs .tab a {
+    color: #43a047;
 }
