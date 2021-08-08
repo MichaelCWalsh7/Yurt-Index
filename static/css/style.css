@@ -76,11 +76,37 @@ main {
     font-weight: 700;
 }
 
+.basic-user-info-container {
+    margin-left: 7%;
+}
+
+@media(max-width: 547px) {
+    .basic-user-info-container {
+        margin-left: 10%;
+    }
+
+    .user-buttons {
+        padding-left: 20px!important; 
+    }
+    .image-info {
+        margin-bottom: 16px;
+    }
+
+    .user-buttons a {
+        max-width: 250px;
+    }
+}
+
 .user-image-icon {
     width: 25%;
+}
+
+.user-buttons a {
+    min-width: 214px;
 }
 
 .basic-user-info {
     display: inline;
     position: absolute;
 }
+
