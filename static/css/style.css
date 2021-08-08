@@ -79,3 +79,8 @@ main {
 .user-image-icon {
     width: 25%;
 }
+
+.basic-user-info {
+    display: inline;
+    position: absolute;
+}

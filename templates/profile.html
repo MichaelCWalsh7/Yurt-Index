@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <div class="user-image-container col s12 m4">
+    <div class="basic-user-info-container col s12 m6">
         <img src="static/images/user_image.png" alt="an image of a user icon" class="user-image-icon">
-        <span>Mike</span>
-        <span>place@holder.com</span>
+        <div class="basic-user-info">
+            <span>Mike</span><br>
+            <span>place@holder.com</span><br>
+            <span>Joined: <span id="profile-date-joined"> 00/00/00</span></span>
+        </div>
+        
     </div>
     <div class="col s12 m7 basic-user-info">
-        
+
     </div>
 </div>
 
