@@ -88,6 +88,7 @@ main {
     .user-buttons {
         padding-left: 20px!important; 
     }
+
     .image-info {
         margin-bottom: 16px;
     }
@@ -103,6 +104,7 @@ main {
 
 .user-buttons a {
     min-width: 214px;
+    margin: 3px;
 }
 
 .basic-user-info {
@@ -110,3 +112,6 @@ main {
     position: absolute;
 }
 
+#userProfileHeading {
+    margin-bottom: 50px;
+}
