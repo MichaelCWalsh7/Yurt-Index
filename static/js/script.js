@@ -4,6 +4,7 @@ $(document).ready(function () {
         edge: "right"
     });
     $('.datepicker').datepicker();
+    $('.tabs').tabs();
 });
 
 var password = document.getElementById("password"),
