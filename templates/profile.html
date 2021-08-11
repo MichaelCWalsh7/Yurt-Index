@@ -7,9 +7,9 @@
     <div class="col s12 m6 image-info">
         <img src="static/images/user_image.png" alt="an image of a user icon" class="user-image-icon">
         <div class="basic-user-info">
-            <span>Mike</span><br>
-            <span>place@holder.com</span><br>
-            <span>Joined: <span id="profile-date-joined"> 00/00/00</span></span>
+            <span>{{ user.name }}</span><br>
+            <span>{{ user.email }}</span><br>
+            <span>Joined: <span id="profile-date-joined">{{ user.dateJoined }}</span></span>
         </div>
 
     </div>
@@ -21,9 +21,12 @@
 <div class="row">
     <div class="col center-align s12 user-description">
         <h4 class="center main-heading">About User</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nobis excepturi debitis incidunt illum
-            impedit libero odit consectetur accusamus molestias at magnam ex, consequuntur non harum in dolore!
-            Dignissimos, pariatur.</p>
+        <p class="description-bold">
+
+        </p>
+        <p class="description-opaque">
+
+        </p>
     </div>
 </div>
 <div class="row">
@@ -31,7 +34,7 @@
         <ul class="tabs">
             <li class="tab col s6"><a href="#test1">Words Created</a></li>
             <li class="tab col s6"><a href="#test2">Words Edited</a></li>
-            
+
         </ul>
     </div>
     <div id="test1" class="col s12">Test 1</div>

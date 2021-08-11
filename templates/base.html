@@ -30,7 +30,7 @@
                     <li><a href="{{ url_for('all_words') }}">All Words</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('new_word') }}">New Word</a></li>
-                        <li><a href="{{ url_for('profile') }}">View Profile</a></li>
+                        
                         <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('log_in') }}">Log In</a></li>
@@ -45,7 +45,7 @@
             <li><a href="{{ url_for('all_words') }}">All Words</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('new_word') }}">New Word</a></li>
-                <li><a href="{{ url_for('profile') }}">View Profile</a></li>
+                
                 <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('log_in') }}">Log In</a></li>
