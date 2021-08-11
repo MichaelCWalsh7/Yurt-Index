@@ -118,6 +118,7 @@ main {
 
 .tabs .tab a:hover, .tabs .tab a.active {
     color: #7e57c2;
+    opacity: 1;
 }
 
 .tabs .indicator {
@@ -125,5 +126,6 @@ main {
 }
 
 .tabs .tab a {
-    color: #43a047;
+    color: #7e57c2;
+    opacity: .7;
 }
