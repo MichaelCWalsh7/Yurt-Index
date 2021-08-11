@@ -39,6 +39,10 @@ def new_word():
         altSpellings = []
         altDefinitions = []
         uses = []
+        user = mongo.db.users.find_one({
+            "name": session["user"]
+        })
+        userId = user.get("_id")
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -83,7 +87,7 @@ def new_word():
             "hasAltDefinitions": hasAltDefinitions,
             "altDefinitions": altDefinitions,
             "uses": uses,
-            "createdBy": "placeholder",
+            "createdBy": userId,
             "dateCreated": "placeholder",
             "rating": 0,
             "starWord": False,
