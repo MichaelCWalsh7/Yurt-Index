@@ -30,7 +30,11 @@ def word_page(word_Id):
     word = mongo.db.words.find_one(
         {"_id": ObjectId(word_Id)}
     )
-    return render_template("word-page.html", word=word)
+    created_by = word.get("createdBy")
+    user = mongo.db.users.find_one({
+        "_id": created_by
+    })
+    return render_template("word-page.html", word=word, user=user)
 
 
 @app.route("/new_word", methods=["GET", "POST"])
@@ -112,6 +116,8 @@ def edit_word(word_Id):
             "_id": ObjectId(word_Id)
         })
         rating = word.get('rating')
+        created_by = word.get('createdBy')
+        date_created = word.get('dateCreated')
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -147,7 +153,7 @@ def edit_word(word_Id):
         hasAltSpellings = True if len(altSpellings) > 1 else False
         name = request.form.get("name").capitalize()
 
-        # initializes dictionary variable and pushe to MongoDB
+        # initializes dictionary variable and pushes to MongoDB
         word_edit = {
             "name": name,
             "hasAltSpellings": hasAltSpellings,
@@ -156,8 +162,8 @@ def edit_word(word_Id):
             "hasAltDefinitions": hasAltDefinitions,
             "altDefinitions": altDefinitions,
             "uses": uses,
-            "createdBy": "placeholder",
-            "dateCreated": "placeholder",
+            "createdBy": created_by,
+            "dateCreated": date_created,
             "rating": rating,
             "starWord": False,
             "edited": True,

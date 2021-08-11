@@ -48,8 +48,8 @@
                 <!-- display who created the word and when -->
                 <p>
                     Created by:
-                    <span class="created-by">{{word.createdBy}}</span> on <span
-                        class="date-created">{{word.dateCreated}}</span>
+                    <span class="created-by">{{ user.name }}</span> on <span
+                        class="date-created">{{ word.dateCreated }}</span>
                 </p>
                 <p>
                     {% if word.edited %}
