@@ -31,17 +31,22 @@ def word_page(word_Id):
         {"_id": ObjectId(word_Id)}
     )
     created_by = word.get("createdBy")
+    last_edited_by = word.get("lastEditedBy")
     user = mongo.db.users.find_one({
         "_id": created_by
     })
-    return render_template("word-page.html", word=word, user=user)
+    last_edit = mongo.db.users.find_one({
+        "_id": last_edited_by
+    })
+    return render_template(
+        "word-page.html", word=word, user=user, last_edit=last_edit)
 
 
 @app.route("/new_word", methods=["GET", "POST"])
 def new_word():
     if request.method == "POST":
-        altSpellings = []
-        altDefinitions = []
+        alt_spellings = []
+        alt_definitions = []
         uses = []
         user = mongo.db.users.find_one({
             "name": session["user"]
@@ -54,7 +59,7 @@ def new_word():
             spelling = request.form.get(
                 f"alt_spell_{x}")
             if spelling != "":
-                altSpellings.append(spelling)
+                alt_spellings.append(spelling)
             x += 1
 
         # adds any additional definitions to the altDefinitions list
@@ -63,7 +68,7 @@ def new_word():
             definition = request.form.get(
                 f"alt_def_{x}")
             if definition != "":
-                altDefinitions.append(definition)
+                alt_definitions.append(definition)
             x += 1
 
         # adds inputted uses to the uses list
@@ -78,18 +83,18 @@ def new_word():
             x += 1
 
         # initializes booleans and variables to add to collection
-        hasAltDefinitions = True if len(altDefinitions) > 1 else False
-        hasAltSpellings = True if len(altSpellings) > 1 else False
+        has_alt_definitions = True if len(alt_definitions) > 1 else False
+        has_alt_spellings = True if len(alt_spellings) > 1 else False
         name = request.form.get("new_name").capitalize()
 
         # initializes dictionary variable and pushe to MongoDB
         word = {
             "name": name,
-            "hasAltSpellings": hasAltSpellings,
-            "altSpellings": altSpellings,
+            "hasAltSpellings": has_alt_spellings,
+            "altSpellings": alt_spellings,
             "meaning": request.form.get("meaning"),
-            "hasAltDefinitions": hasAltDefinitions,
-            "altDefinitions": altDefinitions,
+            "hasAltDefinitions": has_alt_definitions,
+            "altDefinitions": alt_definitions,
             "uses": uses,
             "createdBy": user_id,
             "dateCreated": "placeholder",
@@ -109,8 +114,8 @@ def new_word():
 @app.route("/edit_word/<word_Id>", methods=["GET", "POST"])
 def edit_word(word_Id):
     if request.method == "POST":
-        altSpellings = []
-        altDefinitions = []
+        alt_spellings = []
+        alt_definitions = []
         uses = []
         word = mongo.db.words.find_one({
             "_id": ObjectId(word_Id)
@@ -126,7 +131,7 @@ def edit_word(word_Id):
             spelling = request.form.get(
                 f"alt_spell_{x}")
             if spelling != "":
-                altSpellings.append(spelling)
+                alt_spellings.append(spelling)
             x += 1
 
         # adds any additional definitions to the altDefinitions list
@@ -135,7 +140,7 @@ def edit_word(word_Id):
             definition = request.form.get(
                 f"alt_def_{x}")
             if definition != "":
-                altDefinitions.append(definition)
+                alt_definitions.append(definition)
             x += 1
 
         # adds inputted uses to the uses list
@@ -150,16 +155,16 @@ def edit_word(word_Id):
             x += 1
 
         # initializes booleans and variables to add to collection
-        hasAltDefinitions = True if len(altDefinitions) > 1 else False
-        hasAltSpellings = True if len(altSpellings) > 1 else False
+        has_alt_definitions = True if len(alt_definitions) > 1 else False
+        has_alt_spellings = True if len(alt_spellings) > 1 else False
         # name = request.form.get("name").capitalize()
 
         mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
-            "hasAltSpellings": hasAltSpellings,
-            "altSpellings": altSpellings,
+            "hasAltSpellings": has_alt_spellings,
+            "altSpellings": alt_spellings,
             "meaning": request.form.get("meaning"),
-            "hasAltDefinitions": hasAltDefinitions,
-            "altDefinitions": altDefinitions,
+            "hasAltDefinitions": has_alt_definitions,
+            "altDefinitions": alt_definitions,
             "uses": uses,
             "edited": True,
             "lastEditedBy": user_id,

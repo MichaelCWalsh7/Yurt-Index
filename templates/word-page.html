@@ -54,7 +54,7 @@
                 <p>
                     {% if word.edited %}
                     Last edit by
-                        <span class="edited-by">{{ word.lastEditedBy }}</span> on <span
+                        <span class="edited-by">{{ last_edit.name }}</span> on <span
                             class="last-edit-date">{{ word.lastEditedDate}}</span>
                     {% endif %}
                 </p>
