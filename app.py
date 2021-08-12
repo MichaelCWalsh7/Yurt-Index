@@ -48,6 +48,7 @@ def new_word():
         alt_spellings = []
         alt_definitions = []
         uses = []
+        editors = []
         user = mongo.db.users.find_one({
             "name": session["user"]
         })
@@ -102,7 +103,8 @@ def new_word():
             "starWord": False,
             "edited": False,
             "lastEditedBy": "",
-            "lastEditedDate": ""
+            "lastEditedDate": "",
+            "editors": editors
         }
         mongo.db.words.insert_one(word)
         flash("Yurt! Word Successfully Added!")
@@ -124,6 +126,7 @@ def edit_word(word_Id):
             "name": session["user"]
         })
         user_id = user.get("_id")
+        editors = word.get("editors")
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -159,6 +162,9 @@ def edit_word(word_Id):
         has_alt_spellings = True if len(alt_spellings) > 1 else False
         # name = request.form.get("name").capitalize()
 
+        if user_id not in editors:
+            editors.append(user_id)
+
         mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
             "hasAltSpellings": has_alt_spellings,
             "altSpellings": alt_spellings,
@@ -168,7 +174,8 @@ def edit_word(word_Id):
             "uses": uses,
             "edited": True,
             "lastEditedBy": user_id,
-            "lastEditedDate": "placeholder"
+            "lastEditedDate": "placeholder",
+            "editors": editors
         }})
         flash("Word Successfully Updated!")
         return redirect(url_for("word_page", word_Id=word_Id))

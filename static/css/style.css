@@ -129,3 +129,7 @@ main {
     color: #7e57c2;
     opacity: .7;
 }
+
+.opaque-text {
+    opacity: .7;
+}
