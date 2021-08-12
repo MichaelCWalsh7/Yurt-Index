@@ -281,7 +281,18 @@ def profile(username):
     user = mongo.db.users.find_one(
         {"name": username}
     )
-    return render_template("profile.html", user=user)
+    user_id = user.get("_id")
+    # Finds what words the user has created to display on their profile
+    created_words = mongo.db.words.find(
+        {"createdBy": user_id}
+    )
+    # Finds what words the user has edited to display on their profile
+    edited_words = mongo.db.words.find(
+        {"lastEditedBy": user_id}
+    )
+    return render_template(
+        "profile.html", user=user, created_words=created_words,
+        edited_words=edited_words)
 
 
 if __name__ == "__main__":
