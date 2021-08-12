@@ -296,7 +296,7 @@ def profile(username):
     print(created_words)
     # Finds what words the user has edited to display on their profile
     edited_words = mongo.db.words.find(
-        {"lastEditedBy": user_id}
+        {"editors": user_id}
     )
     return render_template(
         "profile.html", user=user, created_words=created_words,
