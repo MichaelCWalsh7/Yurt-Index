@@ -37,7 +37,7 @@
 
         </ul>
     </div>
-    <div id="createdWords" class="col s12">
+    <div id="createdWords" class="col s12">        
         {% for word in created_words %}
             <div class="row">
                 <div class="col s6">
@@ -52,9 +52,29 @@
                     </div>
                 </div>
             </div>
+        {% else %}
+            <p class="opaque-text">This user hasn't created any words.</p>
+        {% endfor %}                
+    </div>
+    <div id="editedWords" class="col s12">
+        {% for word in edited_words %}
+            <div class="row">
+                <div class="col s6">
+                    <div class="card green darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title"><strong>{{ word.name }}</strong></span>
+                            <p>{{ word.meaning }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="opaque-text">This user hasn't edited any words.</p>
         {% endfor %}
     </div>
-    <div id="editedWords" class="col s12">Test 2</div>
 </div>
 
 {% endblock %}
