@@ -46,7 +46,7 @@ def new_word():
         user = mongo.db.users.find_one({
             "name": session["user"]
         })
-        userId = user.get("_id")
+        user_id = user.get("_id")
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -91,7 +91,7 @@ def new_word():
             "hasAltDefinitions": hasAltDefinitions,
             "altDefinitions": altDefinitions,
             "uses": uses,
-            "createdBy": userId,
+            "createdBy": user_id,
             "dateCreated": "placeholder",
             "rating": 0,
             "starWord": False,
@@ -115,9 +115,10 @@ def edit_word(word_Id):
         word = mongo.db.words.find_one({
             "_id": ObjectId(word_Id)
         })
-        rating = word.get('rating')
-        created_by = word.get('createdBy')
-        date_created = word.get('dateCreated')
+        user = mongo.db.users.find_one({
+            "name": session["user"]
+        })
+        user_id = user.get("_id")
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -151,27 +152,19 @@ def edit_word(word_Id):
         # initializes booleans and variables to add to collection
         hasAltDefinitions = True if len(altDefinitions) > 1 else False
         hasAltSpellings = True if len(altSpellings) > 1 else False
-        name = request.form.get("name").capitalize()
+        # name = request.form.get("name").capitalize()
 
-        # initializes dictionary variable and pushes to MongoDB
-        word_edit = {
-            "name": name,
+        mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
             "hasAltSpellings": hasAltSpellings,
             "altSpellings": altSpellings,
             "meaning": request.form.get("meaning"),
             "hasAltDefinitions": hasAltDefinitions,
             "altDefinitions": altDefinitions,
             "uses": uses,
-            "createdBy": created_by,
-            "dateCreated": date_created,
-            "rating": rating,
-            "starWord": False,
             "edited": True,
-            "lastEditedBy": "placeholder",
+            "lastEditedBy": user_id,
             "lastEditedDate": "placeholder"
-        }
-
-        mongo.db.words.update({"_id": ObjectId(word_Id)}, word_edit)
+        }})
         flash("Word Successfully Updated!")
         return redirect(url_for("word_page", word_Id=word_Id))
 
