@@ -309,6 +309,11 @@ if __name__ == "__main__":
             debug=True)
 
 
+@app.route("/edit_profile")
+def edit_profile():
+    return render_template("edit_profile.html")
+
+
 # DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
 err_Avoid = (
     env, redirect, request, session, url_for,
