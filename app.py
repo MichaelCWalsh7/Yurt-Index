@@ -309,7 +309,7 @@ def edit_profile(username):
         description = request.form.get("description")
         country = request.form.get("country")
         city = request.form.get("city")
-        has_desciption = True if description != "" else False
+        has_description = True if description != "" else False
         has_country = True if country != "" else False
         has_city = True if city != "" else False
 
@@ -317,10 +317,11 @@ def edit_profile(username):
             "description": description,
             "country": country,
             "city": city,
-            "hasDesciption": has_desciption,
+            "hasDescription": has_description,
             "hasCountry": has_country,
             "hasCity": has_city
         }})
+        return redirect(url_for('profile', username=username))
 
     user = mongo.db.users.find_one(
         {"name": username}

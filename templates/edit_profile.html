@@ -13,26 +13,34 @@
         </div>
     </div>
     <div class="row">
-        <form action="" class="col s12 m8 offset-m2">
+        <form action="" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_profile', username=user.name) }}">
             <div class="row">
                 <span class="form-instruction">Tell Us Where You're From:</span>
                 <div class="input-field col s12">
-                    <input id="country" name="country" type="text">
+                    <input id="country" name="country" type="text" value="{{ user.country }}">
                     <label for="country">Country</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="city" name="city" type="text">
+                    <input id="city" name="city" type="text" value="{{ user.city }}">
                     <label for="city">City</label>
                 </div>
             </div>
             <div class="row">
                 <span class="form-instruction">Tell Us About Yourself:</span>
                 <div class="input-field col s12">
-                    <textarea id="description" name="description" type="text"
+                    <textarea id="description" name="description" type="text" value="{{ user.description }}"
                         class="materialize-textarea"></textarea>
                     <label for="description">Personal Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 offset-m4">
+                    <a href="{{ url_for('profile', username=session['user']) }}">
+                        <button class="btn-large amber darken-2">Cancel <i class="small material-icons">close</i></button>
+                    </a>
+                    <button class="btn-large blue" type="submit">Submit <i class="small material-icons">check</i></button>
                 </div>
             </div>
         </form>
