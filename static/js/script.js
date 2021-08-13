@@ -5,6 +5,7 @@ $(document).ready(function () {
     });
     $('.datepicker').datepicker();
     $('.tabs').tabs();
+    $('.dropdown-trigger').dropdown();
 });
 
 var password = document.getElementById("password"),
