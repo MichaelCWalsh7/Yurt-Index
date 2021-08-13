@@ -1,4 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>yo</h3>
+
+    <h3 class="center main-heading" id="userProfileHeading">{{ user.name }}'s Profile</h3>
+    <div class="row">
+        <div class="col s4 m2 offset-m2">
+            <img src="/static/images/user_image.png" alt="an image of a user icon" class="edit-user-image-icon">
+        </div>
+        <div class="basic-user-info">
+            <span>{{ user.name }}</span><br>
+            <span>{{ user.email }}</span><br>
+            <span>Joined: <span id="profile-date-joined">{{ user.dateJoined }}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <form action="" class="col s12 m8 offset-m2">
+            <div class="row">
+                <span class="form-instruction">Tell Us Where You're From:</span>
+                <div class="input-field col s12">
+                    <input id="country" name="country" type="text">
+                    <label for="country">Country</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="city" name="city" type="text">
+                    <label for="city">City</label>
+                </div>
+            </div>
+            <div class="row">
+                <span class="form-instruction">Tell Us About Yourself:</span>
+                <div class="input-field col s12">
+                    <textarea id="personalDescription" name="personalDescription" type="text"
+                        class="materialize-textarea"></textarea>
+                    <label for="personalDescription">Personal Description</label>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}

@@ -303,9 +303,12 @@ def profile(username):
         edited_words=edited_words)
 
 
-@app.route("/edit_profile")
-def edit_profile():
-    return render_template("edit_profile.html")
+@app.route("/edit_profile/<username>")
+def edit_profile(username):
+    user = mongo.db.users.find_one(
+        {"name": username}
+    )
+    return render_template("edit_profile.html", user=user)
 
 
 if __name__ == "__main__":

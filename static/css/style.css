@@ -133,3 +133,7 @@ main {
 .opaque-text {
     opacity: .7;
 }
+
+.edit-user-image-icon {
+    width: 100%;
+}

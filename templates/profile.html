@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center main-heading" id="userProfileHeading">User's Profile</h3>
+<h3 class="center main-heading" id="userProfileHeading">{{ user.name }}'s Profile</h3>
 
 <div class="row basic-user-info-container">
     <div class="col s12 m6 image-info">
@@ -14,7 +14,7 @@
 
     </div>
     <div class="col s12 m6 user-buttons">
-        <a href="{{ url_for('edit_profile') }}" class="btn-large deep-purple lighten-1">Edit Your Profile</a>
+        <a href="{{ url_for('edit_profile', username=user.name) }}" class="btn-large deep-purple lighten-1">Edit Your Profile</a>
         <a href="#" class="btn-large red text-white">Delete Your Profile</a>
     </div>
 </div>
