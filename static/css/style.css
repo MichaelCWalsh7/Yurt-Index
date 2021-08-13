@@ -150,3 +150,8 @@ main {
     font-weight: 900;
     color: #43a047;
 }
+
+.user-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
