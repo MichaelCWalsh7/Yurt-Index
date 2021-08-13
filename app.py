@@ -303,15 +303,15 @@ def profile(username):
         edited_words=edited_words)
 
 
+@app.route("/edit_profile")
+def edit_profile():
+    return render_template("edit_profile.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-
-@app.route("/edit_profile")
-def edit_profile():
-    return render_template("edit_profile.html")
 
 
 # DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
