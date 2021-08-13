@@ -303,8 +303,25 @@ def profile(username):
         edited_words=edited_words)
 
 
-@app.route("/edit_profile/<username>")
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
+    if request.method == "POST":
+        description = request.form.get("description")
+        country = request.form.get("country")
+        city = request.form.get("city")
+        has_desciption = True if description != "" else False
+        has_country = True if country != "" else False
+        has_city = True if city != "" else False
+
+        mongo.db.users.update({"name": username}, {"$set": {
+            "description": description,
+            "country": country,
+            "city": city,
+            "hasDesciption": has_desciption,
+            "hasCountry": has_country,
+            "hasCity": has_city
+        }})
+
     user = mongo.db.users.find_one(
         {"name": username}
     )
