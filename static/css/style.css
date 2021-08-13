@@ -137,3 +137,9 @@ main {
 .edit-user-image-icon {
     width: 100%;
 }
+
+.thick-text{
+    opacity: 1;
+    font-weight: 900;
+    color: #43a047;
+}

@@ -1,80 +1,108 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center main-heading" id="userProfileHeading">{{ user.name }}'s Profile</h3>
+    <h3 class="center main-heading" id="userProfileHeading">{{ user.name }}'s Profile</h3>
 
-<div class="row basic-user-info-container">
-    <div class="col s12 m6 image-info">
-        <img src="/static/images/user_image.png" alt="an image of a user icon" class="user-image-icon">
-        <div class="basic-user-info">
-            <span>{{ user.name }}</span><br>
-            <span>{{ user.email }}</span><br>
-            <span>Joined: <span id="profile-date-joined">{{ user.dateJoined }}</span></span>
+    <div class="row basic-user-info-container">
+        <div class="col s12 m6 image-info">
+            <img src="/static/images/user_image.png" alt="an image of a user icon" class="user-image-icon">
+            <div class="basic-user-info">
+                <span>{{ user.name }}</span><br>
+                <span>{{ user.email }}</span><br>
+                <span>Joined: <span id="profile-date-joined">{{ user.dateJoined }}</span></span>
+            </div>
+
         </div>
-
+        <div class="col s12 m6 user-buttons">
+            <a href="{{ url_for('edit_profile', username=user.name) }}" class="btn-large deep-purple lighten-1">Edit Your
+                Profile</a>
+            <a href="#" class="btn-large red text-white">Delete Your Profile</a>
+        </div>
     </div>
-    <div class="col s12 m6 user-buttons">
-        <a href="{{ url_for('edit_profile', username=user.name) }}" class="btn-large deep-purple lighten-1">Edit Your Profile</a>
-        <a href="#" class="btn-large red text-white">Delete Your Profile</a>
+    <div class="row">
+        <div class="col center-align s12 user-description">
+            <h4 class="center main-heading">About User</h4>
+            <div class="col s12 m6">
+                {% if user.hasCountry %}
+                    <p class="information-present">
+                       <span class="thick-text">Country:</span> {{ user.country }}
+                    </p>
+                {% else %}
+                    <p class="opaque-text">
+                        <span class="thick-text">Country:</span> Country Unkown
+                    </p>
+                {% endif %}
+                {% if user.hasCity %}
+                    <p class="information-present">
+                        <span class="thick-text">City:</span> {{ user.city }}
+                    </p>
+                {% else %}
+                    <p class="opaque-text">
+                        <span class="thick-text">City:</span> City Unkown
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col s12 m6">
+                {% if user.hasDescription %}
+                    <p class="information-present">
+                        <span class="thick-text">About This User:</span><br>
+                        {{ user.description }}
+                    </p>
+                {% else %}
+                    <p class="opaque-text">
+                        <span class="thick-text">About This User:</span><br>
+                        This user hasn't provided a description.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col center-align s12 user-description">
-        <h4 class="center main-heading">About User</h4>
-        <p class="description-bold">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6"><a href="#createdWords">Words Created</a></li>
+                <li class="tab col s6"><a href="#editedWords">Words Edited</a></li>
 
-        </p>
-        <p class="description-opaque">
-
-        </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col s12">
-        <ul class="tabs">
-            <li class="tab col s6"><a href="#createdWords">Words Created</a></li>
-            <li class="tab col s6"><a href="#editedWords">Words Edited</a></li>
-
-        </ul>
-    </div>
-    <div id="createdWords" class="col s12">        
-        {% for word in created_words %}
-            <div class="row">
-                <div class="col s6">
-                    <div class="card green darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title"><strong>{{ word.name }}</strong></span>
-                            <p>{{ word.meaning }}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+            </ul>
+        </div>
+        <div id="createdWords" class="col s12">
+            {% for word in created_words %}
+                <div class="row">
+                    <div class="col s6">
+                        <div class="card green darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><strong>{{ word.name }}</strong></span>
+                                <p>{{ word.meaning }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% else %}
-            <p class="opaque-text">This user hasn't created any words.</p>
-        {% endfor %}                
-    </div>
-    <div id="editedWords" class="col s12">
-        {% for word in edited_words %}
-            <div class="row">
-                <div class="col right s6">
-                    <div class="card green darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title"><strong>{{ word.name }}</strong></span>
-                            <p>{{ word.meaning }}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+            {% else %}
+                <p class="opaque-text">This user hasn't created any words.</p>
+            {% endfor %}
+        </div>
+        <div id="editedWords" class="col s12">
+            {% for word in edited_words %}
+                <div class="row">
+                    <div class="col right s6">
+                        <div class="card green darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title"><strong>{{ word.name }}</strong></span>
+                                <p>{{ word.meaning }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% else %}
-            <p class="opaque-text">This user hasn't edited any words.</p>
-        {% endfor %}
+            {% else %}
+                <p class="opaque-text">This user hasn't edited any words.</p>
+            {% endfor %}
+        </div>
     </div>
-</div>
 
 {% endblock %}
