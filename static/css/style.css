@@ -86,7 +86,7 @@ main {
     }
 
     .user-buttons {
-        padding-left: 15px!important; 
+        padding-left: 15px !important;
     }
 
     .image-info {
@@ -95,6 +95,12 @@ main {
 
     .user-buttons a {
         max-width: 250px;
+    }
+}
+
+@media(min-width: 395px) and (max-width: 556px) {
+    .user-buttons {
+        padding-left: 18% !important;
     }
 }
 
@@ -116,7 +122,8 @@ main {
     margin-bottom: 50px;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
     color: #7e57c2;
     opacity: 1;
 }
@@ -138,7 +145,7 @@ main {
     width: 100%;
 }
 
-.thick-text{
+.thick-text {
     opacity: 1;
     font-weight: 900;
     color: #43a047;
