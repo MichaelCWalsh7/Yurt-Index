@@ -58,6 +58,8 @@ def new_word():
         alt_definitions = []
         uses = []
         editors = []
+        liked = []
+        disliked = []
         user = mongo.db.users.find_one({
             "name": session["user"]
         })
@@ -113,7 +115,9 @@ def new_word():
             "edited": False,
             "lastEditedBy": "",
             "lastEditedDate": "",
-            "editors": editors
+            "editors": editors,
+            "liked": liked,
+            "disliked": disliked
         }
         mongo.db.words.insert_one(word)
         flash("Yurt! Word Successfully Added!")
@@ -193,6 +197,39 @@ def edit_word(word_Id):
         "_id": ObjectId(word_Id)
     })
     return render_template("edit_word.html", word=word)
+
+
+@app.route("/rating_up/<word_Id>/<user_Id>", methods=["GET", "POST"])
+def rating_up(word_Id, user_Id):
+    # initializes variables to increment the rating
+    word = mongo.db.words.find_one({"_id": ObjectId(word_Id)})
+    user = mongo.db.users.find_one({"_id": ObjectId(user_Id)})
+    last_edited_by = word.get("lastEditedBy")
+    last_edit = mongo.db.users.find_one({
+        "_id": last_edited_by
+    })
+    old_rating = word.get("rating")
+    new_rating = old_rating + 1
+    liked = word.get("liked")
+    disliked = word.get("disliked")
+
+    # checks if the user has disliked the word, and if so removes them from
+    # the disliked array
+    if user_Id in disliked:
+        disliked.remove(user_Id)
+
+    # adds user's id to the ilke array
+    liked.append(user_Id)
+
+    # updates the word entry on MongoDB
+    mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
+        "rating": new_rating,
+        "liked": liked,
+        "disliked": disliked
+    }})
+
+    return render_template(
+        "word-page.html", word=word, user=user, last_edit=last_edit)
 
 
 @app.route("/delete_word/<word_Id>")
