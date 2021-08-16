@@ -205,10 +205,6 @@ def rating_up(word_id, username):
     word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
     user = mongo.db.users.find_one({"name": username})
     user_id = ObjectId(user.get("_id"))
-    last_edited_by = word.get("lastEditedBy")
-    last_edit = mongo.db.users.find_one({
-        "_id": last_edited_by
-    })
     old_rating = word.get("rating")
     new_rating = old_rating + 1
     liked = word.get("liked")
@@ -229,8 +225,7 @@ def rating_up(word_id, username):
         "disliked": disliked
     }})
 
-    return render_template(
-        "word-page.html", word=word, user=user, last_edit=last_edit)
+    return redirect(url_for('word_page', word_Id=word_id))
 
 
 @app.route("/delete_word/<word_Id>")
