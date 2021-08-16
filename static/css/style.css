@@ -158,10 +158,15 @@ main {
 
 @media(min-width: 993px) and (max-width: 1200px) {
     .no-words-text {
-        margin-left: 20%!important;
+        margin-left: 20% !important;
     }
 }
 
 .card .card-action {
     border-top: 2px solid white;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin-right: 1px;
+    text-transform: none;
 }

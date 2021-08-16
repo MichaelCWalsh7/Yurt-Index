@@ -61,14 +61,16 @@
 
             </div>
             <div class="card-action">
-                <a href="{{ url_for('rating_up', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_up</i></a>
-                <a href="{{ url_for('rating_down', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_down</i></a>
-                <span class="rating-number"> {{ word.rating }} </span>
-                {% if session.user %}
+                {% if session.user %}                
+                    <a href="{{ url_for('rating_up', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_up</i></a>
+                    <a href="{{ url_for('rating_down', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_down</i></a>
+                    <span class="rating-number"> {{ word.rating }} </span>                
                     <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
                     <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
+                {% else %}
+                    <span><a href="">Log in</a> or <a href="">register</a> to edit this word, and more!</span>            
                 {% endif %}
-            </div>
+        </div>
         </div>
     </div>
 
