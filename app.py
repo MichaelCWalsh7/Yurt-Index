@@ -38,8 +38,24 @@ def word_page(word_Id):
     last_edit = mongo.db.users.find_one({
         "_id": last_edited_by
     })
+    liked_ids = word.get("liked")
+    disliked_ids = word.get("disliked")
+    users_liked = rating_user_list(liked_ids)
+    users_disliked = rating_user_list(disliked_ids)
     return render_template(
-        "word-page.html", word=word, user=user, last_edit=last_edit)
+        "word-page.html", word=word, user=user, last_edit=last_edit,
+        liked=users_liked, disliked=users_disliked)
+
+
+def rating_user_list(rating_list):
+    users = []
+    for rating_id in rating_list:
+        user = mongo.db.users.find_one({
+            "_id": ObjectId(rating_id)
+            })
+        username = user.get("name")
+        users.append(username)
+    return users
 
 
 @app.route("/new_word", methods=["GET", "POST"])
@@ -62,7 +78,7 @@ def new_word():
         disliked = []
         user = mongo.db.users.find_one({
             "name": session["user"]
-        })
+        }).lower()
         user_id = user.get("_id")
 
         # adds any additional spellings to the altSpellings list
