@@ -61,7 +61,7 @@
 
             </div>
             <div class="card-action">
-                <a href="{{ url_for('rating_up', word_Id=word._id, user_Id=user._id) }}"><i class="material-icons">thumb_up</i></a>
+                <a href="{{ url_for('rating_up', word_id=word._id, user_id=user._id) }}"><i class="material-icons">thumb_up</i></a>
                 <a href="#"><i class="material-icons">thumb_down</i></a>
                 <span class="rating-number"> {{ word.rating }} </span>
                 {% if session.user %}

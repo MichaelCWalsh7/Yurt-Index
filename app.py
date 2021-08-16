@@ -199,11 +199,12 @@ def edit_word(word_Id):
     return render_template("edit_word.html", word=word)
 
 
-@app.route("/rating_up/<word_Id>/<user_Id>", methods=["GET", "POST"])
-def rating_up(word_Id, user_Id):
+@app.route("/rating_up/<word_id>/<user_id>", methods=["GET", "POST"])
+def rating_up(word_id, user_id):
     # initializes variables to increment the rating
-    word = mongo.db.words.find_one({"_id": ObjectId(word_Id)})
-    user = mongo.db.users.find_one({"_id": ObjectId(user_Id)})
+    word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    user_id = ObjectId(user_id)
     last_edited_by = word.get("lastEditedBy")
     last_edit = mongo.db.users.find_one({
         "_id": last_edited_by
@@ -215,14 +216,14 @@ def rating_up(word_Id, user_Id):
 
     # checks if the user has disliked the word, and if so removes them from
     # the disliked array
-    if user_Id in disliked:
-        disliked.remove(user_Id)
+    if user_id in disliked:
+        disliked.remove(user_id)
 
     # adds user's id to the ilke array
-    liked.append(user_Id)
+    liked.append(user_id)
 
     # updates the word entry on MongoDB
-    mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
+    mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
         "rating": new_rating,
         "liked": liked,
         "disliked": disliked
