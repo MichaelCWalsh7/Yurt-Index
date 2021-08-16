@@ -198,7 +198,10 @@ def delete_word(word_Id):
 @app.route("/all_words")
 def all_words():
     words = list(mongo.db.words.find().sort("name", 1))
-    letters = ["A", "B", "C"]
+    letters = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ]
     return render_template("all_words.html", words=words, letters=letters)
 
 
@@ -216,7 +219,10 @@ def display_by_letter(letter):
     all_words = mongo.db.words.find()
     words = []
     current_letter = letter
-    letters = ["A", "B", "C"]
+    letters = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ]
     for word in all_words:
         name = word.get("name")
         if name[0].lower() == letter.lower():
