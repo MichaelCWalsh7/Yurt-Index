@@ -198,7 +198,8 @@ def delete_word(word_Id):
 @app.route("/all_words")
 def all_words():
     words = list(mongo.db.words.find().sort("name", 1))
-    return render_template("all_words.html", words=words)
+    letters = ["A", "B", "C"]
+    return render_template("all_words.html", words=words, letters=letters)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -208,6 +209,20 @@ def search():
         "$text": {"$search": search}
     }))
     return render_template("search_results.html", words=words)
+
+
+@app.route("/display_by_letter/<letter>")
+def display_by_letter(letter):
+    all_words = mongo.db.words.find()
+    words = []
+    current_letter = letter
+    letters = ["A", "B", "C"]
+    for word in all_words:
+        name = word.get("name")
+        if name[0].lower() == letter.lower():
+            words.append(word)
+    return render_template('display_by_letter.html', words=words,
+                           letters=letters, current_letter=current_letter)
 
 
 @app.route('/register', methods=["GET", "POST"])
