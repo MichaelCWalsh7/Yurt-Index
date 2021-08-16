@@ -199,12 +199,12 @@ def edit_word(word_Id):
     return render_template("edit_word.html", word=word)
 
 
-@app.route("/rating_up/<word_id>/<user_id>", methods=["GET", "POST"])
-def rating_up(word_id, user_id):
+@app.route("/rating_up/<username>/<word_id>", methods=["GET", "POST"])
+def rating_up(word_id, username):
     # initializes variables to increment the rating
     word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
-    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    user_id = ObjectId(user_id)
+    user = mongo.db.users.find_one({"name": username})
+    user_id = ObjectId(user.get("_id"))
     last_edited_by = word.get("lastEditedBy")
     last_edit = mongo.db.users.find_one({
         "_id": last_edited_by
