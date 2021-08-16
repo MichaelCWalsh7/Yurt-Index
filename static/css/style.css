@@ -161,3 +161,7 @@ main {
         margin-left: 20%!important;
     }
 }
+
+.card .card-action {
+    border-top: 2px solid white;
+}
