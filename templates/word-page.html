@@ -62,7 +62,7 @@
             </div>
             <div class="card-action">
                 <a href="{{ url_for('rating_up', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_up</i></a>
-                <a href="#"><i class="material-icons">thumb_down</i></a>
+                <a href="{{ url_for('rating_down', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_down</i></a>
                 <span class="rating-number"> {{ word.rating }} </span>
                 {% if session.user %}
                     <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>

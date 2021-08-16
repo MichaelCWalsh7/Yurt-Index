@@ -215,8 +215,37 @@ def rating_up(word_id, username):
     if user_id in disliked:
         disliked.remove(user_id)
 
-    # adds user's id to the ilke array
+    # adds user's id to the like array
     liked.append(user_id)
+
+    # updates the word entry on MongoDB
+    mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
+        "rating": new_rating,
+        "liked": liked,
+        "disliked": disliked
+    }})
+
+    return redirect(url_for('word_page', word_Id=word_id))
+
+
+@app.route("/rating_down/<username>/<word_id>", methods=["GET", "POST"])
+def rating_down(word_id, username):
+    # initializes variables to increment the rating
+    word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
+    user = mongo.db.users.find_one({"name": username})
+    user_id = ObjectId(user.get("_id"))
+    old_rating = word.get("rating")
+    new_rating = old_rating - 1
+    liked = word.get("liked")
+    disliked = word.get("disliked")
+
+    # checks if the user has liked the word, and if so removes them from
+    # the liked array
+    if user_id in liked:
+        liked.remove(user_id)
+
+    # adds user's id to the disliked array
+    disliked.append(user_id)
 
     # updates the word entry on MongoDB
     mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
