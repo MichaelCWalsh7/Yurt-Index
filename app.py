@@ -45,6 +45,15 @@ def word_page(word_Id):
 @app.route("/new_word", methods=["GET", "POST"])
 def new_word():
     if request.method == "POST":
+        # checks if the word already exists in the dictionary
+        existing_word = mongo.db.words.find_one({
+            "name": request.form.get("new_name").capitalize()
+        })
+
+        if existing_word:
+            flash("This word already has an entry")
+            return redirect(url_for("new_word"))
+
         alt_spellings = []
         alt_definitions = []
         uses = []
