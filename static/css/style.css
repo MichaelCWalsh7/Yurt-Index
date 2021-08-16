@@ -155,3 +155,9 @@ main {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+@media(min-width: 993px) and (max-width: 1200px) {
+    .no-words-text {
+        margin-left: 20%!important;
+    }
+}

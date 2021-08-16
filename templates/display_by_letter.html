@@ -56,6 +56,11 @@
                     </div>
                 </div>
             </div>
+        {% else %}
+            <div class="col s10 offset-s1 offset-l3 opaque-text no-words-text">
+                <h5>Sorry, we don't have any words that begin with this letter yet...</h5>
+            </div>
+            
         {% endfor %}
     </div>
 {% endblock %}
