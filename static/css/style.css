@@ -187,3 +187,11 @@ main {
 #not-rated-down {
     text-decoration: none;
 }
+
+.dropdown-content li>a>i {
+    margin: 0;
+}
+
+.sort-icons {
+    margin-right: 18px!important;
+}
