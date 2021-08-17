@@ -313,7 +313,20 @@ def delete_word(word_Id):
 
 @app.route("/all_words")
 def all_words():
-    words = list(mongo.db.words.find().sort("name", 1))
+    words = mongo.db.words.find().sort("name", 1)
+    letters = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ]
+    return render_template("all_words.html", words=words, letters=letters)
+
+
+@app.route("/sort_all/<field>/<order>")
+def sort_all(field, order):
+    if order == '+':
+        value = 1
+
+    words = mongo.db.words.find().sort(field, value)
     letters = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
@@ -332,7 +345,7 @@ def search():
 
 @app.route("/display_by_letter/<letter>")
 def display_by_letter(letter):
-    all_words = mongo.db.words.find()
+    all_words = list(mongo.db.words.find().sort("name", 1))
     words = []
     current_letter = letter
     letters = [

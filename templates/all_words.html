@@ -3,18 +3,21 @@
 
     <h3 class="center main-heading">All Words</h3>
 
-    <!-- Dropdown Trigger -->
+    <!-- Dropdown Triggers -->
     <div class="row">
-        <div class="col s10 m6">
-            <a class='dropdown-trigger btn amber darken-2' href='#' data-target='dropdown1'>
+        <div class="col s12">
+            <a class='dropdown-trigger btn amber darken-2' href='#' data-target='lettersDropdown'>
                 Letters A-Z <i class="material-icons">arrow_drop_down</i>
+            </a>
+            <a class='dropdown-trigger btn right grey darken-3' href='#' data-target='sortDropdown'>
+                Order Words By <i class="material-icons">arrow_drop_down</i>
             </a>
         </div>
     </div>
     
 
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>
+    <!-- Dropdown Structure Letters -->
+    <ul id='lettersDropdown' class='dropdown-content'>
         <li><a href="{{ url_for('display_by_letter', letter=letters[0]) }}">A</a></li>
         <li><a href="{{ url_for('display_by_letter', letter=letters[1]) }}">B</a></li>
         <li><a href="{{ url_for('display_by_letter', letter=letters[2]) }}">C</a></li>
@@ -41,6 +44,48 @@
         <li><a href="{{ url_for('display_by_letter', letter=letters[23]) }}">X</a></li>
         <li><a href="{{ url_for('display_by_letter', letter=letters[24]) }}">Y</a></li>
         <li><a href="{{ url_for('display_by_letter', letter=letters[25]) }}">Z</a></li>
+    </ul>
+
+    <!-- Dropdown Structure Sort By -->
+    <ul id="sortDropdown" class="dropdown-content">
+        <li><a href="{{ url_for('sort_all', field='rating', order='+') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">sort_by_alpha</i>
+            <span class="green-text text-darken-1">
+                 Alphabet <i class="material-icons">arrow_upward</i>
+            </span>
+            
+        </a></li>
+        <li><a href="">
+            <i class="material-icons sort-icons grey-text text-darken-3">sort_by_alpha</i>
+            <span class="green-text text-darken-1">
+                 Alphabet <i class="material-icons">arrow_downward</i>
+            </span>
+            
+        </a></li>
+        <li><a href="">
+            <i class="material-icons sort-icons grey-text text-darken-3">date_range</i>
+            <span class="green-text text-darken-1">
+                 Uploaded <i class="material-icons">arrow_upward</i>
+            </span>
+        </a></li>
+        <li><a href="">
+            <i class="material-icons sort-icons grey-text text-darken-3">date_range</i>
+            <span class="green-text text-darken-1">
+                 Uploaded <i class="material-icons">arrow_downward</i>
+            </span>
+        </a></li>
+        <li><a href="">
+            <i class="material-icons sort-icons grey-text text-darken-3">star</i>
+            <span class="green-text text-darken-1">
+                 Rating <i class="material-icons">arrow_upward</i>
+            </span>
+        </a></li>
+        <li><a href="">
+            <i class="material-icons sort-icons grey-text text-darken-3">star</i>
+            <span class="green-text text-darken-1">
+                 Rating <i class="material-icons">arrow_downward</i>
+            </span>
+        </a></li>
     </ul>
 
     <div class="row all-words-container">
