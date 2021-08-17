@@ -170,3 +170,11 @@ main {
     margin-right: 1px;
     text-transform: none;
 }
+
+.already-rated-up {
+    color: gold;
+}
+
+.already-rated-down {
+    color: red;
+}
