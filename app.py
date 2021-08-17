@@ -273,6 +273,35 @@ def rating_down(word_id, username):
     return redirect(url_for('word_page', word_Id=word_id))
 
 
+@app.route("/unrate/<username>/<rating>/<word_id>", methods=["GET", "POST"])
+def unrate(username, rating, word_id):
+    # initializes vairables needed to unrate the word
+    word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
+    user = mongo.db.users.find_one({"name": username})
+    user_id = ObjectId(user.get("_id"))
+    old_rate = word.get("rating")
+
+    # checks if user had previoulsy liked or disliked the given word
+    if rating == "up":
+        rating_list = word.get("liked")
+        # removes the user from the appropriate id array
+        rating_list.remove(user)
+        mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
+            "liked": rating_list,
+            "rating": old_rate - 1
+        }})
+
+    if rating == "down":
+        rating_list = word.get("disliked")
+        # removes the user from the appropriate id array
+        rating_list.remove(user)
+        mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
+            "disliked": rating_list,
+            "rating": old_rate + 1
+        }})
+    return redirect(url_for('word_page', word_Id=word_id))
+
+
 @app.route("/delete_word/<word_Id>")
 def delete_word(word_Id):
     mongo.db.words.remove({
