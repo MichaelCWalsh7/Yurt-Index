@@ -180,3 +180,10 @@ main {
 #not-rated-down:hover {
     color: red;
 }
+
+#unrate-link-up,
+#unrate-link-down,
+#not-rated-up,
+#not-rated-down {
+    text-decoration: none;
+}

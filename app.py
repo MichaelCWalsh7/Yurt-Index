@@ -285,7 +285,7 @@ def unrate(username, rating, word_id):
     if rating == "up":
         rating_list = word.get("liked")
         # removes the user from the appropriate id array
-        rating_list.remove(user)
+        rating_list.remove(user_id)
         mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
             "liked": rating_list,
             "rating": old_rate - 1
@@ -294,7 +294,7 @@ def unrate(username, rating, word_id):
     if rating == "down":
         rating_list = word.get("disliked")
         # removes the user from the appropriate id array
-        rating_list.remove(user)
+        rating_list.remove(user_id)
         mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
             "disliked": rating_list,
             "rating": old_rate + 1
