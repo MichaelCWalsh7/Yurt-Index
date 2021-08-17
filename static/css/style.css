@@ -171,10 +171,12 @@ main {
     text-transform: none;
 }
 
-.already-rated-up {
+.already-rated-up,
+#not-rated-up:hover {
     color: gold;
 }
 
-.already-rated-down {
+.already-rated-down,
+#not-rated-down:hover {
     color: red;
 }

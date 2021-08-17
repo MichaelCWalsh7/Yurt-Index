@@ -65,13 +65,13 @@
                     {% if session.user.lower() in liked %}
                         <i class="material-icons already-rated-up">thumb_up</i>
                     {% else %}
-                        <a href="{{ url_for('rating_up', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_up</i></a>
+                        <a id="not-rated-up" href="{{ url_for('rating_up', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_up</i></a>
                     {% endif %}
 
                     {% if session.user.lower() in disliked %}
                         <i class="material-icons already-rated-down">thumb_down</i>
                     {% else %}
-                        <a href="{{ url_for('rating_down', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_down</i></a>
+                        <a id="not-rated-down" href="{{ url_for('rating_down', word_id=word._id, username=session['user']) }}"><i class="material-icons">thumb_down</i></a>
                     {% endif %}
 
                     <span class="rating-number"> {{ word.rating }} </span>
