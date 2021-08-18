@@ -230,6 +230,7 @@ def rating_up(word_id, username):
     # the disliked array
     if user_id in disliked:
         disliked.remove(user_id)
+        new_rating = new_rating + 1
 
     # adds user's id to the like array
     liked.append(user_id)
@@ -259,6 +260,7 @@ def rating_down(word_id, username):
     # the liked array
     if user_id in liked:
         liked.remove(user_id)
+        new_rating = new_rating - 1
 
     # adds user's id to the disliked array
     disliked.append(user_id)
