@@ -363,6 +363,30 @@ def display_by_letter(letter):
                            letters=letters, current_letter=current_letter)
 
 
+@app.route("/sort_letters/<letter>/<field>/<order>")
+def sort_letters(letter, field, order):
+    if order == '+':
+        value = 1
+
+    if order == '-':
+        value = -1
+
+    all_words = mongo.db.words.find().sort(field, value)
+    words = []
+    current_letter = letter
+    letters = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ]
+
+    for word in all_words:
+        name = word.get("name")
+        if name[0].lower() == letter.lower():
+            words.append(word)
+    return render_template('display_by_letter.html', words=words,
+                           letters=letters, current_letter=current_letter)
+
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
