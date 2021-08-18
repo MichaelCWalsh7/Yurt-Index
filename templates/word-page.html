@@ -1,4 +1,18 @@
 {% extends "base.html" %}
+
+{% block search %}
+    <div class="row green darken-1">
+        <form action="{{ url_for('search') }}" method="post" class="col offset-m3 s12 m6" id="navSearch">
+            <div class="input-field search-container white">
+                <i class="material-icons prefix">search</i>
+                <input id="search" type="text" name="search">
+                <label for="search">Search</label>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
 {% block content %}
 
 
