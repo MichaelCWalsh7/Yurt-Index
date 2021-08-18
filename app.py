@@ -326,6 +326,9 @@ def sort_all(field, order):
     if order == '+':
         value = 1
 
+    if order == '-':
+        value = -1
+
     words = mongo.db.words.find().sort(field, value)
     letters = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
