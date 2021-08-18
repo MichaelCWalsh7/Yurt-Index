@@ -232,6 +232,9 @@ def rating_up(word_id, username):
         disliked.remove(user_id)
         new_rating = new_rating + 1
 
+    if user_id in liked:
+        return redirect(url_for('word_page', word_Id=word_id))
+
     # adds user's id to the like array
     liked.append(user_id)
 
@@ -261,6 +264,9 @@ def rating_down(word_id, username):
     if user_id in liked:
         liked.remove(user_id)
         new_rating = new_rating - 1
+
+    if user_id in disliked:
+        return redirect(url_for('word_page', word_Id=word_id))
 
     # adds user's id to the disliked array
     disliked.append(user_id)
