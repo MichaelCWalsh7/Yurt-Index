@@ -292,21 +292,26 @@ def unrate(username, rating, word_id):
     # checks if user had previoulsy liked or disliked the given word
     if rating == "up":
         rating_list = word.get("liked")
-        # removes the user from the appropriate id array
-        rating_list.remove(user_id)
-        mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
-            "liked": rating_list,
-            "rating": old_rate - 1
-        }})
+
+        # checks if user is still in the list in the case of a double-click
+        if user_id in rating_list:
+            # removes the user from the appropriate id array
+            rating_list.remove(user_id)
+            mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
+                "liked": rating_list,
+                "rating": old_rate - 1
+            }})
 
     if rating == "down":
         rating_list = word.get("disliked")
-        # removes the user from the appropriate id array
-        rating_list.remove(user_id)
-        mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
-            "disliked": rating_list,
-            "rating": old_rate + 1
-        }})
+        # checks if user is still in the list in the case of a double-click
+        if user_id in rating_list:
+            # removes the user from the appropriate id array
+            rating_list.remove(user_id)
+            mongo.db.words.update({"_id": ObjectId(word_id)}, {"$set": {
+                "disliked": rating_list,
+                "rating": old_rate + 1
+            }})
     return redirect(url_for('word_page', word_Id=word_id))
 
 
