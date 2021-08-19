@@ -105,14 +105,16 @@
                     <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
                     <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
                 </div>
-                <div class="col s12 rating-info-container">
-                    {% if session.user.lower() in liked %}
-                        <span>You've liked this word!</span>
-                    {% endif %}
-                    {% if session.user.lower() in disliked %}
-                        <span>You've disliked this word!</span>
-                    {% endif %}
-                </div>
+                {% if session.user %}
+                    <div class="col s12 rating-info-container">                       
+                        {% if session.user.lower() in liked %}
+                            <span>You've liked this word!</span>
+                        {% endif %}
+                        {% if session.user.lower() in disliked %}
+                            <span>You've disliked this word!</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
