@@ -210,3 +210,7 @@ main {
     overflow-y: hidden;
     }
 }
+
+.add-tag-form-container {
+    margin-top: 60px;
+}

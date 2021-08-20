@@ -14,5 +14,32 @@
 {% endblock %}
 
 {% block content %}
+    <h3 class="center main-heading">Add Tag</h3>
+
+    <div class="row add-tag-form-container card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('add_tag', username=session['user']) }}">
+            <span class="form-instruction">You may add multiple tags at once:</span>
+            <div class="input-field add-tag-input col s12">
+                <input name="name-1" id="name-1" type="text" class="validate" required>
+                <label for="name-1" class="input-field-name">First tag name</label>
+            </div>
+            <div class="input-field add-tag-input col s12">
+                <input name="name-2" id="name-2" type="text">
+                <label for="name-2" class="input-field-name">Second tag name</label>
+            </div>
+            <div class="input-field add-tag-input col s12">
+                <input name="name-3" id="name-3" type="text">
+                <label for="name-3" class="input-field-name">Third tag name</label>
+            </div>
+            <div class="input-field add-tag-input col s12">
+                <input name="name-4" id="name-4" type="text">
+                <label for="name-4" class="input-field-name">Fourth tag name</label>
+            </div>
+            <div class="add-tag-cancel-submit">
+                <button class="btn red">Cancel <i class="small material-icons">close</i></button>
+                <button class="btn blue" type="submit">Submit <i class="small material-icons">check</i></button>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
