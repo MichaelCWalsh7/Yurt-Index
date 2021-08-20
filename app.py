@@ -78,7 +78,7 @@ def new_word():
         disliked = []
         user = mongo.db.users.find_one({
             "name": session["user"]
-        }).lower()
+        })
         user_id = user.get("_id")
 
         # adds any additional spellings to the altSpellings list
