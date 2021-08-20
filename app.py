@@ -326,7 +326,7 @@ def add_tag(username):
         user_id = user.get("_id")
         words = mongo.db.words.find().sort("rating", 1)
         while x < 5:
-            tags.append(request.form.get(f"name-{x}"))
+            tags.append(request.form.get(f"name-{x}").capitalize())
             x += 1
         for tag in tags:
             if tag != "":
