@@ -39,6 +39,10 @@ main {
     opacity: .7;
 }
 
+.select-wrapper input.select-dropdown {
+    opacity: 0.6;
+}
+
 .word-card {
     margin-top: 8%;
 }

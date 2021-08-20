@@ -6,5 +6,6 @@ $(document).ready(function () {
     $('.datepicker').datepicker();
     $('.tabs').tabs();
     $('.dropdown-trigger').dropdown();
+    $('select').formSelect();
 });
 
