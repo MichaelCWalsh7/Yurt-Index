@@ -317,6 +317,29 @@ def unrate(username, rating, word_id):
 
 @app.route("/add_tag/<username>", methods=["GET", "POST"])
 def add_tag(username):
+    if request.method == "POST":
+        tags = []
+        x = 1
+        user = mongo.db.users.find_one({
+            "name": username
+        })
+        user_id = user.get("_id")
+        words = mongo.db.words.find().sort("rating", 1)
+        while x < 5:
+            tags.append(request.form.get(f"name-{x}"))
+            x += 1
+        for tag in tags:
+            if tag != "":
+                new_tag = {
+                    "name": tag,
+                    "createdBy": ObjectId(user_id),
+                    "dateCreated": "placeholder",
+                    "taggedWords": []
+                }
+                mongo.db.tags.insert(new_tag)
+        flash("Tag(s) Added Successfully!")
+        return redirect(url_for('home_page', words=words))
+
     return render_template("add_tag.html")
 
 
