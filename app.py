@@ -315,6 +315,11 @@ def unrate(username, rating, word_id):
     return redirect(url_for('word_page', word_Id=word_id))
 
 
+@app.route("/add_tag/<username>", methods=["GET", "POST"])
+def add_tag(username):
+    return render_template("add_tag.html")
+
+
 @app.route("/delete_word/<word_Id>")
 def delete_word(word_Id):
     mongo.db.words.remove({
@@ -446,6 +451,7 @@ def log_in():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = existing_user.get("name")
+                session["admin"] = existing_user.get("isAdmin")
                 flash("Welcome, {}".format(request.form.get("username")))
                 print("success")
                 return redirect(url_for(

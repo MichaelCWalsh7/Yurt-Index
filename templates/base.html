@@ -29,8 +29,11 @@
                     <li><a href="{{ url_for('home_page') }}">Home</a></li>
                     <li><a href="{{ url_for('all_words') }}">All Words</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('new_word') }}">New Word</a></li>                        
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>                        
+                        <li><a href="{{ url_for('new_word') }}">New Word</a></li>
+                        {% if session.admin %}
+                            <li><a href="{{ url_for('add_tag', username=session['user']) }}">New Tag</a></li>
+                        {% endif %}                        
                         <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('log_in') }}">Log In</a></li>
