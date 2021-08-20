@@ -18,21 +18,22 @@
 
     <div class="row add-tag-form-container card-panel">
         <form class="col s12" method="POST" action="{{ url_for('add_tag', username=session['user']) }}">
-            <span class="form-instruction">You may add multiple tags at once:</span>
+            <span class="form-instruction">You may add multiple tags at once:</span><br>
+            <span class="form-instruction">(character limit: 20)</span>
             <div class="input-field add-tag-input col s12">
-                <input name="name-1" id="name-1" type="text" class="validate" required>
+                <input name="name-1" id="name-1" type="text" class="validate" maxlength="20" required>
                 <label for="name-1" class="input-field-name">First tag name</label>
             </div>
             <div class="input-field add-tag-input col s12">
-                <input name="name-2" id="name-2" type="text">
+                <input name="name-2" id="name-2" type="text" maxlength="20">
                 <label for="name-2" class="input-field-name">Second tag name</label>
             </div>
             <div class="input-field add-tag-input col s12">
-                <input name="name-3" id="name-3" type="text">
+                <input name="name-3" id="name-3" type="text" maxlength="20">
                 <label for="name-3" class="input-field-name">Third tag name</label>
             </div>
             <div class="input-field add-tag-input col s12">
-                <input name="name-4" id="name-4" type="text">
+                <input name="name-4" id="name-4" type="text" maxlength="20">
                 <label for="name-4" class="input-field-name">Fourth tag name</label>
             </div>
             <div class="add-tag-cancel-submit">
