@@ -132,16 +132,79 @@
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
                 </div>
             </div>
-            <div class="input-field col s12">
-                <select>
+            <div class="input-field col s12 m8 l6">
+                <select id="tag_1" name="tag_1">
                     <option value="" disabled selected>Add a tag</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    {% for tag in tags %}
+                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                    {% endfor %}
                 </select>
                 <label>Tags</label>
             </div>
-            <div class="new-word-cancel-submit">
+
+            <div class="col s12 uses-button-container">
+                <span class="btn green-text add-alt-button modal-trigger" href="#modal4">
+                    <i class="tiny material-icons">add_circle</i> Add more tags
+                </span>
+            </div>
+
+
+            <!-- Modal Structure -->
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <h4>Add Extra Tags</h4>
+                    <div class="row">
+                        <div class="input-field col s11">
+                            <select id="tag_2" name="tag_2">
+                                <option value="" disabled selected>Add a tag</option>
+                                {% for tag in tags %}
+                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Tags</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s11">
+                            <select id="tag_3" name="tag_3">
+                                <option value="" disabled selected>Add a tag</option>
+                                {% for tag in tags %}
+                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Tags</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s11">
+                            <select id="tag_4" name="tag_4">
+                                <option value="" disabled selected>Add a tag</option>
+                                {% for tag in tags %}
+                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Tags</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s11">
+                            <select id="tag_5" name="tag_5">
+                                <option value="" disabled selected>Add a tag</option>
+                                {% for tag in tags %}
+                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label>Tags</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+                </div>
+            </div>
+
+            <!-- submit/cancel buttons -->
+            <div class="col s12 new-word-cancel-submit">
                 <button class="btn red">Cancel <i class="small material-icons">close</i></button>
                 <button class="btn blue" type="submit">Submit <i class="small material-icons">check</i></button>
             </div>

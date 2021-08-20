@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home_page")
 def home_page():
-    words = list(mongo.db.words.find())
+    words = list(mongo.db.words.find().sort("rating", -1))
     return render_template("home.html", words=words)
 
 
@@ -76,6 +76,7 @@ def new_word():
         editors = []
         liked = []
         disliked = []
+        tag_ids = []
         user = mongo.db.users.find_one({
             "name": session["user"]
         })
@@ -110,6 +111,18 @@ def new_word():
                 uses.append(use)
             x += 1
 
+        # adds selected tags to the new tags list
+        x = 1
+        while x < 6:
+            tag_name = request.form.get(f"tag_{x}")
+            if tag_name is not None:
+                selected_tag = mongo.db.tags.find_one(
+                    {"name": tag_name}
+                )
+                tag_id = selected_tag.get("_id")
+                tag_ids.append(ObjectId(tag_id))
+            x += 1
+
         # initializes booleans and variables to add to collection
         has_alt_definitions = True if len(alt_definitions) > 1 else False
         has_alt_spellings = True if len(alt_spellings) > 1 else False
@@ -133,13 +146,15 @@ def new_word():
             "lastEditedDate": "",
             "editors": editors,
             "liked": liked,
-            "disliked": disliked
+            "disliked": disliked,
+            "tags": tag_ids
         }
         mongo.db.words.insert_one(word)
         flash("Yurt! Word Successfully Added!")
         return redirect(url_for("home_page"))
 
-    return render_template("new_word.html")
+    tags = list(mongo.db.tags.find().sort("name", 1))
+    return render_template("new_word.html", tags=tags)
 
 
 @app.route("/edit_word/<word_Id>", methods=["GET", "POST"])
@@ -325,6 +340,7 @@ def add_tag(username):
         })
         user_id = user.get("_id")
         words = mongo.db.words.find().sort("rating", 1)
+
         while x < 5:
             tags.append(request.form.get(f"name-{x}").capitalize())
             x += 1
