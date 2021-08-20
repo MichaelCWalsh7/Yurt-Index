@@ -196,20 +196,13 @@ main {
     margin-right: 18px!important;
 }
 
-@media(min-width: 1134px) {
-    .word-summary {
-        min-height: 131px;
-    }
+.word-summary {
+    min-height: 132px;
 }
 
-@media(min-width: 783px) and (max-width: 1133px) {
-    .word-summary {
-        min-height: 150px;
-    }
-}
-
-@media(min-width: 601px) and (max-width: 782px) {
-    .word-summary {
-        min-height: 191px;
+@media(min-width: 601px) {
+    .word-summary p {
+    max-height: 44px;
+    overflow-y: hidden;
     }
 }
