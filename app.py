@@ -27,6 +27,7 @@ def home_page():
 
 @app.route("/words/<word_Id>")
 def word_page(word_Id):
+    # initializes variables needed to display a word
     word = mongo.db.words.find_one(
         {"_id": ObjectId(word_Id)}
     )
@@ -38,13 +39,34 @@ def word_page(word_Id):
     last_edit = mongo.db.users.find_one({
         "_id": last_edited_by
     })
+
+    # finds the rating id arrays to pass through the rating list function
     liked_ids = word.get("liked")
     disliked_ids = word.get("disliked")
+
+    # runs the lists of ids through the function to get a list of names
     users_liked = rating_user_list(liked_ids)
     users_disliked = rating_user_list(disliked_ids)
+
+    # Passes the tags ids through the get_tags funciton to display to user
+    tags = get_tags(word_Id)
     return render_template(
         "word-page.html", word=word, user=user, last_edit=last_edit,
-        liked=users_liked, disliked=users_disliked)
+        liked=users_liked, disliked=users_disliked, tags=tags)
+
+
+def get_tags(word_Id):
+    word = mongo.db.words.find_one(
+        {"_id": ObjectId(word_Id)}
+    )
+    tag_ids = word.get("tags")
+    tags = []
+    for tag_id in tag_ids:
+        tag = mongo.db.tags.find_one({
+            "_id": ObjectId(tag_id)
+        })
+        tags.append(tag.get("name"))
+    return tags
 
 
 def rating_user_list(rating_list):
@@ -167,7 +189,7 @@ def new_word():
                     "taggedWords": ObjectId(added_word_id)
                 }})
 
-        return redirect(url_for("home_page"))
+        return redirect(url_for("word_page", word_Id=added_word_id))
 
     tags = list(mongo.db.tags.find().sort("name", 1))
     return render_template("new_word.html", tags=tags)

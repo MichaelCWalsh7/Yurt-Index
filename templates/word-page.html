@@ -73,6 +73,17 @@
                     {% endif %}
                 </p>
 
+                <!-- display tags or inform user that word is untagged -->
+                <div class="row">
+                    {% if word.isTagged %}
+                        <div class="col s12">
+                            <h6><strong>Tags:</strong></h6>
+                        </div>
+                    {% else %}
+
+                    {% endif %}
+                </div>
+
             </div>
             <div class="card-action">
                 {% if session.user %}
