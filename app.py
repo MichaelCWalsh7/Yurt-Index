@@ -277,7 +277,7 @@ def edit_word(word_Id):
             })
             selected_tags.append(selected_tag)
 
-    all_tags = mongo.db.tags.find()
+    all_tags = list(mongo.db.tags.find())
     return render_template(
         "edit_word.html", word=word, selected_tags=selected_tags,
         all_tags=all_tags)
