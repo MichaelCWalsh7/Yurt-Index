@@ -265,7 +265,22 @@ def edit_word(word_Id):
     word = mongo.db.words.find_one({
         "_id": ObjectId(word_Id)
     })
-    return render_template("edit_word.html", word=word)
+
+    # initializes tags already selected for the word to prefill form
+    selected_tags = []
+
+    if word.get("isTagged") is True:
+        selected_tag_ids = word.get("tags")
+        for tag_id in selected_tag_ids:
+            selected_tag = mongo.db.tags.find_one({
+                "_id": ObjectId(tag_id)
+            })
+            selected_tags.append(selected_tag)
+
+    all_tags = mongo.db.tags.find()
+    return render_template(
+        "edit_word.html", word=word, selected_tags=selected_tags,
+        all_tags=all_tags)
 
 
 @app.route("/rating_up/<username>/<word_id>", methods=["GET", "POST"])
