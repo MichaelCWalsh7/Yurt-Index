@@ -479,6 +479,7 @@ def display_by_tag(tag_id):
 
 @app.route("/sort_letters/<letter>/<field>/<order>")
 def sort_letters(letter, field, order):
+    # determines if the words will be sorted ascendingly or descendingly
     if order == '+':
         value = 1
 
@@ -499,6 +500,28 @@ def sort_letters(letter, field, order):
             words.append(word)
     return render_template('display_by_letter.html', words=words,
                            letters=letters, current_letter=current_letter)
+
+
+@app.route("/sort_tags/<tag_id>/<field>/<order>")
+def sort_tags(tag_id, field, order):
+    # determines if the words will be sorted ascendingly or descendingly
+    if order == '+':
+        value = 1
+
+    if order == '-':
+        value = -1
+
+    # initializes the tag variable for display to the user
+    tag = mongo.db.tags.find_one({
+        "_id": ObjectId(tag_id)
+    })
+
+    # initializes a sorted list of words to display
+    words = list(mongo.db.words.find(
+        {"tags": ObjectId(tag_id)}).sort(field, value)
+        )
+
+    return render_template("display_by_tag.html", tag=tag, words=words)
 
 
 @app.route('/register', methods=["GET", "POST"])
