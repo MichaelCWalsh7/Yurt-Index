@@ -82,7 +82,7 @@
                         <div class="col tags-container post">
                             <ul class="tags">
                                 {% for tag in tags %}
-                                    <li><a href="#">{{ tag.name }}</a></li>
+                                    <li><a href="{{ url_for('display_by_tag', tag_id=tag._id) }}">{{ tag.name }}</a></li>
                                 {% endfor %}
                                 
                             </ul>

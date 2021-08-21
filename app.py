@@ -458,6 +458,19 @@ def display_by_letter(letter):
                            letters=letters, current_letter=current_letter)
 
 
+@app.route("/display_by_tag/<tag_id>/<word_id>")
+def display_by_tag(tag_id, word_id):
+    # initialize a dictionary variable of the given tag
+    tag = mongo.db.tags.find_one({
+        "_id": ObjectId(tag_id)
+    })
+
+    # form a list of the word_ids associated with the tag
+    word_ids = tag.get("taggedWords")
+    print(word_ids)
+    return redirect(url_for('word_page', word_Id=word_id))
+
+
 @app.route("/sort_letters/<letter>/<field>/<order>")
 def sort_letters(letter, field, order):
     if order == '+':
