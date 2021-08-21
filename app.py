@@ -65,7 +65,7 @@ def get_tags(word_Id):
         tag = mongo.db.tags.find_one({
             "_id": ObjectId(tag_id)
         })
-        tags.append(tag.get("name"))
+        tags.append(tag)
     return tags
 
 

@@ -81,8 +81,10 @@
                         </div>
                         <div class="col tags-container post">
                             <ul class="tags">
-                                <li><a href="#">tag</a></li>
-                                <li><a href="#">tag name</a></li>
+                                {% for tag in tags %}
+                                    <li><a href="#">{{ tag.name }}</a></li>
+                                {% endfor %}
+                                
                             </ul>
                         </div>
                     {% else %}
