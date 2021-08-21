@@ -124,11 +124,12 @@ def new_word():
             x += 1
 
         # initializes booleans and variables to add to collection
+        is_tagged = True if len(tag_ids) >= 1 else False
         has_alt_definitions = True if len(alt_definitions) > 1 else False
         has_alt_spellings = True if len(alt_spellings) > 1 else False
         name = request.form.get("new_name").capitalize()
 
-        # initializes dictionary variable and pushe to MongoDB
+        # initializes dictionary variable and pushes it to MongoDB
         word = {
             "name": name,
             "hasAltSpellings": has_alt_spellings,
@@ -147,10 +148,25 @@ def new_word():
             "editors": editors,
             "liked": liked,
             "disliked": disliked,
+            "isTagged": is_tagged,
             "tags": tag_ids
         }
         mongo.db.words.insert_one(word)
         flash("Yurt! Word Successfully Added!")
+
+        # finds the id of the added word to add to the 'tags' collection
+        if is_tagged:
+            added_word = mongo.db.words.find_one({
+                "name": name
+            })
+            added_word_id = added_word.get("_id")
+
+            # pushes the word id to the 'tags' collection
+            for tag in tag_ids:
+                mongo.db.tags.update({"_id": ObjectId(tag)}, {"$push": {
+                    "taggedWords": ObjectId(added_word_id)
+                }})
+
         return redirect(url_for("home_page"))
 
     tags = list(mongo.db.tags.find().sort("name", 1))
