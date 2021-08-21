@@ -1,26 +1,91 @@
 {% extends "base.html" %}
 
 {% block search %}
-    <div class="row green darken-1">
-        <form action="{{ url_for('search') }}" method="post" class="col offset-m2 offset-l3 s12 m8 l6" id="navSearch">
-            <div class="input-field search-container white">
-                <i class="material-icons prefix">search</i>
-                <input id="search" type="text" name="search">
-                <label for="search">Enter a word or a tag e.g 'Yurt' or 'Limerick'</label>
-                <button type="submit">Search</button>
-            </div>
-        </form>
-    </div>
+<div class="row green darken-1">
+    <form action="{{ url_for('search') }}" method="post" class="col offset-m2 offset-l3 s12 m8 l6" id="navSearch">
+        <div class="input-field search-container white">
+            <i class="material-icons prefix">search</i>
+            <input id="search" type="text" name="search">
+            <label for="search">Enter a word or a tag e.g 'Yurt' or 'Limerick'</label>
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<h3>Tag page for {{ tag.name }}</h3>
+    <h3 class="center main-heading">Tag page for {{ tag.name }}</h3>
 
-<ul>
-    {% for word in words %}
-        <li>{{ word.name }}</li>
-    {% endfor %}
-</ul>
+     <!-- Dropdown Triggers -->
+     <div class="row">
+        <div class="col s12">
+            <a class='dropdown-trigger btn right grey darken-3' href='#' data-target='sortDropdown'>
+                Order Words By <i class="material-icons">arrow_drop_down</i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Dropdown Structure Sort By -->
+    <ul id="sortDropdown" class="dropdown-content">
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='name', order='+') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">sort_by_alpha</i>
+            <span class="green-text text-darken-1">
+                 Alphabet <i class="material-icons">arrow_downward</i>
+            </span>
+            
+        </a></li>
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='name', order='-') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">sort_by_alpha</i>
+            <span class="green-text text-darken-1">
+                 Alphabet <i class="material-icons">arrow_upward</i>
+            </span>
+            
+        </a></li>
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='dateCreated', order='+') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">date_range</i>
+            <span class="green-text text-darken-1">
+                 Uploaded <i class="material-icons">arrow_upward</i>
+            </span>
+        </a></li>
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='dateCreated', order='-') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">date_range</i>
+            <span class="green-text text-darken-1">
+                 Uploaded <i class="material-icons">arrow_upward</i>
+            </span>
+        </a></li>
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='rating', order='+') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">star</i>
+            <span class="green-text text-darken-1">
+                 Rating <i class="material-icons">arrow_downward</i>
+            </span>
+        </a></li>
+        <li><a href="{{ url_for('sort_tags', tag_id=tag._id, field='rating', order='-') }}">
+            <i class="material-icons sort-icons grey-text text-darken-3">star</i>
+            <span class="green-text text-darken-1">
+                 Rating <i class="material-icons">arrow_upward</i>
+            </span>
+        </a></li>
+    </ul>
+
+    <div class="row all-words-container">
+        {% for word in words %}
+            <div class="col s12 m6">
+                <div class="card green darken-1">
+                    <div class="card-content word-summary white-text">
+                        <span class="card-title"><strong>{{ word.name }}</strong></span>
+                        <p>{{ word.meaning }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col s10 offset-s1 offset-l3 opaque-text no-words-text">
+                <h5>Sorry, this tags doesn't have any words yet...</h5>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

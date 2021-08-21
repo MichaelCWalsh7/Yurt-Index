@@ -458,17 +458,23 @@ def display_by_letter(letter):
                            letters=letters, current_letter=current_letter)
 
 
-@app.route("/display_by_tag/<tag_id>/<word_id>")
-def display_by_tag(tag_id, word_id):
+@app.route("/display_by_tag/<tag_id>")
+def display_by_tag(tag_id):
     # initialize a dictionary variable of the given tag
     tag = mongo.db.tags.find_one({
         "_id": ObjectId(tag_id)
     })
 
-    # form a list of the word_ids associated with the tag
+    # form a list of the words(dictionaries) associated with the tag
     word_ids = tag.get("taggedWords")
-    print(word_ids)
-    return redirect(url_for('word_page', word_Id=word_id))
+    words = []
+    for word_id in word_ids:
+        word = mongo.db.words.find_one({
+            "_id": ObjectId(word_id)
+        })
+        words.append(word)
+
+    return render_template("display_by_tag.html", tag=tag, words=words)
 
 
 @app.route("/sort_letters/<letter>/<field>/<order>")
