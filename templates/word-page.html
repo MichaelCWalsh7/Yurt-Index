@@ -75,10 +75,10 @@
 
                 <!-- display tags or inform user that word is untagged -->
                 <div class="row">
-                    {% if word.isTagged %}
-                        <div class="col s12">
-                            <h6><strong>Tags:</strong></h6>
-                        </div>
+                    <div class="col s12">
+                        <h6><strong>Tags:</strong></h6>
+                    </div>
+                    {% if word.isTagged %}                        
                         <div class="col tags-container post">
                             <ul class="tags">
                                 {% for tag in tags %}
@@ -88,7 +88,9 @@
                             </ul>
                         </div>
                     {% else %}
-
+                    <div class="col s12">
+                        <span>This word is untagged.</span>
+                    </div>
                     {% endif %}
                 </div>
 
