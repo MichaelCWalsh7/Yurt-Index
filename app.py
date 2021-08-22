@@ -398,6 +398,7 @@ def add_tag(username):
         })
         user_id = user.get("_id")
         words = mongo.db.words.find().sort("rating", 1)
+        date = datetime.now().date()
 
         while x < 5:
             tags.append(request.form.get(f"name-{x}").capitalize())
@@ -407,7 +408,7 @@ def add_tag(username):
                 new_tag = {
                     "name": tag,
                     "createdBy": ObjectId(user_id),
-                    "dateCreated": "placeholder",
+                    "dateCreated": date.strftime("%-d-%b-%y"),
                     "taggedWords": []
                 }
                 mongo.db.tags.insert(new_tag)
@@ -558,13 +559,15 @@ def register():
             flash("Sorry! That username is taken!")
             return redirect(url_for("register"))
 
+        date = datetime.now().date()
+
         new_user = {
             "name": request.form.get("username"),
             "description": "",
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
             "dateOfBirth": request.form.get("date_of_birth"),
-            "dateJoined": "placeholder",
+            "dateJoined": date.strftime("%-d-%b-%y"),
             "country": "",
             "city": "",
             "isAdmin": False,
