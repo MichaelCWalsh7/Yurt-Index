@@ -562,7 +562,7 @@ def register():
         date = datetime.now().date()
 
         new_user = {
-            "name": request.form.get("username"),
+            "name": request.form.get("username").lower(),
             "description": "",
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
