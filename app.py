@@ -480,6 +480,9 @@ def display_by_tag(tag_id):
         "_id": ObjectId(tag_id)
     })
 
+    # initialize a variable of all tags available for dropdown selector
+    all_tags = list(mongo.db.tags.find())
+
     # form a list of the words(dictionaries) associated with the tag
     word_ids = tag.get("taggedWords")
     words = []
@@ -489,7 +492,8 @@ def display_by_tag(tag_id):
         })
         words.append(word)
 
-    return render_template("display_by_tag.html", tag=tag, words=words)
+    return render_template(
+        "display_by_tag.html", tag=tag, words=words, all_tags=all_tags)
 
 
 @app.route("/sort_letters/<letter>/<field>/<order>")

@@ -20,11 +20,21 @@
      <!-- Dropdown Triggers -->
      <div class="row">
         <div class="col s12">
+            <a class='dropdown-trigger btn amber darken-2' href='#' data-target='tagsDropdown'>
+               Find By Tag<i class="material-icons">arrow_drop_down</i>
+            </a>
             <a class='dropdown-trigger btn right grey darken-3' href='#' data-target='sortDropdown'>
                 Order Words By <i class="material-icons">arrow_drop_down</i>
             </a>
         </div>
     </div>
+
+    <!-- Dropdown Structure Tags -->
+    <ul id='tagsDropdown' class='dropdown-content'>
+        {% for display_tag in all_tags %}
+        <li><a href="{{ url_for('display_by_tag', tag_id=display_tag._id) }}">{{ display_tag.name }}</a></li>
+        {% endfor %}
+    </ul>
 
     <!-- Dropdown Structure Sort By -->
     <ul id="sortDropdown" class="dropdown-content">
