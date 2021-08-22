@@ -201,6 +201,7 @@ def new_word():
 @app.route("/edit_word/<word_Id>", methods=["GET", "POST"])
 def edit_word(word_Id):
     if request.method == "POST":
+        # initialize variables to push to MongoDB
         alt_spellings = []
         alt_definitions = []
         uses = []
@@ -212,6 +213,7 @@ def edit_word(word_Id):
         })
         user_id = user.get("_id")
         editors = word.get("editors")
+        date = datetime.now().date()
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -259,7 +261,7 @@ def edit_word(word_Id):
             "uses": uses,
             "edited": True,
             "lastEditedBy": user_id,
-            "lastEditedDate": "placeholder",
+            "lastEditedDate":  date.strftime("%-d-%b-%y"),
             "editors": editors
         }})
         flash("Word Successfully Updated!")
