@@ -32,32 +32,9 @@
 
     <!-- Dropdown Structure Letters -->
     <ul id='lettersDropdown' class='dropdown-content'>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[0]) }}">A</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[1]) }}">B</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[2]) }}">C</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[3]) }}">D</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[4]) }}">E</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[5]) }}">F</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[6]) }}">G</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[7]) }}">H</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[8]) }}">I</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[9]) }}">J</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[10]) }}">K</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[11]) }}">L</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[12]) }}">M</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[13]) }}">N</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[14]) }}">O</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[15]) }}">P</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[16]) }}">Q</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[17]) }}">R</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[18]) }}">S</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[19]) }}">T</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[20]) }}">U</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[21]) }}">V</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[22]) }}">W</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[23]) }}">X</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[24]) }}">Y</a></li>
-        <li><a href="{{ url_for('display_by_letter', letter=letters[25]) }}">Z</a></li>
+        {% for letter in letters %}
+        <li><a href="{{ url_for('display_by_letter', letter=letter) }}">{{ letter }}</a></li>
+        {% endfor %}
     </ul>
 
     <!-- Dropdown Structure Sort By -->
