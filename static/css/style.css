@@ -316,3 +316,10 @@ main {
 .tags a:hover:before {
     border-color: transparent #555 transparent transparent;
 }
+/* END OF UNORIGINAL CSS */
+
+.star-word-icon {
+    margin-right: 15px;
+    margin-top: 15px;
+    color: gold;
+}

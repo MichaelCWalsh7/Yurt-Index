@@ -82,6 +82,9 @@
         {% for word in words %}
             <div class="col s12 m6">
                 <div class="card green darken-1">
+                    {% if word.rating > 6 %}
+                        <span><i class="right star-word-icon material-icons">star</i></span>
+                    {% endif %}
                     <div class="card-content word-summary white-text">
                         <span class="card-title"><strong>{{ word.name }}</strong></span>
                         <p>{{ word.meaning }}</p>

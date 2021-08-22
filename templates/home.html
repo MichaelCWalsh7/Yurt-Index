@@ -38,8 +38,12 @@
     <h4 class="center main-heading">Featured Words</h4>
 
     <div class="row featured-words">
+        
         <div class="col s12 m6">
             <div class="card green darken-1">
+                {% if words[0].rating > 6 %}
+                    <span><i class="right star-word-icon material-icons">star</i></span>
+                {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title"><strong>{{ words[0].name.capitalize() }}</strong></span>
                     <p>{{ words[0].meaning }}</p>
@@ -49,45 +53,51 @@
                 </div>
             </div>
         </div>
-        <div class="row featured-words">
-            <div class="col s12 m6">
-                <div class="card green darken-1">
-                    <div class="card-content word-summary white-text">
-                        <span class="card-title"><strong>{{ words[1].name.capitalize() }}</strong></span>
-                        <p>{{ words[1].meaning }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ url_for('word_page', word_Id=words[1]._id) }}">Click here to find out more!</a>
-                    </div>
+
+        <div class="col s12 m6">
+            <div class="card green darken-1">
+                {% if words[1].rating > 6 %}
+                    <span><i class="right star-word-icon material-icons">star</i></span>
+                {% endif %}
+                <div class="card-content word-summary white-text">
+                    <span class="card-title"><strong>{{ words[1].name.capitalize() }}</strong></span>
+                    <p>{{ words[1].meaning }}</p>
                 </div>
-            </div>
-            <div class="row featured-words">
-                <div class="col s12 m6">
-                    <div class="card green darken-1">
-                        <div class="card-content word-summary white-text">
-                            <span class="card-title"><strong>{{ words[2].name.capitalize() }}</strong></span>
-                            <p>{{ words[2].meaning }}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{ url_for('word_page', word_Id=words[2]._id) }}">Click here to find out more!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row featured-words">
-                    <div class="col s12 m6">
-                        <div class="card green darken-1">
-                            <div class="card-content word-summary white-text">
-                                <span class="card-title"><strong>{{ words[3].name.capitalize() }}</strong></span>
-                                <p>{{ words[3].meaning }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{ url_for('word_page', word_Id=words[3]._id) }}">Click here to find out more!</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-action">
+                    <a href="{{ url_for('word_page', word_Id=words[1]._id) }}">Click here to find out more!</a>
                 </div>
             </div>
         </div>
+
+        <div class="col s12 m6">
+            <div class="card green darken-1">
+                {% if words[2].rating > 6 %}
+                    <span><i class="right star-word-icon material-icons">star</i></span>
+                {% endif %}
+                <div class="card-content word-summary white-text">
+                    <span class="card-title"><strong>{{ words[2].name.capitalize() }}</strong></span>
+                    <p>{{ words[2].meaning }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('word_page', word_Id=words[2]._id) }}">Click here to find out more!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="card green darken-1">
+                {% if words[3].rating > 6 %}
+                    <span><i class="right star-word-icon material-icons">star</i></span>
+                {% endif %}
+                <div class="card-content word-summary white-text">
+                    <span class="card-title"><strong>{{ words[3].name.capitalize() }}</strong></span>
+                    <p>{{ words[3].meaning }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('word_page', word_Id=words[3]._id) }}">Click here to find out more!</a>
+                </div>
+            </div>
+        </div>       
     </div>
 
 {% endblock %}
