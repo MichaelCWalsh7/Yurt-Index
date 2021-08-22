@@ -4,6 +4,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -92,6 +93,7 @@ def new_word():
             flash("This word already has an entry")
             return redirect(url_for("new_word"))
 
+        # initializes variables to push to MongoDB
         alt_spellings = []
         alt_definitions = []
         uses = []
@@ -103,6 +105,7 @@ def new_word():
             "name": session["user"]
         })
         user_id = user.get("_id")
+        date = datetime.now().date()
 
         # adds any additional spellings to the altSpellings list
         x = 1
@@ -161,7 +164,7 @@ def new_word():
             "altDefinitions": alt_definitions,
             "uses": uses,
             "createdBy": user_id,
-            "dateCreated": "placeholder",
+            "dateCreated": date.strftime("%-d-%b-%y"),
             "rating": 0,
             "starWord": False,
             "edited": False,
@@ -670,6 +673,4 @@ if __name__ == "__main__":
 
 
 # DO NOT FORGET TO DELETE THIS BEFORE DEPLOYMENT!!
-err_Avoid = (
-    env, redirect, request, session, url_for,
-    ObjectId, generate_password_hash, check_password_hash)
+err_Avoid = env
