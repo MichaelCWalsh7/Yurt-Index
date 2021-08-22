@@ -42,7 +42,9 @@
         <div class="col s12 m6">
             <div class="card green darken-1">
                 {% if words[0].rating > 6 %}
-                    <span><i class="right star-word-icon material-icons">star</i></span>
+                    <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
+                        <span><i class="star-word-icon material-icons">star</i></span>
+                    </a>                        
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title"><strong>{{ words[0].name.capitalize() }}</strong></span>
@@ -57,7 +59,9 @@
         <div class="col s12 m6">
             <div class="card green darken-1">
                 {% if words[1].rating > 6 %}
-                    <span><i class="right star-word-icon material-icons">star</i></span>
+                    <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
+                        <span><i class="star-word-icon material-icons">star</i></span>
+                    </a>                        
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title"><strong>{{ words[1].name.capitalize() }}</strong></span>
@@ -72,7 +76,9 @@
         <div class="col s12 m6">
             <div class="card green darken-1">
                 {% if words[2].rating > 6 %}
-                    <span><i class="right star-word-icon material-icons">star</i></span>
+                    <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
+                        <span><i class="star-word-icon material-icons">star</i></span>
+                    </a>                        
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title"><strong>{{ words[2].name.capitalize() }}</strong></span>
@@ -87,7 +93,9 @@
         <div class="col s12 m6">
             <div class="card green darken-1">
                 {% if words[3].rating > 6 %}
-                    <span><i class="right star-word-icon material-icons">star</i></span>
+                    <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
+                        <span><i class="star-word-icon material-icons">star</i></span>
+                    </a>                        
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title"><strong>{{ words[3].name.capitalize() }}</strong></span>

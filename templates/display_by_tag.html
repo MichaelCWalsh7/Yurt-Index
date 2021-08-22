@@ -71,7 +71,9 @@
             <div class="col s12 m6">
                 <div class="card green darken-1">
                     {% if word.rating > 6 %}
-                        <span><i class="right star-word-icon material-icons">star</i></span>
+                        <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
+                            <span><i class="star-word-icon material-icons">star</i></span>
+                        </a>                        
                     {% endif %}
                     <div class="card-content word-summary white-text">
                         <span class="card-title"><strong>{{ word.name }}</strong></span>

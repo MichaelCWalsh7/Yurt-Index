@@ -11,5 +11,6 @@ $(document).ready(function () {
     $('.tabs').tabs();
     $('.dropdown-trigger').dropdown();
     $('select').formSelect();
+    $('.tooltipped').tooltip();
 });
 
