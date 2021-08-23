@@ -671,6 +671,18 @@ def edit_profile(username):
     return render_template("edit_profile.html", user=user)
 
 
+@app.route("/delete_profile/<user_id>")
+def delete_profile(user_id):
+    # removes user from user colleciton
+    mongo.db.users.remove({
+        "_id": ObjectId(user_id)
+    })
+
+    session.clear()
+    flash("The profile has been removed.")
+    return redirect(url_for('home_page'))
+
+
 @app.errorhandler(404)
 def error404(e):
     return render_template("404.html")
