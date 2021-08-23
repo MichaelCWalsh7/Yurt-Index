@@ -12,5 +12,9 @@ $(document).ready(function () {
     $('.dropdown-trigger').dropdown();
     $('select').formSelect();
     $('.tooltipped').tooltip();
+
+    $('#date_of_birth').bind("click", function() {
+        $('#date_of_birth').css("opacity", "1");
+    });
 });
 
