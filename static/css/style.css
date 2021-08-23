@@ -343,3 +343,7 @@ main {
 .return-home-button-container {
     margin-top: 50px;
 }
+
+.no-delete-button {
+    opacity: .6;
+}

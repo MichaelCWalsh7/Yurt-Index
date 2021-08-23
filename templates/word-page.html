@@ -125,12 +125,20 @@
                     <span class="rating-number"> {{ word.rating }} </span>
 
                 {% else %}
-                    <span><a href="">Log in</a> or <a href="">register</a> to edit this word, and more!</span>            
+                    <span><a href="{{ url_for('log_in') }}">Log in</a> or <a href="{{ url_for('register') }}">register</a> to edit this word, and more!</span>            
                 {% endif %}
+
+                {% if session.user %}
                 <div class="edit-delete-buttons">
                     <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
-                    <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
+                    {% if word.rating > 3 %}
+                        <a class="tooltipped btn red right no-delete-button" data-position="bottom"
+                         data-tooltip="Only an admin can delete a well-liked word">Delete</a>
+                    {% else %}
+                        <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
+                    {% endif %}
                 </div>
+                {% endif %}
                 {% if session.user %}
                     <div class="col s12 rating-info-container">                       
                         {% if session.user.lower() in liked %}
