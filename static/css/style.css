@@ -347,3 +347,7 @@ main {
 .no-delete-button {
     opacity: .6;
 }
+
+#wordDeleteConfirm {
+    top: 35%!important;
+}
