@@ -135,7 +135,20 @@
                         <a class="tooltipped btn red right no-delete-button" data-position="bottom"
                          data-tooltip="Only an admin can delete a well-liked word">Delete</a>
                     {% else %}
-                        <a class="btn red right" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
+                        <!-- modal trigger -->
+                        <a class="btn red right modal-trigger" href="#wordDeleteConfirm">Delete</a>
+
+                        <!-- modal structure -->
+                        <div id="wordDeleteConfirm" class="modal">
+                            <div class="modal-content">
+                                <h5>Are you sure you want to delete this word?</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="btn red modal-close">Cancel</a>
+                                <a class="btn deep-purple lighten-1 modal-close" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
+                                
+                            </div>
+                        </div>
                     {% endif %}
                 </div>
                 {% endif %}
