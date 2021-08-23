@@ -131,7 +131,7 @@
                 {% if session.user %}
                 <div class="edit-delete-buttons">
                     <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
-                    {% if word.rating > 3 %}
+                    {% if word.rating > 1 %}
                         <a class="tooltipped btn red right no-delete-button" data-position="bottom"
                          data-tooltip="Only an admin can delete a well-liked word">Delete</a>
                     {% else %}
