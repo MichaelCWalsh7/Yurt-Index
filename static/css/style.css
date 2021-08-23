@@ -323,3 +323,23 @@ main {
     margin-top: 15px;
     color: gold;
 }
+
+.shrug-404 {
+    margin-top: 75px;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.return-home-button {
+    background-color: #43a047;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 19px;
+}
+
+.return-home-button-container {
+    margin-top: 50px;
+}
