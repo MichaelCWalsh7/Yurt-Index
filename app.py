@@ -145,7 +145,8 @@ def new_word():
                     {"name": tag_name}
                 )
                 tag_id = selected_tag.get("_id")
-                tag_ids.append(ObjectId(tag_id))
+                if tag_id not in tag_ids:
+                    tag_ids.append(ObjectId(tag_id))
             x += 1
 
         # initializes booleans and variables to add to collection
