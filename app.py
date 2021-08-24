@@ -266,6 +266,13 @@ def edit_word(word_Id):
         # checks if the user has tagged the word
         is_tagged = True if len(new_tag_names) >= 1 else False
 
+        # finds out what previous tags were to delete them from tag
+        # collection if necessary
+        old_tags = []
+        old_tag_id_strings = word.get("tags")
+        for old_tag_string in old_tag_id_strings:
+            old_tags.append(ObjectId(old_tag_string))
+
         # if word is tagged, finds those tag objects from the form names
         if is_tagged:
             for new_tag in new_tag_names:
@@ -277,6 +284,13 @@ def edit_word(word_Id):
                 # adds the id the tag to a list if it isn't there already
                 if tag_id not in new_tag_ids:
                     new_tag_ids.append(ObjectId(tag_id))
+            # checks if there are any ids to remove from the tag's collection
+            for old_tag in old_tags:
+                if old_tag not in new_tag_ids:
+                    # removes redundant words from tagged word array
+                    mongo.db.tags.update({"_id": old_tag}, {"$pull": {
+                        "taggedWords": ObjectId(word_Id)
+                    }})
 
         mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
             "hasAltSpellings": has_alt_spellings,
@@ -297,6 +311,7 @@ def edit_word(word_Id):
         if is_tagged:
             # pushes the word id to the 'tags' collection
             for new_tag_id in new_tag_ids:
+                # generates a list of object ids associated with the word
                 tag = mongo.db.tags.find_one({
                     "_id": new_tag_id
                 })
@@ -305,7 +320,9 @@ def edit_word(word_Id):
                 for old_word_id in old_word_ids:
                     old_word_id_list.append(ObjectId(old_word_id))
 
+                # checks if the current word is on that list
                 if ObjectId(word_Id) not in old_word_id_list:
+                    # if not the tag list is updated
                     mongo.db.tags.update(
                         {"_id": ObjectId(new_tag_id)}, {"$push": {
                             "taggedWords": ObjectId(word_Id)
