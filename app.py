@@ -300,8 +300,12 @@ def edit_word(word_Id):
                 tag = mongo.db.tags.find_one({
                     "_id": new_tag_id
                 })
+                old_word_id_list = []
                 old_word_ids = tag.get("taggedWords")
-                if word_Id not in old_word_ids:
+                for old_word_id in old_word_ids:
+                    old_word_id_list.append(ObjectId(old_word_id))
+
+                if ObjectId(word_Id) not in old_word_id_list:
                     mongo.db.tags.update(
                         {"_id": ObjectId(new_tag_id)}, {"$push": {
                             "taggedWords": ObjectId(word_Id)
