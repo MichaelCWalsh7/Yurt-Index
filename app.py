@@ -259,7 +259,7 @@ def edit_word(word_Id):
             new_tag_name = request.form.get(
                 f"tag_{x}"
             )
-            if new_tag_name is not None:
+            if (new_tag_name is not None) and (new_tag_name != "remove"):
                 new_tag_names.append(new_tag_name)
             x += 1
 

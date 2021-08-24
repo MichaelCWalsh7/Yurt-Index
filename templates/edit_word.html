@@ -145,6 +145,7 @@
                 <select id="tag_1" name="tag_1">
                     {% if selected_tags[0] %}
                         <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
+                        <option value="remove" id="tagRemove">Remove This Tag</option>
                     {% else %}
                         <option value="" disabled selected>Add a tag</option>
                     {% endif %}
