@@ -143,9 +143,18 @@
             
             <div class="input-field col s12 m8 l6">
                 <select id="tag_1" name="tag_1">
-                    <option value="" disabled selected>Add a tag</option>
+                    {% if selected_tags[0] %}
+                        <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
+                    {% else %}
+                        <option value="" disabled selected>Add a tag</option>
+                    {% endif %}
+
                     {% for tag in all_tags %}
-                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                        {% if selected_tags[0]  %}
+                            {% if tag != selected_tags[0] %}
+                                <option value="{{ tag.name }}">{{ tag.name }}</option>
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label>Tags</label>
@@ -165,9 +174,18 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <select id="tag_2" name="tag_2">
-                                <option value="" disabled selected>Add a tag</option>
+                                {% if selected_tags[1] %}
+                                    <option value="{{ selected_tags[1].name }}" selected>{{ selected_tags[1].name }}</option>
+                                {% else %}
+                                    <option value="" disabled selected>Add a tag</option>
+                                {% endif %}
+
                                 {% for tag in all_tags %}
-                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                    {% if selected_tags[1]  %}
+                                        {% if tag != selected_tags[1] %}
+                                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                             <label>Tags</label>
@@ -176,9 +194,18 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <select id="tag_3" name="tag_3">
-                                <option value="" disabled selected>Add a tag</option>
+                                {% if selected_tags[2] %}
+                                    <option value="{{ selected_tags[2].name }}" selected>{{ selected_tags[2].name }}</option>
+                                {% else %}
+                                    <option value="" disabled selected>Add a tag</option>
+                                {% endif %}
+
                                 {% for tag in all_tags %}
-                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                    {% if selected_tags[2]  %}
+                                        {% if tag != selected_tags[2] %}
+                                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                             <label>Tags</label>
@@ -187,9 +214,18 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <select id="tag_4" name="tag_4">
-                                <option value="" disabled selected>Add a tag</option>
+                                {% if selected_tags[3] %}
+                                    <option value="{{ selected_tags[3].name }}" selected>{{ selected_tags[3].name }}</option>
+                                {% else %}
+                                    <option value="" disabled selected>Add a tag</option>
+                                {% endif %}
+
                                 {% for tag in all_tags %}
-                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                    {% if selected_tags[3]  %}
+                                        {% if tag != selected_tags[3] %}
+                                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                             <label>Tags</label>
@@ -198,9 +234,18 @@
                     <div class="row">
                         <div class="input-field col s11">
                             <select id="tag_5" name="tag_5">
-                                <option value="" disabled selected>Add a tag</option>
+                                {% if selected_tags[4] %}
+                                    <option value="{{ selected_tags[4].name }}" selected>{{ selected_tags[4].name }}</option>
+                                {% else %}
+                                    <option value="" disabled selected>Add a tag</option>
+                                {% endif %}
+
                                 {% for tag in all_tags %}
-                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                    {% if selected_tags[4]  %}
+                                        {% if tag != selected_tags[4] %}
+                                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                             <label>Tags</label>
