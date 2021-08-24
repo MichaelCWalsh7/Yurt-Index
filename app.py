@@ -247,10 +247,36 @@ def edit_word(word_Id):
         # initializes booleans and variables to add to collection
         has_alt_definitions = True if len(alt_definitions) > 1 else False
         has_alt_spellings = True if len(alt_spellings) > 1 else False
-        # name = request.form.get("name").capitalize()
 
         if user_id not in editors:
             editors.append(user_id)
+
+        # finds out if the user changed any tags and makes a list of changes
+        new_tag_names = []
+        new_tag_ids = []
+        x = 1
+        while x < 6:
+            new_tag_name = request.form.get(
+                f"tag_{x}"
+            )
+            if new_tag_name is not None:
+                new_tag_names.append(new_tag_name)
+            x += 1
+
+        # checks if the user has tagged the word
+        is_tagged = True if len(new_tag_names) >= 1 else False
+
+        # if word is tagged, finds those tag objects from the form names
+        if is_tagged:
+            for new_tag in new_tag_names:
+                tag = mongo.db.tags.find_one({
+                    "name": new_tag
+                })
+                # gets the id of all chosen tags
+                tag_id = tag.get("_id")
+                # adds the id the tag to a list if it isn't there already
+                if tag_id not in new_tag_ids:
+                    new_tag_ids.append(ObjectId(tag_id))
 
         mongo.db.words.update({"_id": ObjectId(word_Id)}, {"$set": {
             "hasAltSpellings": has_alt_spellings,
@@ -262,8 +288,24 @@ def edit_word(word_Id):
             "edited": True,
             "lastEditedBy": user_id,
             "lastEditedDate":  date.strftime("%-d-%b-%y"),
-            "editors": editors
+            "editors": editors,
+            "isTagged": is_tagged,
+            "tags": new_tag_ids
         }})
+
+        # finds the id of the added word to add to the 'tags' collection
+        if is_tagged:
+            # pushes the word id to the 'tags' collection
+            for new_tag_id in new_tag_ids:
+                tag = mongo.db.tags.find_one({
+                    "_id": new_tag_id
+                })
+                old_word_ids = tag.get("taggedWords")
+                if word_Id not in old_word_ids:
+                    mongo.db.tags.update(
+                        {"_id": ObjectId(new_tag_id)}, {"$push": {
+                            "taggedWords": ObjectId(word_Id)
+                        }})
         flash("Word Successfully Updated!")
         return redirect(url_for("word_page", word_Id=word_Id))
 
