@@ -1,7 +1,18 @@
 /* font-rulings */
 
-/* font-family: 'Hina Mincho', serif;
-font-family: 'Merriweather', serif; */
+.eagle-lake {
+    font-family: 'Eagle Lake', serif;
+}
+
+.hina-mincho {
+    font-family: 'Hina Mincho', serif;
+}
+
+.merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+
 
 .home-description p {
     text-align: center;
