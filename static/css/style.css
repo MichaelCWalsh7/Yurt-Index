@@ -41,9 +41,9 @@ nav .brand-logo.center {
     margin-left: 42%;
 }
 
-/* .nav-links li {
-    
-} */
+.nav-links a {
+    font-size: 24px!important;
+}
 
 @media(max-width: 353px) {
     .brand-logo {
