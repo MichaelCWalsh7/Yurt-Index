@@ -33,6 +33,12 @@ main {
     text-decoration: underline;
 }
 
+@media(max-width: 353px) {
+    .brand-logo {
+        font-size: 24px!important;
+    }
+}
+
 .nav-icon {
     font-size: 38px!important;
 }
