@@ -33,6 +33,18 @@ main {
     text-decoration: underline;
 }
 
+nav .brand-logo.center {
+    left: 33%!important;
+}
+
+.nav-links {
+    margin-left: 42%;
+}
+
+/* .nav-links li {
+    
+} */
+
 @media(max-width: 353px) {
     .brand-logo {
         font-size: 24px!important;
