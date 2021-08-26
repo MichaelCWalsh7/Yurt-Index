@@ -76,6 +76,10 @@ nav i.material-icons {
     padding: 14px 16px !important;
 }
 
+#search {
+    margin: 0!important;
+}
+
 .search-button {
     height: 46px;
     position: absolute;
