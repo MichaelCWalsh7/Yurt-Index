@@ -34,7 +34,7 @@ main {
 }
 
 nav .brand-logo.center {
-    left: 33%!important;
+    left: 33% !important;
 }
 
 .nav-links {
@@ -42,17 +42,25 @@ nav .brand-logo.center {
 }
 
 .nav-links a {
-    font-size: 24px!important;
+    font-size: 15px !important;
 }
 
 @media(max-width: 353px) {
     .brand-logo {
-        font-size: 24px!important;
+        font-size: 24px !important;
     }
 }
 
 .nav-icon {
-    font-size: 38px!important;
+    font-size: 38px !important;
+}
+
+nav i,
+nav [class^="mdi-"],
+nav [class*="mdi-"],
+nav i.material-icons {
+    display: inline-block;
+    margin-left: 0;
 }
 
 .hero-image img {
@@ -347,6 +355,7 @@ nav .brand-logo.center {
 .tags a:hover:before {
     border-color: transparent #555 transparent transparent;
 }
+
 /* END OF UNORIGINAL CSS */
 
 .star-word-icon {
@@ -380,5 +389,5 @@ nav .brand-logo.center {
 }
 
 #wordDeleteConfirm {
-    top: 35%!important;
+    top: 35% !important;
 }

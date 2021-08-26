@@ -24,24 +24,45 @@
 
     <header>
         <!-- main navbar -->
+        <ul id="wordsDropdown" class="dropdown-content">
+            <li><a href="{{ url_for('all_words') }}">All Words</a></li>
+            <li><a href="{{ url_for('sort_letters', letter='A', field='name', order='+') }}">By Letter</a></li>
+            <li><a href="{{ url_for('display_by_tag', tag_id='611fd74aff3d2e6eb99c27f9') }}">By Tag</a></li>
+        </ul>
+        <ul id="notLoggedIn" class="dropdown-content">
+            <li><a href="{{ url_for('log_in') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        </ul>
+        <ul id="loggedIn" class="dropdown-content">
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>  
+            <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
+        </ul>
         <nav>
             <div class="green darken-1 nav-wrapper">
                 <a href="{{ url_for('home_page') }}" class="center eagle-lake brand-logo">Yurt Index</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
                         class="material-icons nav-icon">menu</i></a>
                 <ul class="hina-mincho nav-links hide-on-med-and-down">
-                    <li><a href="{{ url_for('home_page') }}">Home</a></li>
-                    <li><a href="{{ url_for('all_words') }}">All Words</a></li>
-                    {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>                        
+                    {% if session.user %}                      
                         <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                         {% if session.admin %}
                             <li><a href="{{ url_for('add_tag', username=session['user']) }}">New Tag</a></li>
-                        {% endif %}                        
-                        <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdown">
+                            Categories <i class="material-icons right">arrow_drop_down</i>
+                        </a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="loggedIn">
+                            <i class="material-icons">account_circle</i>
+                            <i id="notLoggedInIcon" class="material-icons right">arrow_drop_down</i>
+                        </a></li>
                     {% else %}
-                        <li><a href="{{ url_for('log_in') }}">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdown">
+                            Categories <i class="material-icons right">arrow_drop_down</i>
+                        </a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="notLoggedIn">
+                            <i class="material-icons">account_circle</i>
+                            <i id="notLoggedInIcon" class="material-icons right">arrow_drop_down</i>
+                        </a></li>
                     {% endif %}
                 </ul>
             </div>
