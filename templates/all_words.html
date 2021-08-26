@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-{% block search %}
+% block search %}
     <div class="row green darken-1">
         <form action="{{ url_for('search') }}" method="post" class="col offset-m2 offset-l3 s12 m8 l6" id="navSearch">
             <div class="input-field search-container white">
-                <i class="material-icons prefix">search</i>
                 <input id="search" type="text" name="search">
                 <label for="search">Find any word...</label>
-                <button type="submit">Search</button>
+                <button class="search-button" type="submit">
+                    <i class="material-icons suffix">search</i>
+                </button> 
             </div>
         </form>
     </div>
