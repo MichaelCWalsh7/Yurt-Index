@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block search %}
-    <div class="row green darken-1">
+    <div class="row search-div green darken-1">
         <form action="{{ url_for('search') }}" method="post" class="col offset-m2 offset-l3 s12 m8 l6" id="navSearch">
             <div class="input-field search-container white">
                 <input id="search" type="text" name="search">
@@ -14,11 +14,14 @@
     </div>
 {% endblock %}
 
-{% block content %}
+{% block hero_image %}
     <div class="row hero-image">
-        <img src="static/images/limerick2.png" alt="An image of Limerick city">
+        <img src="static/images/hero-2.png" alt="An image of Limerick city">
     </div>
+{% endblock %}
 
+{% block content %}
+    
     <h3 class="center main-heading"> What is the Yurt Index?</h3>
 
     <div class="row home-description">
