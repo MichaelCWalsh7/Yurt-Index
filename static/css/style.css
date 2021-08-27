@@ -33,6 +33,10 @@ main {
     margin: 0;
 }
 
+.card-action a {
+    font-family: 'Merriweather', serif;
+}
+
 
 
 /* navbar */
