@@ -24,6 +24,8 @@
 
     <header>
         <!-- main navbar -->
+
+        <!-- dropdown content large screens -->
         <ul id="wordsDropdown" class="dropdown-content">
             <li><a href="{{ url_for('all_words') }}">All Words</a></li>
             <li><a href="{{ url_for('sort_letters', letter='A', field='name', order='+') }}">By Letter</a></li>
@@ -37,6 +39,22 @@
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>  
             <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
         </ul>
+
+        <!-- dropdown content mobile -->
+        <ul id="wordsDropdownMobile" class="dropdown-content">
+            <li><a href="{{ url_for('all_words') }}">All Words</a></li>
+            <li><a href="{{ url_for('sort_letters', letter='A', field='name', order='+') }}">By Letter</a></li>
+            <li><a href="{{ url_for('display_by_tag', tag_id='611fd74aff3d2e6eb99c27f9') }}">By Tag</a></li>
+        </ul>
+        <ul id="notLoggedInMobile" class="dropdown-content">
+            <li><a href="{{ url_for('log_in') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        </ul>
+        <ul id="loggedInMobile" class="dropdown-content">
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>  
+            <li><a href="{{ url_for('log_out') }}">Log Out</a></li>
+        </ul>
+
         <nav>
             <div class="green darken-1 nav-wrapper">
                 <a href="{{ url_for('home_page') }}" class="center eagle-lake brand-logo">Yurt Index</a>
@@ -69,27 +87,27 @@
         </nav>
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
-            <!-- {% if session.user %}                      
+            {% if session.user %}                      
                         <li><a href="{{ url_for('new_word') }}">New Word</a></li>
                         {% if session.admin %}
                             <li><a href="{{ url_for('add_tag', username=session['user']) }}">New Tag</a></li>
                         {% endif %}
-                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdown">
+                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdownMobile">
                             Categories <i class="material-icons">arrow_drop_down</i>
                         </a></li>
-                        <li><a class="dropdown-trigger" href="#!" data-target="loggedIn">
+                        <li><a class="dropdown-trigger" href="#!" data-target="loggedInMobile">
                             User
                             <i id="notLoggedInIcon" class="material-icons">arrow_drop_down</i>
                         </a></li>
                 {% else %}
-                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdown">
+                        <li><a class="dropdown-trigger" href="#!" data-target="wordsDropdownMobile">
                             Categories <i class="material-icons">arrow_drop_down</i>
                         </a></li>
-                        <li><a class="dropdown-trigger" href="#!" data-target="notLoggedIn">
+                        <li><a class="dropdown-trigger" href="#!" data-target="notLoggedInMobile">
                             User
                             <i id="notLoggedInIcon" class="material-icons">arrow_drop_down</i>
                         </a></li>
-            {% endif %} -->
+            {% endif %}
         </ul>
         {% block search %}
         {% endblock %}
