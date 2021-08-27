@@ -149,6 +149,18 @@ nav i.material-icons {
 
 
 
+/* footer */
+.footer-tag {
+    font-size: 15px;
+}
+
+@media(min-width: 993px) {
+    .footer-links {
+        text-align: right;
+    }
+}
+
+
 /* hero image */
 
 .hero-image img {
