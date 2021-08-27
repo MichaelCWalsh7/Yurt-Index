@@ -125,6 +125,10 @@ nav i.material-icons {
     background-color: orange;
 }
 
+.search-container {
+    margin-top: 0;
+}
+
 @media(max-width: 600px) {
 
     .search-container {
@@ -138,7 +142,7 @@ nav i.material-icons {
 
 .main-heading {
     font-family: 'Hina Mincho', serif;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 @media(max-width: 576px) {
@@ -208,6 +212,9 @@ nav i.material-icons {
     text-decoration: underline;
 }
 
+#homePageHeading {
+    margin-top: 75px;
+}
 
 
 /* genreal card styling */
