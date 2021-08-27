@@ -12,14 +12,12 @@
     font-family: 'Merriweather', serif;
 }
 
+
+
+/* general style rules */
+
 p {
     font-family: 'Merriweather', serif;
-    font-weight: 100;
-}
-
-
-.home-description p {
-    text-align: center;
 }
 
 main {
@@ -27,11 +25,17 @@ main {
     margin-right: 5%;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating),
-.home-description a {
-    color: black;
-    text-decoration: underline;
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
+
+.dropdown-content li>a>i {
+    margin: 0;
+}
+
+
+
+/* navbar */
 
 nav .brand-logo.center {
     left: 33% !important;
@@ -80,6 +84,25 @@ nav i.material-icons {
     padding: 14px 16px !important;
 }
 
+@media(min-width: 600px) {
+
+    nav,
+    nav .nav-wrapper i,
+    nav a.sidenav-trigger,
+    nav a.sidenav-trigger i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+.sidenav {
+    width: 50%;
+}
+
+
+
+/* search bar */
+
 .search-div {
     margin-bottom: 0;
 }
@@ -105,16 +128,24 @@ nav i.material-icons {
     }
 }
 
-@media(min-width: 600px) {
 
-    nav,
-    nav .nav-wrapper i,
-    nav a.sidenav-trigger,
-    nav a.sidenav-trigger i {
-        height: 40px;
-        line-height: 40px;
+
+/* main headings */
+
+.main-heading {
+    font-family: 'Hina Mincho', serif;
+    margin-top: 100px;
+}
+
+@media(max-width: 576px) {
+    .main-heading {
+        margin-top: 50px;
     }
 }
+
+
+
+/* hero image */
 
 .hero-image img {
     width: 100%;
@@ -128,21 +159,62 @@ nav i.material-icons {
     }
 }
 
-.main-heading {
-    font-family: 'Hina Mincho', serif;
-    margin-top: 100px;
+
+
+/* home page */
+
+.home-description {
+    border: dashed 2px #43a047;
+    margin-bottom: 35px;
 }
 
-.alternative-spellings-container {
-    opacity: .7;
+.home-description p {
+    color: #43a047;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating),
+.home-description a {
+    color: black;
+    text-decoration: underline;
+}
+
+
+
+/* genreal card styling */
+
+.card .card-title {
+    font-family: 'Eagle Lake', serif;
+    letter-spacing: 2px;
+}
+
+.card-content p {
+    font-size: 15px;
 }
 
 .select-wrapper input.select-dropdown {
     opacity: 0.6;
 }
 
+.card .card-action {
+    border-top: 2px solid white;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin-right: 1px;
+    text-transform: none;
+}
+
+
+
+/* word card */
 .word-card {
     margin-top: 8%;
+}
+
+.alternative-spellings-container {
+    opacity: .7;
 }
 
 .add-alt-button {
@@ -155,20 +227,23 @@ nav i.material-icons {
     text-transform: none;
 }
 
+.no-delete-button {
+    opacity: .6;
+}
+
+#wordDeleteConfirm {
+    top: 35% !important;
+}
+
+
+
+/* form page */
 .new-word-input {
     margin: 0px;
 }
 
 .new-word-cancel-submit {
     line-height: 10px;
-}
-
-.home-description {
-    margin-bottom: 35px;
-}
-
-.sidenav {
-    width: 50%;
 }
 
 .form-instruction {
@@ -182,6 +257,9 @@ nav i.material-icons {
     opacity: .5;
 }
 
+
+
+/* user profile */
 .basic-user-info-container {
     margin-left: 7%;
 }
@@ -268,15 +346,9 @@ nav i.material-icons {
     }
 }
 
-.card .card-action {
-    border-top: 2px solid white;
-}
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-    margin-right: 1px;
-    text-transform: none;
-}
 
+/* rating area */
 .already-rated-up,
 #not-rated-up:hover {
     color: gold;
@@ -294,9 +366,8 @@ nav i.material-icons {
     text-decoration: none;
 }
 
-.dropdown-content li>a>i {
-    margin: 0;
-}
+
+/* word list pages */
 
 .sort-icons {
     margin-right: 18px !important;
@@ -312,6 +383,10 @@ nav i.material-icons {
         overflow-y: hidden;
     }
 }
+
+
+
+/* add tag */
 
 .add-tag-form-container {
     margin-top: 60px;
@@ -421,20 +496,26 @@ nav i.material-icons {
 
 /* END OF UNORIGINAL CSS */
 
+
+
+/* star words */
+
 .star-word-icon {
     margin-right: 15px;
     margin-top: 15px;
     color: gold;
 }
 
+
+
+/* error pages */
+
 .error-text-emote {
     margin-top: 75px;
 }
 
-.text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
 
+/* return home button */
 .return-home-button {
     background-color: #43a047;
     color: white;
@@ -447,10 +528,3 @@ nav i.material-icons {
     margin-top: 50px;
 }
 
-.no-delete-button {
-    opacity: .6;
-}
-
-#wordDeleteConfirm {
-    top: 35% !important;
-}
