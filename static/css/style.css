@@ -154,6 +154,18 @@ nav i.material-icons {
     font-size: 15px;
 }
 
+.footer-links {
+    font-size: 18px;
+}
+
+.footer-links a {
+    color: black;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
 @media(min-width: 993px) {
     .footer-links {
         text-align: right;
