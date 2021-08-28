@@ -74,13 +74,13 @@
                 <div class="word-user-info">
                     <!-- display who created the word and when -->
                     <p>
-                        <span class="black-text"> by:</span>
+                        by:
                         <span class="created-by">{{ user.name }}</span>, <span
                             class="date-created">{{ word.dateCreated }}</span>
                     </p>
                     <p>
                         {% if word.edited %}
-                        <span class="black-text">last edit:</span>
+                        last edit:
                             <span class="edited-by">{{ last_edit.name }}</span>, <span
                                 class="last-edit-date">{{ word.lastEditedDate}}</span>
                         {% endif %}
@@ -139,7 +139,7 @@
 
                 {% if session.user %}
                 <div class="edit-delete-buttons">
-                    <a class="btn deep-purple lighten-1 right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
+                    <a class="btn deep-purple lighten-1 edit-word-button right" href="{{ url_for('edit_word', word_Id=word._id) }}">Edit</a>
                     {% if word.rating > 1 %}
                         <a class="tooltipped btn red right no-delete-button" data-position="bottom"
                          data-tooltip="Only an admin can delete a well-liked word">Delete</a>

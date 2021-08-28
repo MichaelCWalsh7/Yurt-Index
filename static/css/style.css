@@ -299,12 +299,26 @@ nav i.material-icons {
 .word-user-info {
     margin-top: 19px;
     margin-bottom: 8px;
+    color: black;
 }
 
 .word-tags {
     margin-bottom: 0;
 }
 
+.edit-delete-buttons {
+    display: inline;
+}
+
+.edit-word-button {
+    margin-left: 15px;
+}
+
+@media(max-width: 576px) {
+    .card .card-action {
+        padding: 16px 12px!important;
+    }
+}
 
 
 /* form page */
