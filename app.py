@@ -151,8 +151,8 @@ def new_word():
 
         # initializes booleans and variables to add to collection
         is_tagged = True if len(tag_ids) >= 1 else False
-        has_alt_definitions = True if len(alt_definitions) > 1 else False
-        has_alt_spellings = True if len(alt_spellings) > 1 else False
+        has_alt_definitions = True if len(alt_definitions) >= 1 else False
+        has_alt_spellings = True if len(alt_spellings) >= 1 else False
         name = request.form.get("new_name").capitalize()
 
         # initializes dictionary variable and pushes it to MongoDB
@@ -246,8 +246,8 @@ def edit_word(word_Id):
             x += 1
 
         # initializes booleans and variables to add to collection
-        has_alt_definitions = True if len(alt_definitions) > 1 else False
-        has_alt_spellings = True if len(alt_spellings) > 1 else False
+        has_alt_definitions = True if len(alt_definitions) >= 1 else False
+        has_alt_spellings = True if len(alt_spellings) >= 1 else False
 
         if user_id not in editors:
             editors.append(user_id)
