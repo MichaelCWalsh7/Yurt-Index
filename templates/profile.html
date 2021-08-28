@@ -13,6 +13,7 @@
             </div>
 
         </div>
+        {% if session.id == user_id_string %}
         <div class="col s12 m6 user-buttons">
             <a href="{{ url_for('edit_profile', username=user.name) }}" class="btn-large deep-purple lighten-1">Edit Your
                 Profile</a>
@@ -31,6 +32,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
     <div class="row">
         <div class="col center-align s12 user-description">

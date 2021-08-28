@@ -662,20 +662,19 @@ def log_in():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = existing_user.get("name")
                 session["admin"] = existing_user.get("isAdmin")
+                user_id = str(ObjectId(existing_user.get("_id")))
+                session["id"] = user_id
                 flash("Welcome, {}".format(request.form.get("username")))
-                print("success")
                 return redirect(url_for(
                     'profile', username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
-                print("fail")
                 return redirect(url_for("log_in"))
 
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
-            print("fail")
             return redirect(url_for("log_in"))
 
     return render_template("log_in.html")
@@ -699,14 +698,14 @@ def profile(username):
     created_words = mongo.db.words.find(
         {"createdBy": user_id}
     )
-    print(created_words)
     # Finds what words the user has edited to display on their profile
     edited_words = mongo.db.words.find(
         {"editors": user_id}
     )
+    user_id_string = str(user_id)
     return render_template(
         "profile.html", user=user, created_words=created_words,
-        edited_words=edited_words)
+        edited_words=edited_words, user_id_string=user_id_string)
 
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
