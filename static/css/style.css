@@ -228,7 +228,8 @@ nav i.material-icons {
 }
 
 .card-content p {
-    font-size: 15px;
+    font-size: 18px;
+    font-family: 'Hina Mincho', serif;
 }
 
 .select-wrapper input.select-dropdown {
@@ -303,6 +304,7 @@ nav i.material-icons {
 }
 .word-user-info p {
     font-size: 14px;
+    font-family: 'Merriweather', serif;;
 }
 
 .word-tags {
@@ -381,10 +383,16 @@ nav i.material-icons {
 .basic-user-info {
     display: inline;
     position: absolute;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 #userProfileHeading {
     margin-bottom: 50px;
+}
+
+#aboutUserHeading {
+    margin-bottom: 30px;
 }
 
 .tabs .tab a:hover,

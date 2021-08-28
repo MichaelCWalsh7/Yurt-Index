@@ -4,7 +4,7 @@
     <h3 class="center main-heading" id="userProfileHeading">{{ user.name }}'s Profile</h3>
 
     <div class="row basic-user-info-container">
-        <div class="col s12 m6 image-info">
+        <div class="hina-mincho col s12 m6 image-info">
             <img src="/static/images/user_image.png" alt="an image of a user icon" class="user-image-icon">
             <div class="basic-user-info">
                 <span>{{ user.name }}</span><br>
@@ -22,7 +22,7 @@
     </div>
     <div class="row">
         <div class="col center-align s12 user-description">
-            <h4 class="center main-heading">About User</h4>
+            <h4 id="aboutUserHeading" class="center main-heading">About User</h4>
             <div class="col s12 m6">
                 {% if user.hasCountry %}
                     <p class="information-present">
