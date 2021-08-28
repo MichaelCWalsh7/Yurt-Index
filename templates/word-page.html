@@ -74,21 +74,21 @@
                 <div class="word-user-info">
                     <!-- display who created the word and when -->
                     <p>
-                        Created by:
-                        <span class="created-by">{{ user.name }}</span> on <span
+                        <span class="black-text"> by:</span>
+                        <span class="created-by">{{ user.name }}</span>, <span
                             class="date-created">{{ word.dateCreated }}</span>
                     </p>
                     <p>
                         {% if word.edited %}
-                        Last edit by
-                            <span class="edited-by">{{ last_edit.name }}</span> on <span
+                        <span class="black-text">last edit:</span>
+                            <span class="edited-by">{{ last_edit.name }}</span>, <span
                                 class="last-edit-date">{{ word.lastEditedDate}}</span>
                         {% endif %}
                     </p>
                 </div>
 
                 <!-- display tags or inform user that word is untagged -->
-                <div class="row">
+                <div class="row word-tags">
                     <div class="col s12">
                         <h6 class="word-card-heading"><strong>Tags:</strong></h6>
                     </div>

@@ -37,6 +37,9 @@ main {
     font-family: 'Merriweather', serif;
 }
 
+.black-text {
+    color: black;
+}
 
 
 /* navbar */
@@ -274,7 +277,7 @@ nav i.material-icons {
     text-decoration: underline;
     font-family: 'Merriweather', serif;
     font-size: 18px;
-    margin-bottom: 19px;
+    margin-bottom: 7px;
     letter-spacing: 2px;
     color: #0000cd;
 }
@@ -289,6 +292,15 @@ nav i.material-icons {
     font-family: 'Hina Mincho';
     font-size: 18px!important;
     margin-left: 15px!important;
+}
+
+.word-user-info {
+    margin-top: 19px;
+    margin-bottom: 8px;
+}
+
+.word-tags {
+    margin-bottom: 0;
 }
 
 
