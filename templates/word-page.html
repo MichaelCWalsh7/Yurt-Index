@@ -39,50 +39,58 @@
                 {% endif %}
                 </span>
 
+                <div class="word-definitions">
                 <!-- alternate definitions check -->
-                {% if word.hasAltDefinitions %}
-                    <h6><strong>Definitions:</strong></h6>
-                    <ul class="definitions-list">
-                        <li> {{ word.meaning }} </li>
-                        {% for definition in word.altDefinitions %}
-                            <li> {{ definition }} </li>
-                        {% endfor %}
-                    </ul>
+                    {% if word.hasAltDefinitions %}
+                        <h6 class="word-card-heading"><strong>Definitions:</strong></h6>
+                        <ul class="definitions-list word-card-normal-text">
+                            <li> {{ word.meaning }} </li>
+                            {% for definition in word.altDefinitions %}
+                                <li> {{ definition }} </li>
+                            {% endfor %}
+                        </ul>
                     {% else %}
-                        <h6><strong>Definition:</strong></h6>
-                        <p> {{word.meaning}} </p>
-                {% endif %}
-
-                <!-- display all uses -->
-                <h6><strong>Word in use:</strong></h6>
-                {% if word.uses|length > 1 %}
-                    <ul class="uses-list">
-                        {% for use in word.uses %}
-                            <li> {{ use }} </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p> {{ word.uses[0] }} </p>
-                {% endif %}
-
-                <!-- display who created the word and when -->
-                <p>
-                    Created by:
-                    <span class="created-by">{{ user.name }}</span> on <span
-                        class="date-created">{{ word.dateCreated }}</span>
-                </p>
-                <p>
-                    {% if word.edited %}
-                    Last edit by
-                        <span class="edited-by">{{ last_edit.name }}</span> on <span
-                            class="last-edit-date">{{ word.lastEditedDate}}</span>
+                        <h6 class="word-card-heading"><strong>Definition:</strong></h6>                        
+                        <p class="word-card-normal-text">{{word.meaning}}</p>                     
                     {% endif %}
-                </p>
+                </div>
+
+
+                <div class="word-uses">
+                    <!-- display all uses -->
+                    <h6 class="word-card-heading"><strong>Word in use:</strong></h6>
+                    {% if word.uses|length > 1 %}
+                        <ul class="word-card-normal-text uses-list">
+                            {% for use in word.uses %}
+                                <li> {{ use }} </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="word-card-normal-text"> {{ word.uses[0] }} </p>
+                    {% endif %}
+                </div>
+
+
+                <div class="word-user-info">
+                    <!-- display who created the word and when -->
+                    <p>
+                        Created by:
+                        <span class="created-by">{{ user.name }}</span> on <span
+                            class="date-created">{{ word.dateCreated }}</span>
+                    </p>
+                    <p>
+                        {% if word.edited %}
+                        Last edit by
+                            <span class="edited-by">{{ last_edit.name }}</span> on <span
+                                class="last-edit-date">{{ word.lastEditedDate}}</span>
+                        {% endif %}
+                    </p>
+                </div>
 
                 <!-- display tags or inform user that word is untagged -->
                 <div class="row">
                     <div class="col s12">
-                        <h6><strong>Tags:</strong></h6>
+                        <h6 class="word-card-heading"><strong>Tags:</strong></h6>
                     </div>
                     {% if word.isTagged %}                        
                         <div class="col tags-container post">
@@ -146,8 +154,7 @@
                             </div>
                             <div class="modal-footer">
                                 <a href="#!" class="btn red modal-close">Cancel</a>
-                                <a class="btn deep-purple lighten-1 modal-close" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>
-                                
+                                <a class="btn deep-purple lighten-1 modal-close" href="{{ url_for('delete_word', word_Id=word._id) }}">Delete</a>                                
                             </div>
                         </div>
                     {% endif %}

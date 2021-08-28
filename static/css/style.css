@@ -270,6 +270,27 @@ nav i.material-icons {
     top: 35% !important;
 }
 
+.word-card-heading {
+    text-decoration: underline;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    margin-bottom: 19px;
+    letter-spacing: 2px;
+    color: #0000cd;
+}
+
+.definitions-list,
+.uses-list {
+    margin-left: 15px;
+    list-style: circle!important;
+}
+
+.word-card-normal-text {
+    font-family: 'Hina Mincho';
+    font-size: 18px!important;
+    margin-left: 15px!important;
+}
+
 
 
 /* form page */
