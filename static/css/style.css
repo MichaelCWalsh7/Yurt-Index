@@ -552,14 +552,15 @@ nav i.material-icons {
 
 /* return home button */
 .return-home-button {
-    background-color: #43a047;
+    background-color: #D4AF22;
     color: white;
     padding: 10px;
     border: 1px solid black;
     font-size: 19px;
 }
 
-.return-home-button-container {
-    margin-top: 50px;
+.home-button-container {
+    margin-top: 75px;
+    margin-bottom: 50px;
 }
 
