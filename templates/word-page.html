@@ -75,13 +75,15 @@
                     <!-- display who created the word and when -->
                     <p>
                         by:
-                        <span class="created-by">{{ user.name }}</span>, <span
-                            class="date-created">{{ word.dateCreated }}</span>
+                        <span class="created-by"><a href="{{ url_for('profile', user_id=user._id) }}">{{ user.name }}</a></span>, <span
+                            class="date-created"> {{ word.dateCreated }}</span>
                     </p>
                     <p>
                         {% if word.edited %}
                         last edit:
-                            <span class="edited-by">{{ last_edit.name }}</span>, <span
+                            <span class="edited-by"><a href="{{ url_for('profile', user_id=last_edit._id) }}">
+                                {{ last_edit.name }}
+                            </a></span>, <span
                                 class="last-edit-date">{{ word.lastEditedDate}}</span>
                         {% endif %}
                     </p>

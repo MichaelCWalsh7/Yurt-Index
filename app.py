@@ -666,7 +666,7 @@ def log_in():
                 session["id"] = user_id
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
-                    'profile', username=session["user"]))
+                    'profile', user_id=session["id"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -688,19 +688,18 @@ def log_out():
     return redirect(url_for("log_in"))
 
 
-@app.route("/profile/<username>")
-def profile(username):
+@app.route("/profile/<user_id>")
+def profile(user_id):
     user = mongo.db.users.find_one(
-        {"name": username}
+        {"_id": ObjectId(user_id)}
     )
-    user_id = user.get("_id")
     # Finds what words the user has created to display on their profile
     created_words = mongo.db.words.find(
-        {"createdBy": user_id}
+        {"createdBy": ObjectId(user_id)}
     )
     # Finds what words the user has edited to display on their profile
     edited_words = mongo.db.words.find(
-        {"editors": user_id}
+        {"editors": ObjectId(user_id)}
     )
     user_id_string = str(user_id)
     return render_template(

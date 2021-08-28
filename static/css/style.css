@@ -302,6 +302,12 @@ nav i.material-icons {
     margin-bottom: 8px;
     color: black;
 }
+
+.word-user-info p span a {
+    text-decoration: underline;
+    color: yellow;
+}
+
 .word-user-info p {
     font-size: 14px;
     font-family: 'Merriweather', serif;;
