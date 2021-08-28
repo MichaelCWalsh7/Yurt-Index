@@ -351,13 +351,13 @@ nav i.material-icons {
     margin-left: 7%;
 }
 
-@media(max-width: 547px) {
+@media(max-width: 600px) {
     .basic-user-info-container {
         margin-left: 10%;
     }
 
     .user-buttons {
-        padding-left: 15px !important;
+        padding-right: 46px !important;
     }
 
     .image-info {
@@ -366,12 +366,6 @@ nav i.material-icons {
 
     .user-buttons a {
         max-width: 250px;
-    }
-}
-
-@media(min-width: 395px) and (max-width: 556px) {
-    .user-buttons {
-        padding-left: 18% !important;
     }
 }
 
