@@ -6,16 +6,20 @@
     <div class="row card-panel">
         <form class="col s12" method="POST" action="{{ url_for('edit_word', word_Id=word._id) }}">
             <!-- word name -->
-            <div class="input-field new-word-input col s12">
-                <input name="name" id="name" type="text" class="validate" value="{{ word.name.capitalize() }}" required>
-                <label for="name" class="input-field-name">Word</label>
+            <div class="form-section">
+                <span class="form-instruction">Change the word's spelling here:</span>
+                <div class="input-field new-word-input col s12">                
+                    <input name="name" id="name" type="text" class="validate" value="{{ word.name.capitalize() }}" required>
+                    <label for="name" class="input-field-name">Word</label>
+                </div>
             </div>
 
             <!-- alternative spellings of word -->
-            <div class="col s12 splling-button-container">
-                <span class="btn green-text add-alt-button modal-trigger" href="#modal1"><i
-                        class="tiny material-icons">add_circle</i> Edit other spellings</span>
-            </div>
+                <span class="form-instruction">Any other ways to spell this word?</span>
+                <div class="col s12 form-modal-button">
+                    <span class="btn add-alt-button modal-trigger" href="#modal1"><i
+                            class="tiny material-icons">add_circle</i> Edit other spellings</span>
+                </div>
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -48,15 +52,20 @@
             </div>
 
             <!-- word meaning -->
-            <div class="input-field new-word-input col s12">
-                <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" 
-                    required>{{ word.meaning }}</textarea>
-                <label for="meaning" class="input-field-name">Definition</label>
+            <div class="form-section">
+                <span class="form-instruction">Change the word's meaning:</span>
+                    <div class="input-field new-word-input col s12">
+                        <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" 
+                            required>{{ word.meaning }}</textarea>
+                        <label for="meaning" class="input-field-name">Definition</label>
+                    </div>
             </div>
+            
 
             <!-- alternative meanings of word -->
-            <div class="col s12 splling-button-container">
-                <span class="btn green-text add-alt-button modal-trigger" href="#modal2"><i
+            <span class="form-instruction">Can this word mean anything else?</span>
+            <div class="col s12 form-modal-button">
+                <span class="btn add-alt-button modal-trigger" href="#modal2"><i
                         class="tiny material-icons">add_circle</i> Edit other
                     definitions</span>
             </div>
@@ -97,14 +106,19 @@
             </div>
 
             <!-- word use -->
-            <div class="input-field new-word-input col s12">
-                <textarea name="use" id="use" type="text" class="validate materialize-textarea" required>{{ word.uses[0] }}</textarea>
-                <label for="use" class="input-field-name">Example</label>
+            <div class="form-section">
+                <span class="form-instruction">Change the word's use:</span>
+                <div class="input-field new-word-input col s12">
+                    <textarea name="use" id="use" type="text" class="validate materialize-textarea" required>{{ word.uses[0] }}</textarea>
+                    <label for="use" class="input-field-name">Example</label>
+                </div>
             </div>
+            
 
             <!-- alternative uses of word -->
-            <div class="col s12 splling-button-container">
-                <span class="btn green-text add-alt-button modal-trigger" href="#modal3"><i
+            <span class="form-instruction">Any other examples of this word?</span>
+            <div class="col s12 form-modal-button">
+                <span class="btn add-alt-button modal-trigger" href="#modal3"><i
                         class="tiny material-icons">add_circle</i> Edit other
                     examples</span>
             </div>
@@ -140,31 +154,35 @@
             </div>
 
             <!-- tags -->
-            
-            <div class="input-field col s12 m8 l6">
-                <select id="tag_1" name="tag_1">
-                    {% if selected_tags[0] %}
-                        <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
-                        <option value="remove" id="tagRemove">Remove This Tag</option>
-                    {% else %}
-                        <option value="" disabled selected>Add a tag</option>
-                    {% endif %}
+            <div class="form-section">
+                <span class="form-instruction">Change the word's tag:</span>
+                <div class="input-field col s12 m8 l6">
+                    <select id="tag_1" name="tag_1">
+                        {% if selected_tags[0] %}
+                            <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
+                            <option value="remove" id="tagRemove">Remove This Tag</option>
+                        {% else %}
+                            <option value="" disabled selected>Add a tag</option>
+                        {% endif %}
 
-                    {% for tag in all_tags %}
-                        {% if selected_tags[0]  %}
-                            {% if tag != selected_tags[0] %}
+                        {% for tag in all_tags %}
+                            {% if selected_tags[0]  %}
+                                {% if tag != selected_tags[0] %}
+                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                {% endif %}
+                            {% else %}
                                 <option value="{{ tag.name }}">{{ tag.name }}</option>
                             {% endif %}
-                        {% else %}
-                            <option value="{{ tag.name }}">{{ tag.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-                <label>Tags</label>
+                        {% endfor %}
+                    </select>
+                    <label>Tags</label>
+                </div>
             </div>
-
-            <div class="col s12 uses-button-container">
-                <span class="btn green-text add-alt-button modal-trigger" href="#modal4">
+            
+            <!-- extra tags -->
+            <span class="form-instruction">More tags for this word?</span>
+            <div class="col s12 form-modal-button">
+                <span class="btn add-alt-button modal-trigger" href="#modal4">
                     <i class="tiny material-icons">add_circle</i> Add more tags
                 </span>
             </div>
