@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block search %}
-    <div class="row search-div green darken-1">
+    <div class="row search-div dark-green">
         <form action="{{ url_for('search') }}" method="post" class="col offset-m2 offset-l3 s12 m8 l6" id="navSearch">
             <div class="input-field search-container white">
                 <input id="search" type="text" name="search">
@@ -44,7 +44,7 @@
     <div class="row featured-words">
         
         <div class="col s12 m6">
-            <div class="card green darken-1">
+            <div class="card dark-green">
                 {% if words[0].rating > 6 %}
                     <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
                         <span><i class="star-word-icon material-icons">star</i></span>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="col s12 m6">
-            <div class="card green darken-1">
+            <div class="card dark-green">
                 {% if words[1].rating > 6 %}
                     <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
                         <span><i class="star-word-icon material-icons">star</i></span>
@@ -78,7 +78,7 @@
         </div>
 
         <div class="col s12 m6">
-            <div class="card green darken-1">
+            <div class="card dark-green">
                 {% if words[2].rating > 6 %}
                     <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
                         <span><i class="star-word-icon material-icons">star</i></span>
@@ -95,7 +95,7 @@
         </div>
 
         <div class="col s12 m6">
-            <div class="card green darken-1">
+            <div class="card dark-green">
                 {% if words[3].rating > 6 %}
                     <a class="tooltipped right" data-position="bottom" data-tooltip="This is a featured word.">
                         <span><i class="star-word-icon material-icons">star</i></span>
