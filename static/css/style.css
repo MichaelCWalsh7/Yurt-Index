@@ -123,13 +123,19 @@ nav i.material-icons {
 }
 
 .search-button {
-    height: 46px;
+    height: 43px;
     position: absolute;
     width: 3rem;
     font-size: 2.2rem;
     -webkit-transition: color .2s;
     transition: color .2s;
     background-color: orange;
+}
+
+@media(min-width: 1200px) {
+    .search-button {
+        height: 46px;
+    }
 }
 
 .search-container {
@@ -301,12 +307,17 @@ nav i.material-icons {
 .definitions-list,
 .uses-list {
     margin-left: 15px;
-    list-style: circle!important;
+    padding-left: 14px!important;
+}
+
+.definitions-list li,
+.uses-list li {
+    list-style-type: disclosure-closed!important;
 }
 
 .word-card-normal-text {
     font-family: 'Hina Mincho';
-    font-size: 21px!important;
+    font-size: 19px!important;
     margin-left: 15px!important;
 }
 
@@ -626,8 +637,8 @@ nav i.material-icons {
 
 /* return home button */
 .return-home-button {
-    background-color: #D4AF22;
-    color: white;
+    background-color: #ffc968;
+    color: black;
     padding: 10px;
     border: 1px solid black;
     font-size: 19px;
