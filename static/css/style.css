@@ -403,6 +403,20 @@ nav i.material-icons {
     }
 }
 
+#moreTagsInstruction {
+    padding-left: 18px;
+}
+
+#moreTagsButton {
+    padding-left: 6px;
+}
+
+.new-word-cancel-submit button {
+    margin-bottom: 8px;
+}
+
+
+
 
 /* user profile */
 .basic-user-info-container {

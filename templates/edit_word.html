@@ -116,7 +116,7 @@
             
 
             <!-- alternative uses of word -->
-            <span class="form-instruction">Any other examples of this word?</span>
+            <span class="form-instruction">Any other examples of this word?</span><br>
             <div class="col s12 form-modal-button">
                 <span class="btn add-alt-button modal-trigger" href="#modal3"><i
                         class="tiny material-icons">add_circle</i> Edit other
@@ -154,37 +154,37 @@
             </div>
 
             <!-- tags -->
-            <div class="form-section">
-                <span class="form-instruction">Change the word's tag:</span>
-                <div class="input-field col s12 m8 l6">
-                    <select id="tag_1" name="tag_1">
-                        {% if selected_tags[0] %}
-                            <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
-                            <option value="remove" id="tagRemove">Remove This Tag</option>
-                        {% else %}
-                            <option value="" disabled selected>Add a tag</option>
-                        {% endif %}
+            <span class="form-instruction">Change the word's tag:</span><br>
+            <div class="input-field col s12 m8 l6">
+                <select id="tag_1" name="tag_1">
+                    {% if selected_tags[0] %}
+                        <option value="{{ selected_tags[0].name }}" selected>{{ selected_tags[0].name }}</option>
+                        <option value="remove" id="tagRemove">Remove This Tag</option>
+                    {% else %}
+                        <option value="" disabled selected>Add a tag</option>
+                    {% endif %}
 
-                        {% for tag in all_tags %}
-                            {% if selected_tags[0]  %}
-                                {% if tag != selected_tags[0] %}
-                                    <option value="{{ tag.name }}">{{ tag.name }}</option>
-                                {% endif %}
-                            {% else %}
+                    {% for tag in all_tags %}
+                        {% if selected_tags[0]  %}
+                            {% if tag != selected_tags[0] %}
                                 <option value="{{ tag.name }}">{{ tag.name }}</option>
                             {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label>Tags</label>
-                </div>
+                        {% else %}
+                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Tags</label>                
             </div>
             
             <!-- extra tags -->
-            <span class="form-instruction">More tags for this word?</span>
-            <div class="col s12 form-modal-button">
-                <span class="btn add-alt-button modal-trigger" href="#modal4">
-                    <i class="tiny material-icons">add_circle</i> Add more tags
-                </span>
+            <div class="form-section col s12">
+                <span class="form-instruction" id="moreTagsInstruction">More tags for this word?</span>
+                <div class="col s12 form-modal-button" id="moreTagsButton">
+                    <span class="btn add-alt-button modal-trigger" href="#modal4">
+                        <i class="tiny material-icons">add_circle</i> Add more tags
+                    </span>
+                </div>
             </div>
 
 
