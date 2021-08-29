@@ -459,7 +459,7 @@ nav i.material-icons {
 /* rating area */
 .already-rated-up,
 #not-rated-up:hover {
-    color: gold;
+    color: #00FF66;
 }
 
 .already-rated-down,
@@ -612,6 +612,7 @@ nav i.material-icons {
     margin-right: 15px;
     margin-top: 15px;
     color: gold;
+    font-size: 3rem;
 }
 
 
