@@ -553,8 +553,8 @@ nav i.material-icons {
 .tags a {
     margin-left: 20px;
     padding: 0 10px 0 12px;
-    background: #0089e0;
-    color: #fff;
+    background: #FFC968;
+    color: black;
     text-decoration: none;
     -moz-border-radius-bottomright: 4px;
     -webkit-border-bottom-right-radius: 4px;
@@ -572,7 +572,7 @@ nav i.material-icons {
     left: -12px;
     width: 0;
     height: 0;
-    border-color: transparent #0089e0 transparent transparent;
+    border-color: transparent #FFC968 transparent transparent;
     border-style: solid;
     border-width: 12px 12px 14px 0;
 }
