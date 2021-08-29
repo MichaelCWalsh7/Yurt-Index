@@ -136,7 +136,7 @@
                     <span class="rating-number"> {{ word.rating }} </span>
 
                 {% else %}
-                    <span><a href="{{ url_for('log_in') }}">Log in</a> or <a href="{{ url_for('register') }}">register</a> to edit this word, and more!</span>            
+                    <span id="notUserInstructions"><a href="{{ url_for('log_in') }}">Log in</a> or <a href="{{ url_for('register') }}">register</a> to edit this word, and more!</span>            
                 {% endif %}
 
                 {% if session.user %}
