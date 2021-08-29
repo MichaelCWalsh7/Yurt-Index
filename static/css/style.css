@@ -119,7 +119,7 @@ nav i.material-icons {
 }
 
 #search {
-    margin: 0!important;
+    margin: 0 !important;
 }
 
 .search-button {
@@ -279,23 +279,6 @@ nav i.material-icons {
     opacity: .7;
 }
 
-.add-alt-button {
-    color: black!important;
-    font-family: 'Merriweather';
-    padding-top: 5px;
-    opacity: .9;
-    background-color: #43a047;
-    margin: 15px 0 5px 10px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    box-shadow: 1px 1px 0px 2px black;
-    font-size: 1em;
-    line-height: 18px;
-    text-transform: none;
-    border: solid #2a652d 1px;
-    font-weight: 500;
-}
-
 .no-delete-button {
     opacity: .6;
 }
@@ -315,18 +298,18 @@ nav i.material-icons {
 .definitions-list,
 .uses-list {
     margin-left: 15px;
-    padding-left: 14px!important;
+    padding-left: 14px !important;
 }
 
 .definitions-list li,
 .uses-list li {
-    list-style-type: disclosure-closed!important;
+    list-style-type: disclosure-closed !important;
 }
 
 .word-card-normal-text {
     font-family: 'Hina Mincho';
-    font-size: 19px!important;
-    margin-left: 15px!important;
+    font-size: 19px !important;
+    margin-left: 15px !important;
 }
 
 .word-user-info {
@@ -342,7 +325,8 @@ nav i.material-icons {
 
 .word-user-info p {
     font-size: 14px;
-    font-family: 'Merriweather', serif;;
+    font-family: 'Merriweather', serif;
+    ;
 }
 
 .word-tags {
@@ -359,12 +343,32 @@ nav i.material-icons {
 
 @media(max-width: 576px) {
     .card .card-action {
-        padding: 16px 12px!important;
+        padding: 16px 12px !important;
     }
 }
 
 
+
+
 /* form pages */
+
+.add-alt-button {
+    color: black !important;
+    font-family: 'Merriweather';
+    padding-top: 5px;
+    opacity: .9;
+    background-color: #43a047;
+    margin: 15px 0 5px 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 0px 2px black;
+    font-size: 1em;
+    line-height: 18px;
+    text-transform: none;
+    border: solid #2a652d 1px;
+    font-weight: 500;
+}
+
 .new-word-input {
     margin: 21px 0 0;
 }
@@ -385,11 +389,18 @@ nav i.material-icons {
 }
 
 .first-tag-select {
-    margin-left: 4px!important;
+    margin-left: 4px !important;
 }
 
 .form-modal-button {
     margin-bottom: 75px;
+}
+
+@media(max-width: 350px) {
+    .add-alt-button {
+        padding: 2px;
+        font-size: .9em;
+    }
 }
 
 
@@ -663,4 +674,3 @@ nav i.material-icons {
     margin-top: 75px;
     margin-bottom: 50px;
 }
-
