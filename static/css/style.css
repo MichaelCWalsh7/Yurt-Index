@@ -695,6 +695,11 @@ nav i.material-icons {
     font-size: 19px;
 }
 
+.return-home-button:hover {
+    color: #FFC968;
+    background-color: black;
+}
+
 .home-button-container {
     margin-top: 75px;
     margin-bottom: 50px;
