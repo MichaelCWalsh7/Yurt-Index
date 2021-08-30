@@ -382,6 +382,12 @@ nav i.material-icons {
     line-height: 10px;
 }
 
+.new-word-cancel-submit button:hover,
+.non-user-form-confirm button:hover,
+.user-buttons a:hover {
+    border: black solid 1px;
+}
+
 .form-instruction {
     padding-left: 30px;
     color: #43a047;
