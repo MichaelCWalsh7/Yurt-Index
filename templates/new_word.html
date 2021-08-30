@@ -6,13 +6,14 @@
     <div class="row card-panel">
         <form class="col s12" method="POST" action="{{ url_for('new_word') }}">
             <!-- word name -->
+            <span class="form-instruction">Write the word here:</span>
             <div class="input-field new-word-input col s12">
                 <input name="new_name" id="new_name" type="text" class="validate" required>
                 <label for="new_name" class="input-field-name">Word</label>
             </div>
 
             <!-- alternative spellings of word -->
-            <div class="col s12 spelling-button-container">
+            <div class="col s12 form-modal-button">
                 <span class="btn green-text add-alt-button modal-trigger" href="#modal1"><i
                         class="tiny material-icons">add_circle</i> Add other spellings</span>
             </div>
@@ -48,13 +49,16 @@
             </div>
 
             <!-- word meaning -->
-            <div class="input-field new-word-input col s12">
-                <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
-                <label for="meaning" class="input-field-name">Definition</label>
+            <div class="form-section">
+                <span class="form-instruction">Tell us what the word means:</span>
+                <div class="input-field new-word-input col s12">
+                    <textarea name="meaning" id="meaning" type="text" class="validate materialize-textarea" required></textarea>
+                    <label for="meaning" class="input-field-name">Definition</label>
+                </div>
             </div>
 
             <!-- alternative meanings of word -->
-            <div class="col s12 meaning-button-container">
+            <div class="col s12 form-modal-button">
                 <span class="btn green-text add-alt-button modal-trigger" href="#modal2"><i
                         class="tiny material-icons">add_circle</i> Add other
                     definitions</span>
@@ -91,13 +95,16 @@
             </div>
 
             <!-- word use -->
-            <div class="input-field new-word-input col s12">
-                <textarea name="use" id="use" type="text" class="validate materialize-textarea" required></textarea>
-                <label for="use" class="input-field-name">Example</label>
+            <div class="form-section">
+                <span class="form-instruction">Use the word in a sentence:</span>
+                <div class="input-field new-word-input col s12">
+                    <textarea name="use" id="use" type="text" class="validate materialize-textarea" required></textarea>
+                    <label for="use" class="input-field-name">Example</label>
+                </div>
             </div>
 
             <!-- alternative uses of word -->
-            <div class="col s12 uses-button-container">
+            <div class="col s12 form-modal-button">
                 <span class="btn green-text add-alt-button modal-trigger" href="#modal3"><i
                         class="tiny material-icons">add_circle</i> Add other
                     examples</span>
@@ -134,18 +141,20 @@
             </div>
 
             <!-- tags -->
-            
-            <div class="input-field col s12 m8 l6">
-                <select id="tag_1" name="tag_1">
-                    <option value="" disabled selected>Add a tag</option>
-                    {% for tag in tags %}
-                    <option value="{{ tag.name }}">{{ tag.name }}</option>
-                    {% endfor %}
-                </select>
-                <label>Tags</label>
+            <div class="form-section">
+                <span class="form-instruction">Tag this word:</span><br>
+                <div class="input-field col s12 m8 l6">
+                    <select id="tag_1" name="tag_1">
+                        <option value="" disabled selected>Add a tag</option>
+                        {% for tag in tags %}
+                        <option value="{{ tag.name }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Tags</label>
+                </div>
             </div>
 
-            <div class="col s12 uses-button-container">
+            <div class="col s12 form-modal-button">
                 <span class="btn green-text add-alt-button modal-trigger" href="#modal4">
                     <i class="tiny material-icons">add_circle</i> Add more tags
                 </span>
