@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
 
     customHomePageReturn();
-    boldWordInUse();
+    underlineWordInUse();
 });
 
 function customHomePageReturn() {
@@ -29,13 +29,22 @@ function customHomePageReturn() {
     }
 }
 
-function boldWordInUse() {
-    let wordToBoldLower = $(".word-name").text().toLowerCase();
-    let wordToBoldCap = $(".word-name").text();
+function underlineWordInUse() {
+    let wordToUnderlineLower = $(".word-name").text().toLowerCase();
+    let wordToUnderlineCap = $(".word-name").text()
     if ($('p').hasClass("single-word-use")) {
-        let newString = $('.single-word-use').text().replace(`${wordToBoldLower}!"`, `<span class="given-word">${wordToBoldLower}</span>`)
+        let newStringLower = $('.single-word-use').text().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`)
+        let newString = newStringLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`)
+
         $('.single-word-use').html(newString)
     }
+    if ($('ul').hasClass("uses-list")){
+        let newListLower = $(".uses-list").html().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`)
+        let newList = newListLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`)
+        $(".uses-list").html(newList)
+    }
+    
+    
 }
 
 // for (var i = 0; i <= items.length; i++) {

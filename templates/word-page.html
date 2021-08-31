@@ -60,7 +60,7 @@
                     {% if word.uses|length > 1 %}
                         <ul class="word-card-normal-text uses-list">
                             {% for use in word.uses %}
-                                <li class="word-use"> {{ use }} </li>
+                                <li class="multi-word-use"> {{ use }} </li>
                             {% endfor %}
                         </ul>
                     {% else %}
