@@ -16,7 +16,7 @@
 
 /* general style rules */
 
-p {
+body, p {
     font-family: 'Merriweather', serif;
 }
 
