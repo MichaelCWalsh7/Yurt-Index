@@ -18,6 +18,7 @@ $(document).ready(function () {
     });
 
     customHomePageReturn();
+    boldWordInUse();
 });
 
 function customHomePageReturn() {
@@ -27,3 +28,32 @@ function customHomePageReturn() {
         </a>`)
     }
 }
+
+function boldWordInUse() {
+    let wordToBoldLower = $(".word-name").text().toLowerCase();
+    let wordToBoldCap = $(".word-name").text();
+    if ($('p').hasClass("single-word-use")) {
+        let newString = $('.single-word-use').text().replace(`${wordToBoldLower}!"`, `<span class="given-word">${wordToBoldLower}</span>`)
+        $('.single-word-use').html(newString)
+    }
+}
+
+// for (var i = 0; i <= items.length; i++) {
+    //     if (items[i].hasClass()) {
+    //         console.log("thank fuck")
+    //     } 
+    // }
+    //    if (Element.hasClass('word-use')) {
+    //        console.log("hasclass")
+    //        wordUses.push(Element.text())
+    //    }
+    //    console.log(wordUses)
+
+
+    // if (wordUse.includes(wordToBoldLower)) {
+    //     wordUse.replace(`${wordToBoldLower}`, "por que no")
+    //     $(".word-use").text(`${wordUse}`)
+    //     console.log("success")
+    // } else {
+    //     console.log("fail")
+    // }

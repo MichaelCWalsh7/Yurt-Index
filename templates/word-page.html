@@ -25,9 +25,7 @@
                 </a>                        
             {% endif %}
             <div class="card-content white-text">
-                <span class="word-name card-title">
-                    <strong>{{ word.name.capitalize() }}</strong>
-                </span>
+                <span class="word-name card-title">{{ word.name.capitalize() }}</span>
 
                 <!-- alternate spellings check -->
                 {% if word.hasAltSpellings %}
@@ -62,11 +60,11 @@
                     {% if word.uses|length > 1 %}
                         <ul class="word-card-normal-text uses-list">
                             {% for use in word.uses %}
-                                <li> {{ use }} </li>
+                                <li class="word-use"> {{ use }} </li>
                             {% endfor %}
                         </ul>
                     {% else %}
-                        <p class="word-card-normal-text"> {{ word.uses[0] }} </p>
+                        <p class="word-card-normal-text single-word-use"> {{ word.uses[0] }} </p>
                     {% endif %}
                 </div>
 
