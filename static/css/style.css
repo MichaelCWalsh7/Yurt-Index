@@ -723,3 +723,15 @@ nav i.material-icons {
     margin-top: 75px;
     margin-bottom: 50px;
 }
+
+@media(min-width: 993px) and (max-width: 1305px) {
+    .home-button-container {
+        margin-bottom: 74px;
+    }
+}
+
+@media(min-width: 1306px) {
+    .home-button-container {
+        margin-bottom: 90px;
+    }
+}
