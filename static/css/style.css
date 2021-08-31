@@ -266,6 +266,20 @@ nav i.material-icons {
 
 
 
+
+/* word summaries */
+
+.link-to-word a {
+    color: #FFC968!important;
+}
+
+.link-to-word a:hover {
+    color: #9ED7FF!important;
+}
+
+
+
+
 /* word card */
 .word-card {
     margin-top: 8%;
@@ -384,7 +398,8 @@ nav i.material-icons {
 
 .new-word-cancel-submit button:hover,
 .non-user-form-confirm button:hover,
-.user-buttons a:hover {
+.user-buttons a:hover,
+.edit-delete-buttons a:hover {
     border: black solid 1px;
 }
 
