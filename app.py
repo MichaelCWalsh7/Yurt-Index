@@ -57,11 +57,13 @@ def word_page(word_Id):
 
 
 def get_tags(word_Id):
+    # initializes the variables needed to display tags
     word = mongo.db.words.find_one(
         {"_id": ObjectId(word_Id)}
     )
     tag_ids = word.get("tags")
     tags = []
+    # generates a list of tags to pass through to the word page
     for tag_id in tag_ids:
         tag = mongo.db.tags.find_one({
             "_id": ObjectId(tag_id)
@@ -72,6 +74,7 @@ def get_tags(word_Id):
 
 def rating_user_list(rating_list):
     users = []
+    # generates list of liked/disliked users to pass through to the word page
     for rating_id in rating_list:
         user = mongo.db.users.find_one({
             "_id": ObjectId(rating_id)
@@ -108,22 +111,10 @@ def new_word():
         date = datetime.now().date()
 
         # adds any additional spellings to the altSpellings list
-        x = 1
-        while x < 6:
-            spelling = request.form.get(
-                f"alt_spell_{x}")
-            if spelling != "":
-                alt_spellings.append(spelling)
-            x += 1
+        alt_spellings = alt_spell_def_list("spell")
 
         # adds any additional definitions to the altDefinitions list
-        x = 1
-        while x < 6:
-            definition = request.form.get(
-                f"alt_def_{x}")
-            if definition != "":
-                alt_definitions.append(definition)
-            x += 1
+        alt_definitions = alt_spell_def_list("def")
 
         # adds inputted uses to the uses list
         required_Use = request.form.get("use")
@@ -217,22 +208,10 @@ def edit_word(word_Id):
         date = datetime.now().date()
 
         # adds any additional spellings to the altSpellings list
-        x = 1
-        while x < 6:
-            spelling = request.form.get(
-                f"alt_spell_{x}")
-            if spelling != "":
-                alt_spellings.append(spelling)
-            x += 1
+        alt_spellings = alt_spell_def_list("spell")
 
         # adds any additional definitions to the altDefinitions list
-        x = 1
-        while x < 6:
-            definition = request.form.get(
-                f"alt_def_{x}")
-            if definition != "":
-                alt_definitions.append(definition)
-            x += 1
+        alt_definitions = alt_spell_def_list("def")
 
         # adds inputted uses to the uses list
         required_Use = request.form.get("use")
@@ -352,6 +331,19 @@ def edit_word(word_Id):
         all_tags=all_tags)
 
 
+def alt_spell_def_list(var):
+    # generates a list of spellings or definitions if applicable
+    newList = []
+    x = 1
+    while x < 6:
+        item = request.form.get(
+            f"alt_{var}_{x}")
+        if item != "":
+            newList.append(item)
+        x += 1
+    return newList
+
+
 @app.route("/rating_up/<username>/<word_id>", methods=["GET", "POST"])
 def rating_up(word_id, username):
     # initializes variables to increment the rating
@@ -455,6 +447,7 @@ def unrate(username, rating, word_id):
 @app.route("/add_tag/<username>", methods=["GET", "POST"])
 def add_tag(username):
     if request.method == "POST":
+        # initilaizes the variables needed to add tags
         tags = []
         x = 1
         user = mongo.db.users.find_one({
@@ -464,6 +457,7 @@ def add_tag(username):
         words = mongo.db.words.find().sort("rating", 1)
         date = datetime.now().date()
 
+        # runs through the tag form inserting new tags if they've been entereed
         while x < 5:
             tags.append(request.form.get(f"name-{x}").capitalize())
             x += 1
@@ -484,6 +478,7 @@ def add_tag(username):
 
 @app.route("/delete_word/<word_Id>")
 def delete_word(word_Id):
+    # removes the word from the mongoDB collection
     mongo.db.words.remove({
         "_id": ObjectId(word_Id)
     })
@@ -493,7 +488,10 @@ def delete_word(word_Id):
 
 @app.route("/all_words")
 def all_words():
+    # gets a  list of all available words in alphabetical order
     words = mongo.db.words.find().sort("name", 1)
+
+    # initializes an alphbetical variable for the 'sort by letter' option
     letters = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
@@ -503,13 +501,17 @@ def all_words():
 
 @app.route("/sort_all/<field>/<order>")
 def sort_all(field, order):
+    # determines if the words will be sorted ascendingly or descendingly
     if order == '+':
         value = 1
 
     if order == '-':
         value = -1
 
+    # sorts the words with the given parameters
     words = mongo.db.words.find().sort(field, value)
+
+    # initializes an alphbetical variable for the 'sort by letter' option
     letters = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
