@@ -4,7 +4,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-# from werkzeug.exceptions import HTTPException, InternalServerError
 from datetime import datetime
 if os.path.exists("env.py"):
     import env
@@ -23,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home_page")
 def home_page():
-    words = list(mongo.db.words.find().sort("rating", -1))[10000]
+    words = list(mongo.db.words.find().sort("rating", -1))
     return render_template("home.html", words=words)
 
 
