@@ -1,104 +1,62 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Yurt Index</h1>
 
-Welcome MichaelCWalsh7,
+[View the live project here.]https://yurt-index.herokuapp.com/home_page)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+A dictionary for Irish slang. It is designed to be responsibe and accessible on a range of devices, making it easy to navigate for potential readers.
 
-## Gitpod Reminders
+<h2 align="center"><img src="https://yurt-index.herokuapp.com/static/images/readme/readme-hero.png"></h2>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience (UX)
 
-`python3 -m http.server`
+-   ### User stories
 
-A blue button should appear to click: _Make Public_,
+    -   #### First Time Visitor Goals
+    
+    1. As a First Time Visitor, I want to easily understand the main purpose of the site and find definitions of words.
+    2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
+    3. As a First Time Visitor, I want to easily be able to search or find a word that I'm interested in.
+    4. As a First Time Visitor, I want to learn extra information on words that I'm interested in, for instance how to spell or use a slang word.
 
-Another blue button should appear to click: _Open Browser_.
+    -   #### Returning Visitor Goals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+    1. As a Returning Visitor, I want to know what words are well-liked by the community and which have more dubious entries.
+    2. As a Returning Visitor, I want to create an account so I can show my appreciation or discontent with entries on the site.
+    3. As a Returning Visitor, I want to edit errors or add definitions/alternative spelling or examples to words I know. 
+    4. As a Returning Visitor, I want to explore the profiles of other users who have created/edited entries on the site. 
 
-A blue button should appear to click: _Make Public_,
+    -   #### Frequent User Goals
+    1. As a Frequent User, I want to create my own entries on the site for words that are not yet present.
+    2. As a Frequent User, I want customize my profile so other users can get an impression of my online persona. 
+    3. As a Frequent User, I want to browse through various categories of entries on the site. 
+    4. As a Frequent User/Admin, I want to be able to create new tags for entries to be categorized by.
 
-Another blue button should appear to click: _Open Browser_.
+-   ### Design
+    -   #### Colour Scheme
+        - The colour scheme for the Yurt Index as a dictionary of Irish slang, is a fairly obvious choice of green, white & orange/gold. Matching the Irish tricolous flag.
+        - The predominant green and white are also the colours of the Limerick flag, a city known for it's predominant use of slang that often enter the national zeitgeist.
+        - However, the original colour scheme of the site was massively overhauled, midway through development. [Here is and image of the original colour scheme.](https://yurt-index.herokuapp.com/static/images/readme/readme-hero.png) This light green is much more inline with the original Irish and Limerick flag colours
+        - As is evident from the above picture, the site now has a significantly darker colour theme, with the green chosen now closer to a darker forest green, rather than the flag greren of Ireland and Limerick.
+        - This is mainly due to contrast. The light green shown in the above picture (#43a047) is extremely difficult to contrast with other classic text font colours.
+        - More on this in [the TESTING.md section](testing-section-link.com)
+        - There is also a pale blue sometime visible on links on the site, this has no thematic relevance and is simply for pleasant, aesthetic contrast. 
+    
+    -   #### Typography
+        - There are 3 main fonts in use on the site. 
+        - The first being Eagle Lake, which has a back-up of serif. This is a highly stylized font, not used for long-form text, only for headings and even then opnly sparingly. This font has a celtic-style typography that is used to be somewhat reminiscent of [the legendary Book of Kells](https://yurt-index.herokuapp.com/static/images/readme/book-of-kells.png) and lean further into the Irish aesthetic of the site.
+        - The second font in use is Hina Mincho, again with a back up of serif. This is a font that strikes a nice balance between modern and traditional, which compliments the Eagle Lake font well and is very appropriate for an online Irish slang database, it in and of itself being and blend of modern and traditional. 
+        - Finally for variance and often for links, the third font is Merriweather, yet again with a back up of serif. the merriweather font stands out nicely from the other two, and thus is used for calls to action, sub-headings etc. It is a massive step-up from the default Materialize font that is overly generic for a site such as this one.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+    -   #### Imagery
+        - While imagery is quite important, the decision was made early on in the development process to move away from large visuals, for example a hero image. Multiple hero images were tested with the site, but none of them really looked or felt right. After a lengthy browse of popular competitors, namely [Urban Dictionary](https://www.urbandictionary.com/), [Online Slang Dictionary](http://onlineslangdictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/) (which surprisingly has a very comprehensive slang archive), I found that these sites had no hero image either, and very little in the way of imagery in general, it often being distracing to the main content of the site. [Urban Dictionary](https://www.urbandictionary.com/), indisputably the most popular of the slang dictionaries goes so far as to have no home page at all, rather a word of the day that the user gets redirected to. While [Dictionary.com](https://www.dictionary.com/e/slang/) does have images in the slang archive of their site, these are almost exlusively to represent various word entries, a very cool feature but far beyond the scope of a 1-man Milestone Project. (Though there is more on this in Future Features section located towards the end of the end of this README.)
 
-To log into the Heroku toolbelt CLI:
+*   ### Wireframes
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+    - Home Page Desktop Wireframe - [View](https://yurt-index.herokuapp.com/static/images/readme/wireframes/home-desktop.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+    - Home Page Mobile Wireframe - [View](https://yurt-index.herokuapp.com/static/images/readme/wireframes/home-mobile.png)
 
-------
+    - Word Page Desktop Wireframe - [View](https://yurt-index.herokuapp.com/static/images/readme/wireframes/word-page-desktop.png)
 
-## Release History
+    - Word Page Mobile Wireframe - [View](https://yurt-index.herokuapp.com/static/images/readme/wireframes/word-page-mobile.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+    
