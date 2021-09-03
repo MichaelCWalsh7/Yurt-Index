@@ -71,7 +71,7 @@ A dictionary for Irish slang. It is designed to be responsibe and accessible on 
 ## Planned Future Features
 
 - Email verification
-    - Although it is far beyond the scope of this project, I discovered throughout hte project that I am actually quite passionate about Irish slang, and would like to roll this website out to the general public. As far as I'm aware, there is no website that does this yet, so there's a definite gap. Email verification is a staple of modern websites with account creation and this feature will be implemented after I've finished the course and have more time. 
+    - Although it is beyond the scope of this project, I discovered throughout the project that I am actually quite passionate about Irish slang, and would like to roll this website out to the general public. As far as I'm aware, there is no website that does this yet, so there's a definite gap. Email verification is a staple of modern websites with account creation and this feature will be implemented after I've finished the course and have more time. 
     - Unfortunately the implementation of this was pushed to future features due to time constraints. 
 
 - Images
