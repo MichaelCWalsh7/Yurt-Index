@@ -11,8 +11,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - [Display by letter](https://validator.w3.org/nu/?doc=https%3A%2F%2Fyurt-index.herokuapp.com%2Fdisplay_by_letter%2FB) The letter 'b' was used as many words existed for this letter at time of writing.
         - [Display by tag](https://validator.w3.org/nu/?doc=https%3A%2F%2Fyurt-index.herokuapp.com%2Fdisplay_by_tag%2F611fd74aff3d2e6eb99c27f9) The 'Culchie' tag was used for the same reasons as above.
         - [Edit profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Fyurt-index.herokuapp.com%2Fedit_profile%2Ftestuser)
-        - [Edit word]()
+        - [Edit word](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fedit_word%2F611f9bcbc2e7d2c090a747ef)
         - [Home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fyurt-index.herokuapp.com%2F)
+        - [Log in](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Flog_in)
+        - [New word](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fnew_word)
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
     -   Results:
         - [Stylesheet](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/css-validation.png)
