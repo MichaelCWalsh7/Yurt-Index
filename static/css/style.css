@@ -390,7 +390,8 @@ nav i.material-icons {
     color: black !important;
 }
 
-.add-alt-button:hover {
+.add-alt-button:hover,
+.add-alt-button a:hover {
     background-color: black;
     color: #47A94C!important;
 }
