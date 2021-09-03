@@ -15,10 +15,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - [Home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fyurt-index.herokuapp.com%2F)
         - [Log in](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Flog_in)
         - [New word](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fnew_word)
+        - [Profile](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fprofile%2F610eaf9bd2861806a173811b)
+        - [Register](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fregister)
+        - [Searh results](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fsearch)
+        - [Word page](https://validator.w3.org/nu/?doc=http%3A%2F%2Fyurt-index.herokuapp.com%2Fwords%2F611feae721fd807e62fe715b)
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) 
     -   Results:
-        - [Stylesheet](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/css-validation.png)
-        - These results are in the form of a picture rather than the links above, as when the site is passed through the validator, it also validates the entire bootstrap library, which as of bootstrap 5, throws 17 errors and fails validation. 
+        - [Stylesheet](https://yurt-index.herokuapp.com/static/images/readme/css-validation.png)
+        - These results are in the form of a picture rather than the links above, as when the site is passed through the validator, it also validates the entire Materialize library, which as of Materialize 1.0.0, throws an error and fails validation. 
         - If needed, the CSS that I've written for the project can be validated via file upload, or direct input [here.](https://jigsaw.w3.org/css-validator/)
 -   [JSHint Linter](https://jshint.com/)
     - Results:
