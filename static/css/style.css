@@ -371,6 +371,7 @@ nav i.material-icons {
 /* form pages */
 
 .add-alt-button {
+    color: black !important;
     font-family: 'Merriweather';
     padding-top: 5px;
     opacity: .9;
@@ -386,12 +387,9 @@ nav i.material-icons {
     font-weight: 500;
 }
 
-.add-alt-button a {
-    color: black !important;
-}
 
-.add-alt-button:hover,
-.add-alt-button a:hover {
+
+.add-alt-button:hover {
     background-color: black;
     color: #47A94C!important;
 }
