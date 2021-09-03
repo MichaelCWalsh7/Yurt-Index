@@ -13,8 +13,7 @@
         </div>
     </div>
     <div class="row">
-        <form action="" class="col s12 m8 offset-m2" method="POST"
-            action="{{ url_for('edit_profile', username=user.name) }}">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_profile', username=user.name) }}">
             <div class="row">
                 <span class="form-instruction">Tell Us Where You're From:</span>
                 <div class="input-field col s12">
@@ -38,8 +37,8 @@
             </div>
             <div class="row">
                 <div class="col s12 m6 offset-m4">
-                    <a href="{{ url_for('profile', user_id=session['id']) }}">
-                        <button class="btn-large amber darken-2">Cancel <i class="small material-icons">close</i></button>
+                    <a class="btn-large amber darken-2" href="{{ url_for('profile', user_id=session['id']) }}">
+                        Cancel <i class="small material-icons">close</i>
                     </a>
                     <button class="btn-large blue" type="submit">Submit <i class="small material-icons">check</i></button>
                 </div>
