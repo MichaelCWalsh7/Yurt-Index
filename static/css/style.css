@@ -149,6 +149,11 @@ nav i.material-icons {
     }
 }
 
+.search-container label {
+    color: black!important;
+    opacity: 0.8!important;
+}
+
 
 
 /* main headings */
@@ -167,6 +172,8 @@ nav i.material-icons {
 
 
 /* footer */
+
+
 .footer-tag {
     font-size: 15px;
 }
@@ -176,7 +183,7 @@ nav i.material-icons {
 }
 
 .footer-links a {
-    color: black;
+    color: #ffc968;
 }
 
 .footer-links a:hover {
@@ -555,6 +562,7 @@ nav i.material-icons {
 #not-rated-up,
 #not-rated-down {
     text-decoration: none;
+    color: white;
 }
 
 
