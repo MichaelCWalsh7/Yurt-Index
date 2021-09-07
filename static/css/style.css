@@ -209,12 +209,12 @@ nav i.material-icons {
 /* home page */
 
 .home-description {
-    border: dashed 2px #43a047;
+    border: dashed 2px #2a652d;
     margin-bottom: 35px;
 }
 
 .home-description p {
-    color: #43a047;
+    color: #2a652d;
     font-weight: 500;
     padding: 20px;
 }

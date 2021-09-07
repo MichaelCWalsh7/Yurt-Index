@@ -56,6 +56,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - While each word summary merely provides the primary definition and a link to the word page, the word page itself can contain a myriad of information about each word. 
         - Data systems are in place to provide information like multiple spellings, defnitions and examples if there are any, along with the tag system which helps further categorize words. 
         - While the root spelling and definition are the bare minunum of the UX expectations, the site also provides space for alternative spellings and multiple uses in a clean and non-cluttered way.
+        - Another feature in play is that when looking at the examples of a word on the word page, whenever the word appears in the example it will be underlined, so the user can more clearly see it in use in wordier examples.
 
 -   #### Returning Visitor Goals
     1. As a Returning Visitor, I want to know what words are well-liked by the community and which have more dubious entries.
@@ -63,6 +64,44 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - Words that very well-liked by the website's community will become 'star words'. These words will gain a yellow star in the top right corner of both their page and word summary, which, when overed hovered over, will inform the user that this is a well-liked word by the community. This is now a very prominent feature in online dictionaries and encyclopedias.
         - Extremely well-liked words may appear on the 'home page' as part of the 'featured words' section. This is a fluid section of the site, and the top 4 words will always be the ones shown.
     2. As a Returning Visitor, I want to create an account so I can show my appreciation or discontent with entries on the site.
-        
+        - Following  the design choices of both [Urban Dictionary](https://www.urbandictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/), the user log in and registration option are located in a navbar dropdown button, represented by the traditional circular user icon.
+        - There are other calls-to-action which call for new users to register an account. Firstly on the 'home page' in the introductory paragraph there is a call-to-action link to the user registration page. And perhaps most prominently, at the bottom of every word page, the user is provided with a link that to register or log in if they are not already. 
+        - Once logged in, the like and dislike buttons on every word are clearly visible at the bottom of every word page.
+        - Words that have liked/disliked erroneously, or any words that the user has changed their mind about, can be unliked. Click the the like/dislike button again if one has already clicked it, works exactly as expected, incrementing or decrementing the rating and removing the user from the word's like history and vice-versa. This format of liking objects is a mainstay of modern websites, not only used on contemporary dictionaries but also social media sites like Facebook, Youtube etc.
+    3. As a Returning Visitor, I want to edit errors or add definitions/alternative spelling or examples to words I know.
+        - As mentioned in the above section there is a registration call-to-action at the bottom of every word page, once logged in, a large edit button will appear in hte bottom right of every word page. 
+        - Here is one area I feel, where the Yurt Index outdoes various other slang dictionary contemporaries such as the inspirations ([Urban Dictionary](https://www.urbandictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/)) mentioned above.
+        - The data and design structures are in place in such a way that a user can add a myriad of alternative spellings, definitions or examples to any word that they know. Great care has been taken to present these alternative options in a clean, non-cluttered way. While browsing other slang dictionaries, I found the [Urban Dictionary](https://www.urbandictionary.com/) format of alternative meanings and examples to be particulary dull from a UX standpoint. Alternative definitions are merely tacked on, to a numbered list, and alternative examples are tacked on to an unnumbered list. Without clear division, it is just a black wall of text on a white background, for example here with the word [MILF](https://www.urbandictionary.com/define.php?term=milf) (NSFW content warning!!)
+        - The alternative spellings is a feature that one would think to be commonplace amonst contemporary slang dictionaries, surprisingly it is not. With both of the above examples necessitating a new entry for different spellings. 
+        - On the Yurt Index the Alternative spellings section is clearly and cleanly marker, with a lower opacity common amongst normal language dictionaries, so as not to be too distracting. 
+    4. As a Returning Visitor, I want to explore the profiles of other users who have created/edited entries on the site.
+        - Similar to my contemparies in slang dictionaries, a user profile is a feature of the website. Towards the bottom of each word page is a link to the profile page of the user who created each word.
+        - There is also a link to the last user to edit the word, if applicable.
+        - These profiles contain some basic information about the user, and two tabs at the bottom of this page that display the words that the user has created, and the words that the user has edited.
 
-    
+-   #### Frequent User Goals
+    1. As a Frequent User, I want to create my own entries on the site for words that are not yet present.
+        - Once a user has logged in, an option will appear in the navbar to add a word to the dictionary.
+        - There is also a call-to-action on the home page, that takes the user to a new word page if they are logged in, or if not, it takes them to the the log in page. 
+    2. As a Frequent User, I want customize my profile so other users can get an impression of my online persona.
+        - Every user can edit information on their profile, Allowing them to change the generalized location that they've provided the site with, or add/edit a personal description about themselves.
+        - Every word that a user creates or edits, will be added to the 'Words Created' or the 'Words Edited' tabs respectively. 
+    3. As a Frequent User, I want to browse through various categories of entries on the site. 
+        - There are several methods of categorization or ways to browse through words on the site. 
+        - First and foremost is the 'all words' page which simply presents the user with a list of all words which they can sort by rating, or alphabetically.
+        - Also if the user so chooses there is also a 'display by letter' page available. This page is linked both in the navbar and also in the top left of the 'all words' page.
+        - There is also a tag system that has been implemented into the website. Admin user's can create various tags that further describe and contextualise words on the site. For example "Limerick", "Dublin" & "Townie" all describe the locaiton of a word or if it comes from a rural or urban area.
+        - Tags are displayed in a traditional and expectant manner at the bottom fo each word page. Clicking on any tag will take the user to a list of words that have been tagged with the selected tag.
+        - There is also an option to view words by tag in the navbar. 
+    4. As a Frequent User/Admin, I want to be able to create new tags for entries to be categorized by.
+        - Admin users, who would be extremely familiar with the site will notice an 'add tag' optin in the navbar.
+        - Adding tags is very simple, and admin users can add up to five tags at once if they so choose. 
+
+### Further Testing
+
+-   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+-   The website was viewed on a variety of devices such as Desktop (on various screen sizes), Laptop, iPad & other various types of tablets, iPhones 5, 6, 7 & X as well as other mobile phone types 
+    including, but not limited to, Redmi, Huawei, Samsung and Sony.
+-   [Included here is a link to the projects Responsinator page](https://www.responsinator.com/?url=https%3A%2F%2Fmichaelcwalsh7.github.io%2FMilestone-Project-2%2Findex.html)
+-   A large amount of testing was done to ensure that all aspects of the game were running correctly.
+-   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.    
