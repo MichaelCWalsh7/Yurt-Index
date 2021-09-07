@@ -109,9 +109,32 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
-- As of right now, I'm happy to say that there are no known bugs in the website. 
+- Rezing issue
+- Firefox search (maybe)
 
 ### Issues Along The Way
 
 - **Colour Contrast Problems**
     1. [Click here to see an image of the issue](https://yurt-index.herokuapp.com/static/images/readme/issues/colour-contrast-issue-1.png)
+    2. An inordinate amount of time was spent fine tuning the colour contrasting of the website. Initially, it wasn't something I kept in mind. It was my first time using Materialize, and mistakenly assumed that many of the alternative colour options provided on their werbsite would contrast well with the default white that they provide on their navbar. 
+    3. Unfortunately this was not the case, and when I began implementing the colour scheme for the website, the green white and gold/orange of the Irish flag, I soon realized that there were almost no colours I could use to properly contrast with the green that I had chosen. 
+    4. It was unfortunately, a very middle of the road colour in terms of lightness, so colours that were very light or very dark did not contrast heavily enough, and many of the colours of the site were changed as a result.
+
+- **Display by Letters Issues**
+    1. [Click here to see an image of the issue](https://yurt-index.herokuapp.com/static/images/readme/issues/display-by-letters-1.png)
+    2. As it was my firs time using the Flask framework there were some teething issues when it came to formatting and routing.
+    3. After writing the html and python needed to view all of the words that began with a particular letter, I was greeted with the error above.
+    4. What I didn't know, but was alerted to thanks to some help from tutor support, was that any variable you pass through the decorator must also be passed through the function and hence through the Jinja template anchor.
+    5. [Click here to see an image of the solution](https://yurt-index.herokuapp.com/static/images/readme/issues/display-by-letters-2.png)
+
+- **Edit Profile Page Not Loading**
+    1. [Click here to see a before and after of the code for this problem](https://yurt-index.herokuapp.com/static/images/readme/issues/edit-profile-not-loading.png)
+    2. Another thing I didn't understand about Flask, or perhaps I at one stage did but had forgotten, is that any code written after the `if __name__ == "__main__":` would not be rendered to the site. 
+
+- **Prevent Duplication Problems**
+    1. [Initially, I wrote some JavaScript that looked like this image which disabled the like buttons on click.](https://yurt-index.herokuapp.com/static/images/readme/issues/prevent-duplication-bug-1.png)
+    2. [However, experienced JS users should be able to take one look at my html in this image and spot the problem.](https://yurt-index.herokuapp.com/static/images/readme/issues/prevent-duplication-bug-2.png). I'm trying to use the disabled property on an anchor tag, which it cannot be applied to. 
+    3. [I thought that the solution had come to me here in this image.](https://yurt-index.herokuapp.com/static/images/readme/issues/prevent-duplication-bug-3.png) But all this ended up doing was not activating the action at all, changing the rating option into essentially a "back to top" button.
+    4. finally i realized that I could easily and seemlessly prevent user liking a word multiple times by simply checking if they were in the like user array before adding them.
+
+### [Click here to return to the README section.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/README.md)

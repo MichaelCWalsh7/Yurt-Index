@@ -120,7 +120,7 @@ A dictionary for Irish slang. It is designed to be responsibe and accessible on 
 ## Testing
 - For the sake of brevity and concision, the documentation of all testing that has been conducted is located on a separate 
 file. [Click anywhere on this sentence to be taken to the
-TESTING.md file.](https://github.com/MichaelCWalsh7/Milestone-Project-2/blob/master/TESTING.md)
+TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING.md)
 
 ## Deployment
 
