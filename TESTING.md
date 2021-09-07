@@ -109,8 +109,24 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
-- Rezing issue
-- Firefox search (maybe)
+- **Resizing in Dev Tools Issue**
+    - One of the issues that I cam across in the development process was a very odd bug that i was only able to replicate in google dev tools
+    - [Click here to see an image of the bug](https://yurt-index.herokuapp.com/static/images/readme/issues/odd-resizing-issue.png)
+    - Sometimes, when you made the site smaller, on Google dev tools, the site would not fill the screen properly, instead only filling two thirds of the screen in width.
+    - I could not replicate this issue outside of dev tools, and friends who tested the website who do not use dev tools did not report the issue.
+    - One friend who is also learning to code and DID use Google dev tools said he could replicate it as well.
+    - I put the site through the Unicorn Revealer add-on which highlights the size of jobjects on hte page and found that there were in fact no objects pushing the website to the left.
+    - [Here is an image of this process](https://yurt-index.herokuapp.com/static/images/readme/issues/odd-resizing-issue-unicorn.png)
+    - I thought perhaps it was an issue I could replicate using the Firefox version of dev tools, but after trying exhaustively, I found that I could not.
+    - While I use Google's dev tools frequently, I am admittedly unfamiliar with it's intricacies. A comprehensive understanding of dev tools interactions with website resizing feels far beyond the scope of this project, and as it does not inhibit normal UI I decided to merely include it here.
+
+- **Firefox Search Button Displacement Issue**
+    - I was disappointed to receive a visit from my old nemesis, Firefox compatability issues in this project.
+    - [Here's an image of the issue](https://yurt-index.herokuapp.com/static/images/readme/issues/search-button-issue.png)
+    - This bug is only replicable in Firefox. I couldn't replicate in using Google Chrome, Safari, Opera, Microsoft Edge or the dreaded Internet Explorer.
+    - So what happens, as shown in the image above, is that in Firefox, the search button for some reason snaps to below the search bar, rather than to the right of it, like in every single other browser.
+    - Intertestingly, the button seems to have a different look overall in forefox, almost as if some style elements aren't being applied, or are for some reason being overidden. I tried tinkering around with the settings, but everything i did either did not fix the issue or created a myriad of other issues on other browsers.
+    - Further efforts to fix this had to be cut short, due to time contraints.
 
 ### Issues Along The Way
 
