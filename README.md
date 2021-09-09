@@ -2,7 +2,7 @@
 
 [View the live project here.](https://yurt-index.herokuapp.com/home_page)
 
-A dictionary for Irish slang. It is designed to be responsibe and accessible on a range of devices, making it easy to navigate for potential readers.
+A dictionary for Irish slang. It is designed to be responsible and accessible on a range of devices, making it easy to navigate for potential readers.
 
 <h2 align="center"><img src="https://yurt-index.herokuapp.com/static/images/readme/readme-hero.png"></h2>
 
@@ -33,9 +33,9 @@ A dictionary for Irish slang. It is designed to be responsibe and accessible on 
 -   ### Design
     -   #### Colour Scheme
         - The colour scheme for the Yurt Index as a dictionary of Irish slang, is a fairly obvious choice of green, white & orange/gold. Matching the Irish tricolous flag.
-        - The predominant green and white are also the colours of the Limerick flag, a city known for it's predominant use of slang that often enter the national zeitgeist.
+        - The predominant green and white are also the colours of the Limerick flag, a city known for it's predominant use of slang that often enters the national zeitgeist.
         - However, the original colour scheme of the site was massively overhauled, midway through development. [Here is and image of the original colour scheme.](https://yurt-index.herokuapp.com/static/images/readme/readme-hero.png) This light green is much more inline with the original Irish and Limerick flag colours
-        - As is evident from the above picture, the site now has a significantly darker colour theme, with the green chosen now closer to a darker forest green, rather than the flag greren of Ireland and Limerick.
+        - As is evident from the above picture, the site now has a significantly darker colour theme, with the green chosen now closer to a darker forest green, rather than the flag-green of Ireland and Limerick.
         - This is mainly due to contrast. The light green shown in the above picture (#43a047) is extremely difficult to contrast with other classic text font colours.
         - The decision to go with a darker colour, rather than a lighter one, was inspired by contemporaries [Urban Dictionary](https://www.urbandictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/) (which surprisingly has a very comprehensive slang archive).
         - More on this in [the TESTING.md section](testing-section-link.com)
@@ -43,12 +43,12 @@ A dictionary for Irish slang. It is designed to be responsibe and accessible on 
     
     -   #### Typography
         - There are 3 main fonts in use on the site. 
-        - The first being Eagle Lake, which has a back-up of serif. This is a highly stylized font, not used for long-form text, only for headings and even then opnly sparingly. This font has a celtic-style typography that is used to be somewhat reminiscent of [the legendary Book of Kells](https://yurt-index.herokuapp.com/static/images/readme/book-of-kells.png) and lean further into the Irish aesthetic of the site.
+        - The first being Eagle Lake, which has a back-up of serif. This is a highly stylized font, not used for long-form text, only for headings and even then only sparingly. This font has a celtic-style typography that is used to be somewhat reminiscent of [the legendary Book of Kells](https://yurt-index.herokuapp.com/static/images/readme/book-of-kells.png) and lean further into the Irish aesthetic of the site.
         - The second font in use is Hina Mincho, again with a back up of serif. This is a font that strikes a nice balance between modern and traditional, which compliments the Eagle Lake font well and is very appropriate for an online Irish slang database, it in and of itself being and blend of modern and traditional. 
         - Finally for variance and often for links, the third font is Merriweather, yet again with a back up of serif. the merriweather font stands out nicely from the other two, and thus is used for calls to action, sub-headings etc. It is a massive step-up from the default Materialize font that is overly generic for a site such as this one.
 
     -   #### Imagery
-        - While imagery is quite important, the decision was made early on in the development process to move away from large visuals, for example a hero image. Multiple hero images were tested with the site, but none of them really looked or felt right. After a lengthy browse of popular competitors, namely [Urban Dictionary](https://www.urbandictionary.com/), [Online Slang Dictionary](http://onlineslangdictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/), I found that these sites had no hero image either, and very little in the way of imagery in general, it often being distracing to the main content of the site. [Urban Dictionary](https://www.urbandictionary.com/), indisputably the most popular of the slang dictionaries goes so far as to have no home page at all, rather a word of the day that the user gets redirected to. While [Dictionary.com](https://www.dictionary.com/e/slang/) does have images in the slang archive of their site, these are almost exlusively to represent various word entries, a very cool feature but far beyond the scope of a 1-man Milestone Project. (Though there is more on this in Future Features section located below.)
+        - While imagery is quite important, the decision was made early on in the development process to move away from large visuals, for example a hero image. Multiple hero images were tested with the site, but none of them really looked or felt right. After a lengthy browse of popular competitors, namely [Urban Dictionary](https://www.urbandictionary.com/), [Online Slang Dictionary](http://onlineslangdictionary.com/) and [Dictionary.com](https://www.dictionary.com/e/slang/), I found that these sites had no hero image either, and very little in the way of imagery in general, it being often too distracting to the main content of the site. [Urban Dictionary](https://www.urbandictionary.com/), indisputably the most popular of the slang dictionaries goes so far as to have no home page at all, rather a word of the day that the user gets redirected to. While [Dictionary.com](https://www.dictionary.com/e/slang/) does have images in the slang archive of their site, these are almost exclusively to represent various word entries, a very cool feature, but far beyond the scope of a 1-man Milestone Project. (Though there is more on this in Future Features section located below.)
 
 *   ### Wireframes
 
@@ -77,6 +77,10 @@ A dictionary for Irish slang. It is designed to be responsibe and accessible on 
 - Images
     - This is a two-fold plan. First I'd like to give the user the option to upload a picture or avatar to the site that they can use as a profile image.
     - Secondly, I'd like to include an option to upload an image associated with a word. 
+
+- Pagination
+    - This one really got the better of me for this proejct unfortunately. I spent a long time researching pagination using the tools and frameworks available, looking up tutorials online etc but almost everything that I found was related to sql. 
+    - I desperately wanted to include it in the project, but I did not have the luxury of time, and so had to  relegate it to future features.
 
 
 ## Technologies Used
@@ -179,7 +183,7 @@ Click [Here
 
 -  [Materialize](https://materializecss.com/): The Materialize framework definitely earns a credit in this README as more than just a basic framework. Their easy-to-use and style, responsive 'card' objects are a defining part of the project. It was also enjoyable to try a different framework to Bootstrap to compare the two.
 
--   [Luke Zhang](https://codepen.io/lukezhang/pen/JlImc): Luke Zhang's great work on tag css was fundamental in my implemntation of them in this project. It took some time just to style and recolur them so I can only imagine how many countless hours on the drawing board this CSS saved me.
+-   [Luke Zhang](https://codepen.io/lukezhang/pen/JlImc): Big thanks Luke Zhang's great work on css tags, which was fundamental in my implementation of them in this project. It took some time just to style and recolur them so I can only imagine how many countless hours on the drawing board this CSS saved me.
 
 -   [Ankit Chaudhary/Stack Overflow](https://stackoverflow.com/questions/28034638/hide-div-on-certain-pages-using-jquery): This answer from Ankit Chaudhary on a Stack Overflow question from quite some time ago was very helpful in the JS that was used to change the Return to Home button on the home page so it took the user back to the top.  
 
