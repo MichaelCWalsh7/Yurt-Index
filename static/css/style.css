@@ -110,6 +110,10 @@ nav i.material-icons {
     width: 50%;
 }
 
+.sidenav li>a {
+    padding: 0 24px!important;
+}
+
 
 
 /* search bar */
