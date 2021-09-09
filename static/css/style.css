@@ -727,7 +727,8 @@ nav i.material-icons {
 }
 
 
-/* return home button */
+/* return home button & new word call to action */
+.new-word-call-to-action,
 .return-home-button {
     background-color: #ffc968;
     color: black;
@@ -736,6 +737,7 @@ nav i.material-icons {
     font-size: 19px;
 }
 
+.new-word-call-to-action:hover,
 .return-home-button:hover {
     color: #FFC968;
     background-color: black;
