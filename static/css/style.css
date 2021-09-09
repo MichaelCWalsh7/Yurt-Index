@@ -698,6 +698,7 @@ nav i.material-icons {
 
 .tags a:hover {
     background: #555;
+    color: #ffc968;
 }
 
 .tags a:hover:before {
