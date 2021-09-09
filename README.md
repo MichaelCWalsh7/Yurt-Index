@@ -82,6 +82,8 @@ A dictionary for Irish slang. It is designed to be responsible and accessible on
     - This one really got the better of me for this proejct unfortunately. I spent a long time researching pagination using the tools and frameworks available, looking up tutorials online etc but almost everything that I found was related to sql. 
     - I desperately wanted to include it in the project, but I did not have the luxury of time, and so had to  relegate it to future features.
 
+- Further Account Customization
+    - While images have been mentioned above, other account features are planned for a later date as well, such as an option to curate what data is presented on each user's profile, user tags etc.
 
 ## Technologies Used
 
@@ -125,6 +127,48 @@ A dictionary for Irish slang. It is designed to be responsible and accessible on
 - For the sake of brevity and concision, the documentation of all testing that has been conducted is located on a separate 
 file. [Click anywhere on this sentence to be taken to the
 TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING.md)
+
+## Data Schema
+- The data schema of the site (using MongoDB) employs the following 3 collections.
+
+    1. Words
+        - First and foremost there is the words collection. Obviously the bread-and-butter of any dictionary site is it's collection of words.
+        - Of course each word has it's own unique ObjectId.
+        - Each word item in the collection is assigned a myriad of data entries for site functionality.
+        - Simple string entries are used for the word's name, it's base meaning and use, the date it was created and it's last edit date.
+        - Many booleans are employed, such as 'hasAltSpellings' and 'hasAltDefinitions'. These booleans dictate what will be displayed to the user when being taken to different word pages. There are many options on the site for alternative spellings/definitions/examples etc. and so a robust data system is required to manage them, which these booleans provided.
+        - There are arrays used for a word's uses, alternate definitions and spellings. If none are provided on creation an empty array is present.
+        - Every word has it's own unipque ObjectId obviously, however it also has an entry of the ObjectId of the user who created it. Rather than storing the user's name as a string, which may be liable to change, the ObjectId will mean that any edits to a user account will be reflected to anyone looking at the username on a word page. 
+        - Every word has a 'rating' entry, which is an integer, this can be incremented or decremented by logged in users.
+        - Every word has an 'edited' boolean, that by default is false but changes to true if a user edits a word. An aside on the bottom of every word page will then appear to indicate to the user what account was the last one to edit a word.
+        - Every word has an array entitled 'editors' which stores the ObjectIds of all the users that have ever edited that word, so as to display a summary of the word on a user's profile.
+        - Every word has a 'lastEditedBy' ObjectId of the last user to edit the word. This is stored as an ObjectId rather than a string of the user's username for the reasons mentioned above. (In the abscence of edits this is simply an empty string)
+        - Every word has a 'lastEditedDate' entry that is simply a string of the date it was last edited on displayed on the word page. (In the abscence of edits this is simply an empty string)
+        - Every word has two arrays connected to the 'rating' integer. These array entries are called 'liked' and 'disliked'. (If no rating action has been taken on a word these are merely empty arrays.)
+        When a rating action such as liking or disliking a word has been taken by the user, that user's ObjectId gets added to, or removed from (as unliking and changing one's mind are also possible) the appropriate array. This system was implemented as an easy way to prevent any user from trying to 'double like' a word or manipulate the rating system in some way.
+        - Every word has an 'isTagged' boolean that is true or false depending on the tagged status of a word. 
+        - Every word has a 'tags' array. If untagged, this is merely an empty array. When a word has been tagged, the tag's ObjectId(s) is(are) added to the 'tags' array. While a tag is unlikely to change, this is still the most robust way to connect the two collections and ensures if a tag ever does change, it will change everywhere on the site. 
+
+    2. Users
+        - Users are an essential linchpin of any community-driven website, which is what this project eventually aims to be. 
+        - Of course each user has it's own unique ObjectId.
+        - Each user has a string entry entitled 'name', which is simply a string of their username.
+        - Each user has a string entry entitled 'description', which begins empty, but can be edited in the edit_profile page.
+        - Each user has a string entry entitled 'email', containing the email address the user provided upon registration. At the time of deployment, this is a somewhat redundant string, but when email verification is rolled out in the future it will become an essential aspect of the data structure. 
+        - Each user has a string entry entitled 'dateOfBirth', At the time of deployment, this is also a somewhat redundant string, but when further account customization is rolled out in the future it will become an essential aspect of the data structure.
+        - Each user has a string entry entitled 'dateJoined', which is displayed on each user's profile page.
+        - Each user has two further string entries entitled 'city' & 'country'. These are displayed in tandem on every user's profile. 
+        - Each user has a boolean entitled 'isAdmin', which, if true, will give the user extra permissions. i.e adding tags.
+        - There are three final booleans that every user has: 'hasCity', 'hasCountry' and 'hasDescription'. These are used to decide what is shown to anyone viewing a user's profile.
+
+    3. Tags
+        - Tags are a great way to contextualise and categorize different words in a slang dictionary. 
+        - Of course each tag has it's own unique ObjectId.
+        - Each tag also has a 'name' entry, which is a string that contains the name of the tag.
+        - Each tag also has the ObjectId of the user that created the tag.
+        - And most importantly, each tag has a 'taggedWords' array, which contains the ObjectId of every word that has that tag. This allows the site to easily display all words that share a specific tag.
+
+    - As shown above, great care was taken in the creation and maintenance of the of the data schema of the site. With every single collection being connected to others strictly by ObjectIds, and a robust and varied selection of data entries to each collection to ensure site functionality, but, also offer further developmental and analytical oppurtunites in the future. 
 
 ## Deployment
 
