@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home_page")
 def home_page():
+    # grabs a list of a loo words by rating for the home page
     words = list(mongo.db.words.find().sort("rating", -1))
     return render_template("home.html", words=words)
 
@@ -521,6 +522,7 @@ def sort_all(field, order):
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # initializes variables and indexes for search functionality
     search = request.form.get("search")
     words = list(mongo.db.words.find({
         "$text": {"$search": search}
@@ -530,9 +532,11 @@ def search():
 
 @app.route("/display_by_letter/<letter>")
 def display_by_letter(letter):
+    # sort words alphabetically
     all_words = list(mongo.db.words.find().sort("name", 1))
     words = []
     current_letter = letter
+    # initializes an alphbetical variable for the 'sort by letter' option
     letters = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
@@ -712,6 +716,7 @@ def profile(user_id):
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     if request.method == "POST":
+        # initializes variables from the form to push to Mongo
         description = request.form.get("description")
         country = request.form.get("country")
         city = request.form.get("city")
@@ -719,6 +724,7 @@ def edit_profile(username):
         has_country = True if country != "" else False
         has_city = True if city != "" else False
 
+        # updates the relevant Mongo entry
         mongo.db.users.update({"name": username}, {"$set": {
             "description": description,
             "country": country,
