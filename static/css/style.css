@@ -587,6 +587,13 @@ nav i.material-icons {
     }
 }
 
+@media(max-width: 409px) {
+    .sort-button {
+        float: none!important;
+        margin-top: 10px;
+    }
+}
+
 
 
 /* add tag */
