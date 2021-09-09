@@ -201,20 +201,6 @@ nav i.material-icons {
 }
 
 
-/* hero image */
-
-.hero-image img {
-    width: 100%;
-    height: 70vh;
-    display: none;
-}
-
-@media(max-width: 992px) {
-    .hero-image img {
-        display: none;
-    }
-}
-
 
 
 /* home page */
