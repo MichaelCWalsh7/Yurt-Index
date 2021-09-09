@@ -26,9 +26,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - If needed, the CSS that I've written for the project can be validated via file upload, or direct input [here.](https://jigsaw.w3.org/css-validator/)
 -   [JSHint Linter](https://jshint.com/)
     - Results:
-        - [script.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/linter-results.png)
-            - Here the linter describes a warning, where something would be "better written in dot notation". However, this is erroneous, writing this in dot notation would have negative consequences on the functionality of the code.
-        - [sendEmail.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/emailjs-linter.png)
+        - [script.js](https://yurt-index.herokuapp.com/static/images/readme/js-script.png)
+        - [sendEmail.js](https://yurt-index.herokuapp.com/static/images/readme/js-password.png)
+-   [PEP8 online check](http://pep8online.com/)
+    -   Results
+        - [app.py](https://yurt-index.herokuapp.com/static/images/readme/pep8-check.png)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     - The Google dev tool Lighthouse was used to ensure that the project followed best practices.
     - Results

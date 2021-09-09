@@ -25,44 +25,24 @@ function customHomePageReturn() {
     if (window.location.pathname == "/home_page") {
         $(".home-button-container").html(`<a class="text-shadow return-home-button" href="#">
             Back to Top <i class="fas fa-arrow-up"></i>
-        </a>`)
+        </a>`);
     }
 }
 
 function underlineWordInUse() {
     let wordToUnderlineLower = $(".word-name").text().toLowerCase();
-    let wordToUnderlineCap = $(".word-name").text()
+    let wordToUnderlineCap = $(".word-name").text();
     if ($('p').hasClass("single-word-use")) {
-        let newStringLower = $('.single-word-use').text().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`)
-        let newString = newStringLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`)
+        let newStringLower = $('.single-word-use').text().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`);
+        let newString = newStringLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`);
 
-        $('.single-word-use').html(newString)
+        $('.single-word-use').html(newString);
     }
     if ($('ul').hasClass("uses-list")){
-        let newListLower = $(".uses-list").html().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`)
-        let newList = newListLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`)
-        $(".uses-list").html(newList)
+        let newListLower = $(".uses-list").html().replace(`${wordToUnderlineLower}`, `<span class="given-word">${wordToUnderlineLower}</span>`);
+        let newList = newListLower.replace(`${wordToUnderlineCap}`, `<span class="given-word">${wordToUnderlineCap}</span>`);
+        $(".uses-list").html(newList);
     }
     
     
 }
-
-// for (var i = 0; i <= items.length; i++) {
-    //     if (items[i].hasClass()) {
-    //         console.log("thank fuck")
-    //     } 
-    // }
-    //    if (Element.hasClass('word-use')) {
-    //        console.log("hasclass")
-    //        wordUses.push(Element.text())
-    //    }
-    //    console.log(wordUses)
-
-
-    // if (wordUse.includes(wordToBoldLower)) {
-    //     wordUse.replace(`${wordToBoldLower}`, "por que no")
-    //     $(".word-use").text(`${wordUse}`)
-    //     console.log("success")
-    // } else {
-    //     console.log("fail")
-    // }
