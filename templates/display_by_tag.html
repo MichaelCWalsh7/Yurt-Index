@@ -78,7 +78,7 @@
                     {% endif %}
                     <div class="card-content word-summary white-text">
                         <span class="card-title"><strong>{{ word.name }}</strong></span>
-                        <p>{{ word.meaning }}</p>
+                        <p>{{ word.meaning|truncate(115, True) }}</p>
                     </div>
                     <div class="link-to-word card-action">
                         <a href="{{ url_for('word_page', word_Id=word._id) }}">Click here to find out more!</a>

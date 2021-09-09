@@ -69,7 +69,7 @@
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title">{{ words[1].name.capitalize() }}</span>
-                    <p>{{ words[1].meaning }}</p>
+                    <p>{{ words[1].meaning|truncate(115, True) }}</p>
                 </div>
                 <div class="link-to-word card-action">
                     <a href="{{ url_for('word_page', word_Id=words[1]._id) }}">Click here to find out more!</a>
@@ -86,7 +86,7 @@
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title">{{ words[2].name.capitalize() }}</span>
-                    <p>{{ words[2].meaning }}</p>
+                    <p>{{ words[2].meaning|truncate(115, True) }}</p>
                 </div>
                 <div class="link-to-word card-action">
                     <a href="{{ url_for('word_page', word_Id=words[2]._id) }}">Click here to find out more!</a>
@@ -103,7 +103,7 @@
                 {% endif %}
                 <div class="card-content word-summary white-text">
                     <span class="card-title">{{ words[3].name.capitalize() }}</span>
-                    <p>{{ words[3].meaning }}</p>
+                    <p>{{ words[3].meaning|truncate(115, True) }}</p>
                 </div>
                 <div class="link-to-word card-action">
                     <a href="{{ url_for('word_page', word_Id=words[3]._id) }}">Click here to find out more!</a>
