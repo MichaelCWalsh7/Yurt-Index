@@ -136,6 +136,7 @@ TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING
         - Of course each word has it's own unique ObjectId.
         - Each word item in the collection is assigned a myriad of data entries for site functionality.
         - Simple string entries are used for the word's name, it's base meaning and use, the date it was created and it's last edit date.
+        - Each user has a string entry entitled 'password' which is a (salted) string containing the user's password.
         - Many booleans are employed, such as 'hasAltSpellings' and 'hasAltDefinitions'. These booleans dictate what will be displayed to the user when being taken to different word pages. There are many options on the site for alternative spellings/definitions/examples etc. and so a robust data system is required to manage them, which these booleans provided.
         - There are arrays used for a word's uses, alternate definitions and spellings. If none are provided on creation an empty array is present.
         - Every word has it's own unipque ObjectId obviously, however it also has an entry of the ObjectId of the user who created it. Rather than storing the user's name as a string, which may be liable to change, the ObjectId will mean that any edits to a user account will be reflected to anyone looking at the username on a word page. 
